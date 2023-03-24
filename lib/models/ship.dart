@@ -1,88 +1,66 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:wase/models/shipEngineSlot.dart';
-import 'package:wase/models/shipWeaponSlot.dart';
 
+part '../generated/models/ship.freezed.dart';
 part '../generated/models/ship.g.dart';
 
-/// TStarfarerShip
-@JsonSerializable()
-class Ship {
-  final String name;
-  final String id;
-  final String designation;
-  final String tech_manufacturer;
-  final String system_id;
-  final String fleet_pts;
-  final String hitpoints;
-  final String armor_rating;
-  final String max_flux;
-  final String eight_six_five_four_percent;
-  final String flux_dissipation;
-  final String ordnance_points;
-  final String fighter_bays;
-  final String max_speed;
-  final String acceleration;
-  final String deceleration;
-  final String max_turn_rate;
-  final String turn_acceleration;
-  final String mass;
-  final String shield_type;
-  final String defense_id;
-  final String shield_arc;
-  final String shield_upkeep;
-  final String shield_efficiency;
-  final String phase_cost;
-  final String phase_upkeep;
-  final String min_crew;
-  final String max_crew;
-  final String cargo;
-  final String fuel;
-  final String fuel_ly;
-  final String range;
-  final String max_burn;
-  final String base_value;
-  final String cr_percent_day;
-  final String CR_to_deploy;
-  final String peak_CR_sec;
-  final String CR_loss_sec;
-  final String supplies_rec;
-  final String supplies_mo;
-  final String c_s;
-  final String c_f;
-  final String f_s;
-  final String f_f;
-  final String crew_s;
-  final String crew_f;
-  final String hints;
-  final String tags;
-  final String rarity;
-  final String breakProb;
-  final String minPieces;
-  final String maxPieces;
-  final String travel_drive;
-  final String number;
+@freezed
+class Ship with _$Ship {
+  factory Ship({
+  String name,
+  String id,
+  String designation,
+  String tech_manufacturer,
+  String system_id,
+  String fleet_pts,
+  String hitpoints,
+  String armor_rating,
+  String max_flux,
+  String eight_six_five_four_percent,
+  String flux_dissipation,
+  String ordnance_points,
+  String fighter_bays,
+  String max_speed,
+  String acceleration,
+  String deceleration,
+  String max_turn_rate,
+  String turn_acceleration,
+  String mass,
+  String shield_type,
+  String defense_id,
+  String shield_arc,
+  String shield_upkeep,
+  String shield_efficiency,
+  String phase_cost,
+  String phase_upkeep,
+  String min_crew,
+  String max_crew,
+  String cargo,
+  String fuel,
+  String fuel_ly,
+  String range,
+  String max_burn,
+  String base_value,
+  String cr_percent_day,
+  String CR_to_deploy,
+  String peak_CR_sec,
+  String CR_loss_sec,
+  String supplies_rec,
+  String supplies_mo,
+  String c_s,
+  String c_f,
+  String f_s,
+  String f_f,
+  String crew_s,
+  String crew_f,
+  String hints,
+  String tags,
+  String rarity,
+  String breakProb,
+  String minPieces,
+  String maxPieces,
+  String travel_drive,
+  String number, }) = _Ship;
 
-  const Ship(
-      {this.bounds = const [],
-      this.center,
-      this.collisionRadius = 0,
-      this.engineSlots,
-      this.height = 0,
-      this.width = 0,
-      this.hullId = "",
-      this.hullName = "",
-      this.hullSize = "",
-      this.shieldCenter = const [],
-      this.shieldRadius = 0,
-      this.spriteName = "",
-      this.style = "",
-      this.viewOffset = 0,
-      this.weaponSlots = const [],
-      this.builtInWeapons = const {},
-      this.builtInMods = const [],
-      this.coversColor = "",
-      this.builtInWings = const [],
-      this.moduleAnchor = const []});
 
   /// Connect the generated function to the `fromJson`
   /// factory.

@@ -37,7 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   file_picker: ^5.2.0+1
   json_annotation: ^4.7.0
-  flutter_riverpod: ^2.0.2
+  flutter_riverpod: ^2.3.2
   freezed_annotation: ^2.1.0
   fimber: ^0.6.6
   dart_extensions_methods: ^2.0.0
@@ -45,6 +45,7 @@ dependencies:
   build_config: ^1.1.0
   ktx: ^1.1.6
   petitparser: ^5.1.0
+  csv: ^5.0.1
 
 dev_dependencies:
   json_serializable: ^6.5.0
@@ -62,7 +63,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  freezed: ^2.1.1
+  freezed: ^2.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

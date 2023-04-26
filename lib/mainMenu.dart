@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/fileChooser.dart';
 import 'package:starsectorcompare/utils.dart';
+import 'package:path/path.dart' as p;
 
 import 'models/settings.dart';
 
@@ -23,11 +25,13 @@ class _MenuState extends ConsumerState<MainMenu> {
         menuChildren: [
           MenuItemButton(
             onPressed: () async {
-              var folder = await chooseModFolder(ref);
+              var folder = await chooseGameFolder(ref);
               if (folder != null && Directory(folder).existsSync()) {
                 ref
                     .read(appSettings.notifier)
                     .update((state) => state.copyWith(gameDir: folder));
+
+                Fimber.d(listModsInGameFolder(Directory(folder)).toString());
               }
             },
             child: Text("Choose Starsector folder..."),
@@ -44,6 +48,6 @@ class _MenuState extends ConsumerState<MainMenu> {
   }
 }
 
-Future<String?> chooseModFolder(WidgetRef ref) async {
+Future<String?> chooseGameFolder(WidgetRef ref) async {
   return await FileChooser().openChooseDataDialog(ref);
 }

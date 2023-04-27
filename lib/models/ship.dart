@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../generated/models/ship.freezed.dart';
 
-@freezed
+@unfreezed
 class Ship with _$Ship {
   factory Ship({
     @Default("") String? name,
@@ -79,166 +79,166 @@ class Ship with _$Ship {
         var value = row[colIndex];
         switch (columnName) {
           case "name":
-            ship = ship.copyWith(name: value);
+            ship.name = value;
             break;
           case "id":
-            ship = ship.copyWith(id: value);
+            ship.id = value;
             break;
           case "designation":
-            ship = ship.copyWith(designation: value);
+            ship.designation = value;
             break;
           case "tech/manufacturer":
-            ship = ship.copyWith(tech_manufacturer: value);
+            ship.tech_manufacturer = value;
             break;
           case "system id":
-            ship = ship.copyWith(system_id: value);
+            ship.system_id = value;
             break;
           case "fleet pts":
-            ship = ship.copyWith(fleet_pts: value);
+            ship.fleet_pts = value;
             break;
           case "hitpoints":
-            ship = ship.copyWith(hitpoints: value);
+            ship.hitpoints = value;
             break;
           case "armor rating":
-            ship = ship.copyWith(armor_rating: value);
+            ship.armor_rating = value;
             break;
           case "max flux":
-            ship = ship.copyWith(max_flux: value);
+            ship.max_flux = value;
             break;
           case "8/6/5/4%":
-            ship = ship.copyWith(eight_six_five_four_percent: value);
+            ship.eight_six_five_four_percent = value;
             break;
           case "flux dissipation":
-            ship = ship.copyWith(flux_dissipation: value);
+            ship.flux_dissipation = value;
             break;
           case "ordnance points":
-            ship = ship.copyWith(ordnance_points: value);
+            ship.ordnance_points = value;
             break;
           case "fighter bays":
-            ship = ship.copyWith(fighter_bays: value);
+            ship.fighter_bays = value;
             break;
           case "max speed":
-            ship = ship.copyWith(max_speed: value);
+            ship.max_speed = value;
             break;
           case "acceleration":
-            ship = ship.copyWith(acceleration: value);
+            ship.acceleration = value;
             break;
           case "deceleration":
-            ship = ship.copyWith(deceleration: value);
+            ship.deceleration = value;
             break;
           case "max turn rate":
-            ship = ship.copyWith(max_turn_rate: value);
+            ship.max_turn_rate = value;
             break;
           case "turn acceleration":
-            ship = ship.copyWith(turn_acceleration: value);
+            ship.turn_acceleration = value;
             break;
           case "mass":
-            ship = ship.copyWith(mass: value);
+            ship.mass = value;
             break;
           case "shield type":
-            ship = ship.copyWith(shield_type: value);
+            ship.shield_type = value;
             break;
           case "defense id":
-            ship = ship.copyWith(defense_id: value);
+            ship.defense_id = value;
             break;
           case "shield arc":
-            ship = ship.copyWith(shield_arc: value);
+            ship.shield_arc = value;
             break;
           case "shield upkeep":
-            ship = ship.copyWith(shield_upkeep: value);
+            ship.shield_upkeep = value;
             break;
           case "shield efficiency":
-            ship = ship.copyWith(shield_efficiency: value);
+            ship.shield_efficiency = value;
             break;
           case "phase cost":
-            ship = ship.copyWith(phase_cost: value);
+            ship.phase_cost = value;
             break;
           case "phase upkeep":
-            ship = ship.copyWith(phase_upkeep: value);
+            ship.phase_upkeep = value;
             break;
           case "min crew":
-            ship = ship.copyWith(min_crew: value);
+            ship.min_crew = value;
             break;
           case "max crew":
-            ship = ship.copyWith(max_crew: value);
+            ship.max_crew = value;
             break;
           case "cargo":
-            ship = ship.copyWith(cargo: value);
+            ship.cargo = value;
             break;
           case "fuel":
-            ship = ship.copyWith(fuel: value);
+            ship.fuel = value;
             break;
           case "fuel/ly":
-            ship = ship.copyWith(fuel_ly: value);
+            ship.fuel_ly = value;
             break;
           case "range":
-            ship = ship.copyWith(range: value);
+            ship.range = value;
             break;
           case "max burn":
-            ship = ship.copyWith(max_burn: value);
+            ship.max_burn = value;
             break;
           case "base value":
-            ship = ship.copyWith(base_value: value);
+            ship.base_value = value;
             break;
           case "cr %/day":
-            ship = ship.copyWith(cr_percent_day: value);
+            ship.cr_percent_day = value;
             break;
           case "cr to deploy":
-            ship = ship.copyWith(CR_to_deploy: value);
+            ship.CR_to_deploy = value;
             break;
           case "peak cr sec":
-            ship = ship.copyWith(peak_CR_sec: value);
+            ship.peak_CR_sec = value;
             break;
           case "cr loss/sec":
-            ship = ship.copyWith(CR_loss_sec: value);
+            ship.CR_loss_sec = value;
             break;
           case "supplies/rec":
-            ship = ship.copyWith(supplies_rec: value);
+            ship.supplies_rec = value;
             break;
           case "supplies/mo":
-            ship = ship.copyWith(supplies_mo: value);
+            ship.supplies_mo = value;
             break;
           case "c/s":
-            ship = ship.copyWith(c_per_s: value);
+            ship.c_per_s = value;
             break;
           case "c/f":
-            ship = ship.copyWith(c_per_f: value);
+            ship.c_per_f = value;
             break;
           case "f/s":
-            ship = ship.copyWith(f_per_s: value);
+            ship.f_per_s = value;
             break;
           case "f/f":
-            ship = ship.copyWith(f_per_f: value);
+            ship.f_per_f = value;
             break;
           case "crew/s":
-            ship = ship.copyWith(crew_per_s: value);
+            ship.crew_per_s = value;
             break;
           case "crew/f":
-            ship = ship.copyWith(crew_per_f: value);
+            ship.crew_per_f = value;
             break;
           case "hints":
-            ship = ship.copyWith(hints: value);
+            ship.hints = value;
             break;
           case "tags":
-            ship = ship.copyWith(tags: value);
+            ship.tags = value;
             break;
           case "rarity":
-            ship = ship.copyWith(rarity: value);
+            ship.rarity = value;
             break;
           case "breakprob":
-            ship = ship.copyWith(breakProb: value);
+            ship.breakProb = value;
             break;
           case "minpieces":
-            ship = ship.copyWith(minPieces: value);
+            ship.minPieces = value;
             break;
           case "maxpieces":
-            ship = ship.copyWith(maxPieces: value);
+            ship.maxPieces = value;
             break;
           case "travel drive":
-            ship = ship.copyWith(travel_drive: value);
+            ship.travel_drive = value;
             break;
           case "number":
-            ship = ship.copyWith(number: value);
+            ship.number = value;
             break;
         }
       }

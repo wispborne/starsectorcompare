@@ -17,59 +17,114 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Ship {
   String? get name => throw _privateConstructorUsedError;
+  set name(String? value) => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  set id(String value) => throw _privateConstructorUsedError;
   String? get designation => throw _privateConstructorUsedError;
+  set designation(String? value) => throw _privateConstructorUsedError;
   String? get tech_manufacturer => throw _privateConstructorUsedError;
+  set tech_manufacturer(String? value) => throw _privateConstructorUsedError;
   String? get system_id => throw _privateConstructorUsedError;
+  set system_id(String? value) => throw _privateConstructorUsedError;
   String? get fleet_pts => throw _privateConstructorUsedError;
+  set fleet_pts(String? value) => throw _privateConstructorUsedError;
   String? get hitpoints => throw _privateConstructorUsedError;
+  set hitpoints(String? value) => throw _privateConstructorUsedError;
   String? get armor_rating => throw _privateConstructorUsedError;
+  set armor_rating(String? value) => throw _privateConstructorUsedError;
   String? get max_flux => throw _privateConstructorUsedError;
+  set max_flux(String? value) => throw _privateConstructorUsedError;
   String? get eight_six_five_four_percent => throw _privateConstructorUsedError;
+  set eight_six_five_four_percent(String? value) =>
+      throw _privateConstructorUsedError;
   String? get flux_dissipation => throw _privateConstructorUsedError;
+  set flux_dissipation(String? value) => throw _privateConstructorUsedError;
   String? get ordnance_points => throw _privateConstructorUsedError;
+  set ordnance_points(String? value) => throw _privateConstructorUsedError;
   String? get fighter_bays => throw _privateConstructorUsedError;
+  set fighter_bays(String? value) => throw _privateConstructorUsedError;
   String? get max_speed => throw _privateConstructorUsedError;
+  set max_speed(String? value) => throw _privateConstructorUsedError;
   String? get acceleration => throw _privateConstructorUsedError;
+  set acceleration(String? value) => throw _privateConstructorUsedError;
   String? get deceleration => throw _privateConstructorUsedError;
+  set deceleration(String? value) => throw _privateConstructorUsedError;
   String? get max_turn_rate => throw _privateConstructorUsedError;
+  set max_turn_rate(String? value) => throw _privateConstructorUsedError;
   String? get turn_acceleration => throw _privateConstructorUsedError;
+  set turn_acceleration(String? value) => throw _privateConstructorUsedError;
   String? get mass => throw _privateConstructorUsedError;
+  set mass(String? value) => throw _privateConstructorUsedError;
   String? get shield_type => throw _privateConstructorUsedError;
+  set shield_type(String? value) => throw _privateConstructorUsedError;
   String? get defense_id => throw _privateConstructorUsedError;
+  set defense_id(String? value) => throw _privateConstructorUsedError;
   String? get shield_arc => throw _privateConstructorUsedError;
+  set shield_arc(String? value) => throw _privateConstructorUsedError;
   String? get shield_upkeep => throw _privateConstructorUsedError;
+  set shield_upkeep(String? value) => throw _privateConstructorUsedError;
   String? get shield_efficiency => throw _privateConstructorUsedError;
+  set shield_efficiency(String? value) => throw _privateConstructorUsedError;
   String? get phase_cost => throw _privateConstructorUsedError;
+  set phase_cost(String? value) => throw _privateConstructorUsedError;
   String? get phase_upkeep => throw _privateConstructorUsedError;
+  set phase_upkeep(String? value) => throw _privateConstructorUsedError;
   String? get min_crew => throw _privateConstructorUsedError;
+  set min_crew(String? value) => throw _privateConstructorUsedError;
   String? get max_crew => throw _privateConstructorUsedError;
+  set max_crew(String? value) => throw _privateConstructorUsedError;
   String? get cargo => throw _privateConstructorUsedError;
+  set cargo(String? value) => throw _privateConstructorUsedError;
   String? get fuel => throw _privateConstructorUsedError;
+  set fuel(String? value) => throw _privateConstructorUsedError;
   String? get fuel_ly => throw _privateConstructorUsedError;
+  set fuel_ly(String? value) => throw _privateConstructorUsedError;
   String? get range => throw _privateConstructorUsedError;
+  set range(String? value) => throw _privateConstructorUsedError;
   String? get max_burn => throw _privateConstructorUsedError;
+  set max_burn(String? value) => throw _privateConstructorUsedError;
   String? get base_value => throw _privateConstructorUsedError;
+  set base_value(String? value) => throw _privateConstructorUsedError;
   String? get cr_percent_day => throw _privateConstructorUsedError;
+  set cr_percent_day(String? value) => throw _privateConstructorUsedError;
   String? get CR_to_deploy => throw _privateConstructorUsedError;
+  set CR_to_deploy(String? value) => throw _privateConstructorUsedError;
   String? get peak_CR_sec => throw _privateConstructorUsedError;
+  set peak_CR_sec(String? value) => throw _privateConstructorUsedError;
   String? get CR_loss_sec => throw _privateConstructorUsedError;
+  set CR_loss_sec(String? value) => throw _privateConstructorUsedError;
   String? get supplies_rec => throw _privateConstructorUsedError;
+  set supplies_rec(String? value) => throw _privateConstructorUsedError;
   String? get supplies_mo => throw _privateConstructorUsedError;
+  set supplies_mo(String? value) => throw _privateConstructorUsedError;
   String? get c_per_s => throw _privateConstructorUsedError;
+  set c_per_s(String? value) => throw _privateConstructorUsedError;
   String? get c_per_f => throw _privateConstructorUsedError;
+  set c_per_f(String? value) => throw _privateConstructorUsedError;
   String? get f_per_s => throw _privateConstructorUsedError;
+  set f_per_s(String? value) => throw _privateConstructorUsedError;
   String? get f_per_f => throw _privateConstructorUsedError;
+  set f_per_f(String? value) => throw _privateConstructorUsedError;
   String? get crew_per_s => throw _privateConstructorUsedError;
+  set crew_per_s(String? value) => throw _privateConstructorUsedError;
   String? get crew_per_f => throw _privateConstructorUsedError;
+  set crew_per_f(String? value) => throw _privateConstructorUsedError;
   String? get hints => throw _privateConstructorUsedError;
+  set hints(String? value) => throw _privateConstructorUsedError;
   String? get tags => throw _privateConstructorUsedError;
+  set tags(String? value) => throw _privateConstructorUsedError;
   String? get rarity => throw _privateConstructorUsedError;
+  set rarity(String? value) => throw _privateConstructorUsedError;
   String? get breakProb => throw _privateConstructorUsedError;
+  set breakProb(String? value) => throw _privateConstructorUsedError;
   String? get minPieces => throw _privateConstructorUsedError;
+  set minPieces(String? value) => throw _privateConstructorUsedError;
   String? get maxPieces => throw _privateConstructorUsedError;
+  set maxPieces(String? value) => throw _privateConstructorUsedError;
   String? get travel_drive => throw _privateConstructorUsedError;
+  set travel_drive(String? value) => throw _privateConstructorUsedError;
   String? get number => throw _privateConstructorUsedError;
+  set number(String? value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShipCopyWith<Ship> get copyWith => throw _privateConstructorUsedError;
@@ -835,326 +890,171 @@ class _$_Ship implements _Ship {
 
   @override
   @JsonKey()
-  final String? name;
+  String? name;
   @override
   @JsonKey()
-  final String id;
+  String id;
   @override
   @JsonKey()
-  final String? designation;
+  String? designation;
   @override
   @JsonKey()
-  final String? tech_manufacturer;
+  String? tech_manufacturer;
   @override
   @JsonKey()
-  final String? system_id;
+  String? system_id;
   @override
   @JsonKey()
-  final String? fleet_pts;
+  String? fleet_pts;
   @override
   @JsonKey()
-  final String? hitpoints;
+  String? hitpoints;
   @override
   @JsonKey()
-  final String? armor_rating;
+  String? armor_rating;
   @override
   @JsonKey()
-  final String? max_flux;
+  String? max_flux;
   @override
   @JsonKey()
-  final String? eight_six_five_four_percent;
+  String? eight_six_five_four_percent;
   @override
   @JsonKey()
-  final String? flux_dissipation;
+  String? flux_dissipation;
   @override
   @JsonKey()
-  final String? ordnance_points;
+  String? ordnance_points;
   @override
   @JsonKey()
-  final String? fighter_bays;
+  String? fighter_bays;
   @override
   @JsonKey()
-  final String? max_speed;
+  String? max_speed;
   @override
   @JsonKey()
-  final String? acceleration;
+  String? acceleration;
   @override
   @JsonKey()
-  final String? deceleration;
+  String? deceleration;
   @override
   @JsonKey()
-  final String? max_turn_rate;
+  String? max_turn_rate;
   @override
   @JsonKey()
-  final String? turn_acceleration;
+  String? turn_acceleration;
   @override
   @JsonKey()
-  final String? mass;
+  String? mass;
   @override
   @JsonKey()
-  final String? shield_type;
+  String? shield_type;
   @override
   @JsonKey()
-  final String? defense_id;
+  String? defense_id;
   @override
   @JsonKey()
-  final String? shield_arc;
+  String? shield_arc;
   @override
   @JsonKey()
-  final String? shield_upkeep;
+  String? shield_upkeep;
   @override
   @JsonKey()
-  final String? shield_efficiency;
+  String? shield_efficiency;
   @override
   @JsonKey()
-  final String? phase_cost;
+  String? phase_cost;
   @override
   @JsonKey()
-  final String? phase_upkeep;
+  String? phase_upkeep;
   @override
   @JsonKey()
-  final String? min_crew;
+  String? min_crew;
   @override
   @JsonKey()
-  final String? max_crew;
+  String? max_crew;
   @override
   @JsonKey()
-  final String? cargo;
+  String? cargo;
   @override
   @JsonKey()
-  final String? fuel;
+  String? fuel;
   @override
   @JsonKey()
-  final String? fuel_ly;
+  String? fuel_ly;
   @override
   @JsonKey()
-  final String? range;
+  String? range;
   @override
   @JsonKey()
-  final String? max_burn;
+  String? max_burn;
   @override
   @JsonKey()
-  final String? base_value;
+  String? base_value;
   @override
   @JsonKey()
-  final String? cr_percent_day;
+  String? cr_percent_day;
   @override
   @JsonKey()
-  final String? CR_to_deploy;
+  String? CR_to_deploy;
   @override
   @JsonKey()
-  final String? peak_CR_sec;
+  String? peak_CR_sec;
   @override
   @JsonKey()
-  final String? CR_loss_sec;
+  String? CR_loss_sec;
   @override
   @JsonKey()
-  final String? supplies_rec;
+  String? supplies_rec;
   @override
   @JsonKey()
-  final String? supplies_mo;
+  String? supplies_mo;
   @override
   @JsonKey()
-  final String? c_per_s;
+  String? c_per_s;
   @override
   @JsonKey()
-  final String? c_per_f;
+  String? c_per_f;
   @override
   @JsonKey()
-  final String? f_per_s;
+  String? f_per_s;
   @override
   @JsonKey()
-  final String? f_per_f;
+  String? f_per_f;
   @override
   @JsonKey()
-  final String? crew_per_s;
+  String? crew_per_s;
   @override
   @JsonKey()
-  final String? crew_per_f;
+  String? crew_per_f;
   @override
   @JsonKey()
-  final String? hints;
+  String? hints;
   @override
   @JsonKey()
-  final String? tags;
+  String? tags;
   @override
   @JsonKey()
-  final String? rarity;
+  String? rarity;
   @override
   @JsonKey()
-  final String? breakProb;
+  String? breakProb;
   @override
   @JsonKey()
-  final String? minPieces;
+  String? minPieces;
   @override
   @JsonKey()
-  final String? maxPieces;
+  String? maxPieces;
   @override
   @JsonKey()
-  final String? travel_drive;
+  String? travel_drive;
   @override
   @JsonKey()
-  final String? number;
+  String? number;
 
   @override
   String toString() {
     return 'Ship(name: $name, id: $id, designation: $designation, tech_manufacturer: $tech_manufacturer, system_id: $system_id, fleet_pts: $fleet_pts, hitpoints: $hitpoints, armor_rating: $armor_rating, max_flux: $max_flux, eight_six_five_four_percent: $eight_six_five_four_percent, flux_dissipation: $flux_dissipation, ordnance_points: $ordnance_points, fighter_bays: $fighter_bays, max_speed: $max_speed, acceleration: $acceleration, deceleration: $deceleration, max_turn_rate: $max_turn_rate, turn_acceleration: $turn_acceleration, mass: $mass, shield_type: $shield_type, defense_id: $defense_id, shield_arc: $shield_arc, shield_upkeep: $shield_upkeep, shield_efficiency: $shield_efficiency, phase_cost: $phase_cost, phase_upkeep: $phase_upkeep, min_crew: $min_crew, max_crew: $max_crew, cargo: $cargo, fuel: $fuel, fuel_ly: $fuel_ly, range: $range, max_burn: $max_burn, base_value: $base_value, cr_percent_day: $cr_percent_day, CR_to_deploy: $CR_to_deploy, peak_CR_sec: $peak_CR_sec, CR_loss_sec: $CR_loss_sec, supplies_rec: $supplies_rec, supplies_mo: $supplies_mo, c_per_s: $c_per_s, c_per_f: $c_per_f, f_per_s: $f_per_s, f_per_f: $f_per_f, crew_per_s: $crew_per_s, crew_per_f: $crew_per_f, hints: $hints, tags: $tags, rarity: $rarity, breakProb: $breakProb, minPieces: $minPieces, maxPieces: $maxPieces, travel_drive: $travel_drive, number: $number)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Ship &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.designation, designation) ||
-                other.designation == designation) &&
-            (identical(other.tech_manufacturer, tech_manufacturer) ||
-                other.tech_manufacturer == tech_manufacturer) &&
-            (identical(other.system_id, system_id) ||
-                other.system_id == system_id) &&
-            (identical(other.fleet_pts, fleet_pts) ||
-                other.fleet_pts == fleet_pts) &&
-            (identical(other.hitpoints, hitpoints) ||
-                other.hitpoints == hitpoints) &&
-            (identical(other.armor_rating, armor_rating) ||
-                other.armor_rating == armor_rating) &&
-            (identical(other.max_flux, max_flux) ||
-                other.max_flux == max_flux) &&
-            (identical(other.eight_six_five_four_percent, eight_six_five_four_percent) ||
-                other.eight_six_five_four_percent ==
-                    eight_six_five_four_percent) &&
-            (identical(other.flux_dissipation, flux_dissipation) ||
-                other.flux_dissipation == flux_dissipation) &&
-            (identical(other.ordnance_points, ordnance_points) ||
-                other.ordnance_points == ordnance_points) &&
-            (identical(other.fighter_bays, fighter_bays) ||
-                other.fighter_bays == fighter_bays) &&
-            (identical(other.max_speed, max_speed) ||
-                other.max_speed == max_speed) &&
-            (identical(other.acceleration, acceleration) ||
-                other.acceleration == acceleration) &&
-            (identical(other.deceleration, deceleration) ||
-                other.deceleration == deceleration) &&
-            (identical(other.max_turn_rate, max_turn_rate) ||
-                other.max_turn_rate == max_turn_rate) &&
-            (identical(other.turn_acceleration, turn_acceleration) ||
-                other.turn_acceleration == turn_acceleration) &&
-            (identical(other.mass, mass) || other.mass == mass) &&
-            (identical(other.shield_type, shield_type) ||
-                other.shield_type == shield_type) &&
-            (identical(other.defense_id, defense_id) ||
-                other.defense_id == defense_id) &&
-            (identical(other.shield_arc, shield_arc) ||
-                other.shield_arc == shield_arc) &&
-            (identical(other.shield_upkeep, shield_upkeep) ||
-                other.shield_upkeep == shield_upkeep) &&
-            (identical(other.shield_efficiency, shield_efficiency) ||
-                other.shield_efficiency == shield_efficiency) &&
-            (identical(other.phase_cost, phase_cost) ||
-                other.phase_cost == phase_cost) &&
-            (identical(other.phase_upkeep, phase_upkeep) ||
-                other.phase_upkeep == phase_upkeep) &&
-            (identical(other.min_crew, min_crew) ||
-                other.min_crew == min_crew) &&
-            (identical(other.max_crew, max_crew) ||
-                other.max_crew == max_crew) &&
-            (identical(other.cargo, cargo) || other.cargo == cargo) &&
-            (identical(other.fuel, fuel) || other.fuel == fuel) &&
-            (identical(other.fuel_ly, fuel_ly) || other.fuel_ly == fuel_ly) &&
-            (identical(other.range, range) || other.range == range) &&
-            (identical(other.max_burn, max_burn) ||
-                other.max_burn == max_burn) &&
-            (identical(other.base_value, base_value) ||
-                other.base_value == base_value) &&
-            (identical(other.cr_percent_day, cr_percent_day) ||
-                other.cr_percent_day == cr_percent_day) &&
-            (identical(other.CR_to_deploy, CR_to_deploy) ||
-                other.CR_to_deploy == CR_to_deploy) &&
-            (identical(other.peak_CR_sec, peak_CR_sec) ||
-                other.peak_CR_sec == peak_CR_sec) &&
-            (identical(other.CR_loss_sec, CR_loss_sec) ||
-                other.CR_loss_sec == CR_loss_sec) &&
-            (identical(other.supplies_rec, supplies_rec) ||
-                other.supplies_rec == supplies_rec) &&
-            (identical(other.supplies_mo, supplies_mo) ||
-                other.supplies_mo == supplies_mo) &&
-            (identical(other.c_per_s, c_per_s) || other.c_per_s == c_per_s) &&
-            (identical(other.c_per_f, c_per_f) || other.c_per_f == c_per_f) &&
-            (identical(other.f_per_s, f_per_s) || other.f_per_s == f_per_s) &&
-            (identical(other.f_per_f, f_per_f) || other.f_per_f == f_per_f) &&
-            (identical(other.crew_per_s, crew_per_s) ||
-                other.crew_per_s == crew_per_s) &&
-            (identical(other.crew_per_f, crew_per_f) || other.crew_per_f == crew_per_f) &&
-            (identical(other.hints, hints) || other.hints == hints) &&
-            (identical(other.tags, tags) || other.tags == tags) &&
-            (identical(other.rarity, rarity) || other.rarity == rarity) &&
-            (identical(other.breakProb, breakProb) || other.breakProb == breakProb) &&
-            (identical(other.minPieces, minPieces) || other.minPieces == minPieces) &&
-            (identical(other.maxPieces, maxPieces) || other.maxPieces == maxPieces) &&
-            (identical(other.travel_drive, travel_drive) || other.travel_drive == travel_drive) &&
-            (identical(other.number, number) || other.number == number));
-  }
-
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        name,
-        id,
-        designation,
-        tech_manufacturer,
-        system_id,
-        fleet_pts,
-        hitpoints,
-        armor_rating,
-        max_flux,
-        eight_six_five_four_percent,
-        flux_dissipation,
-        ordnance_points,
-        fighter_bays,
-        max_speed,
-        acceleration,
-        deceleration,
-        max_turn_rate,
-        turn_acceleration,
-        mass,
-        shield_type,
-        defense_id,
-        shield_arc,
-        shield_upkeep,
-        shield_efficiency,
-        phase_cost,
-        phase_upkeep,
-        min_crew,
-        max_crew,
-        cargo,
-        fuel,
-        fuel_ly,
-        range,
-        max_burn,
-        base_value,
-        cr_percent_day,
-        CR_to_deploy,
-        peak_CR_sec,
-        CR_loss_sec,
-        supplies_rec,
-        supplies_mo,
-        c_per_s,
-        c_per_f,
-        f_per_s,
-        f_per_f,
-        crew_per_s,
-        crew_per_f,
-        hints,
-        tags,
-        rarity,
-        breakProb,
-        minPieces,
-        maxPieces,
-        travel_drive,
-        number
-      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1165,169 +1065,223 @@ class _$_Ship implements _Ship {
 
 abstract class _Ship implements Ship {
   factory _Ship(
-      {final String? name,
-      final String id,
-      final String? designation,
-      final String? tech_manufacturer,
-      final String? system_id,
-      final String? fleet_pts,
-      final String? hitpoints,
-      final String? armor_rating,
-      final String? max_flux,
-      final String? eight_six_five_four_percent,
-      final String? flux_dissipation,
-      final String? ordnance_points,
-      final String? fighter_bays,
-      final String? max_speed,
-      final String? acceleration,
-      final String? deceleration,
-      final String? max_turn_rate,
-      final String? turn_acceleration,
-      final String? mass,
-      final String? shield_type,
-      final String? defense_id,
-      final String? shield_arc,
-      final String? shield_upkeep,
-      final String? shield_efficiency,
-      final String? phase_cost,
-      final String? phase_upkeep,
-      final String? min_crew,
-      final String? max_crew,
-      final String? cargo,
-      final String? fuel,
-      final String? fuel_ly,
-      final String? range,
-      final String? max_burn,
-      final String? base_value,
-      final String? cr_percent_day,
-      final String? CR_to_deploy,
-      final String? peak_CR_sec,
-      final String? CR_loss_sec,
-      final String? supplies_rec,
-      final String? supplies_mo,
-      final String? c_per_s,
-      final String? c_per_f,
-      final String? f_per_s,
-      final String? f_per_f,
-      final String? crew_per_s,
-      final String? crew_per_f,
-      final String? hints,
-      final String? tags,
-      final String? rarity,
-      final String? breakProb,
-      final String? minPieces,
-      final String? maxPieces,
-      final String? travel_drive,
-      final String? number}) = _$_Ship;
+      {String? name,
+      String id,
+      String? designation,
+      String? tech_manufacturer,
+      String? system_id,
+      String? fleet_pts,
+      String? hitpoints,
+      String? armor_rating,
+      String? max_flux,
+      String? eight_six_five_four_percent,
+      String? flux_dissipation,
+      String? ordnance_points,
+      String? fighter_bays,
+      String? max_speed,
+      String? acceleration,
+      String? deceleration,
+      String? max_turn_rate,
+      String? turn_acceleration,
+      String? mass,
+      String? shield_type,
+      String? defense_id,
+      String? shield_arc,
+      String? shield_upkeep,
+      String? shield_efficiency,
+      String? phase_cost,
+      String? phase_upkeep,
+      String? min_crew,
+      String? max_crew,
+      String? cargo,
+      String? fuel,
+      String? fuel_ly,
+      String? range,
+      String? max_burn,
+      String? base_value,
+      String? cr_percent_day,
+      String? CR_to_deploy,
+      String? peak_CR_sec,
+      String? CR_loss_sec,
+      String? supplies_rec,
+      String? supplies_mo,
+      String? c_per_s,
+      String? c_per_f,
+      String? f_per_s,
+      String? f_per_f,
+      String? crew_per_s,
+      String? crew_per_f,
+      String? hints,
+      String? tags,
+      String? rarity,
+      String? breakProb,
+      String? minPieces,
+      String? maxPieces,
+      String? travel_drive,
+      String? number}) = _$_Ship;
 
   @override
   String? get name;
+  set name(String? value);
   @override
   String get id;
+  set id(String value);
   @override
   String? get designation;
+  set designation(String? value);
   @override
   String? get tech_manufacturer;
+  set tech_manufacturer(String? value);
   @override
   String? get system_id;
+  set system_id(String? value);
   @override
   String? get fleet_pts;
+  set fleet_pts(String? value);
   @override
   String? get hitpoints;
+  set hitpoints(String? value);
   @override
   String? get armor_rating;
+  set armor_rating(String? value);
   @override
   String? get max_flux;
+  set max_flux(String? value);
   @override
   String? get eight_six_five_four_percent;
+  set eight_six_five_four_percent(String? value);
   @override
   String? get flux_dissipation;
+  set flux_dissipation(String? value);
   @override
   String? get ordnance_points;
+  set ordnance_points(String? value);
   @override
   String? get fighter_bays;
+  set fighter_bays(String? value);
   @override
   String? get max_speed;
+  set max_speed(String? value);
   @override
   String? get acceleration;
+  set acceleration(String? value);
   @override
   String? get deceleration;
+  set deceleration(String? value);
   @override
   String? get max_turn_rate;
+  set max_turn_rate(String? value);
   @override
   String? get turn_acceleration;
+  set turn_acceleration(String? value);
   @override
   String? get mass;
+  set mass(String? value);
   @override
   String? get shield_type;
+  set shield_type(String? value);
   @override
   String? get defense_id;
+  set defense_id(String? value);
   @override
   String? get shield_arc;
+  set shield_arc(String? value);
   @override
   String? get shield_upkeep;
+  set shield_upkeep(String? value);
   @override
   String? get shield_efficiency;
+  set shield_efficiency(String? value);
   @override
   String? get phase_cost;
+  set phase_cost(String? value);
   @override
   String? get phase_upkeep;
+  set phase_upkeep(String? value);
   @override
   String? get min_crew;
+  set min_crew(String? value);
   @override
   String? get max_crew;
+  set max_crew(String? value);
   @override
   String? get cargo;
+  set cargo(String? value);
   @override
   String? get fuel;
+  set fuel(String? value);
   @override
   String? get fuel_ly;
+  set fuel_ly(String? value);
   @override
   String? get range;
+  set range(String? value);
   @override
   String? get max_burn;
+  set max_burn(String? value);
   @override
   String? get base_value;
+  set base_value(String? value);
   @override
   String? get cr_percent_day;
+  set cr_percent_day(String? value);
   @override
   String? get CR_to_deploy;
+  set CR_to_deploy(String? value);
   @override
   String? get peak_CR_sec;
+  set peak_CR_sec(String? value);
   @override
   String? get CR_loss_sec;
+  set CR_loss_sec(String? value);
   @override
   String? get supplies_rec;
+  set supplies_rec(String? value);
   @override
   String? get supplies_mo;
+  set supplies_mo(String? value);
   @override
   String? get c_per_s;
+  set c_per_s(String? value);
   @override
   String? get c_per_f;
+  set c_per_f(String? value);
   @override
   String? get f_per_s;
+  set f_per_s(String? value);
   @override
   String? get f_per_f;
+  set f_per_f(String? value);
   @override
   String? get crew_per_s;
+  set crew_per_s(String? value);
   @override
   String? get crew_per_f;
+  set crew_per_f(String? value);
   @override
   String? get hints;
+  set hints(String? value);
   @override
   String? get tags;
+  set tags(String? value);
   @override
   String? get rarity;
+  set rarity(String? value);
   @override
   String? get breakProb;
+  set breakProb(String? value);
   @override
   String? get minPieces;
+  set minPieces(String? value);
   @override
   String? get maxPieces;
+  set maxPieces(String? value);
   @override
   String? get travel_drive;
+  set travel_drive(String? value);
   @override
   String? get number;
+  set number(String? value);
   @override
   @JsonKey(ignore: true)
   _$$_ShipCopyWith<_$_Ship> get copyWith => throw _privateConstructorUsedError;

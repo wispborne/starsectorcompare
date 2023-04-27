@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Settings _$SettingsFromJson(Map<String, dynamic> json) {
+  return _Settings.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Settings {
   String? get gameDir => throw _privateConstructorUsedError;
   String? get modsDir => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SettingsCopyWith<Settings> get copyWith =>
       throw _privateConstructorUsedError;
@@ -99,9 +104,12 @@ class __$$_SettingsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_Settings implements _Settings {
+@JsonSerializable()
+class _$_Settings with DiagnosticableTreeMixin implements _Settings {
   _$_Settings({this.gameDir, this.modsDir});
+
+  factory _$_Settings.fromJson(Map<String, dynamic> json) =>
+      _$$_SettingsFromJson(json);
 
   @override
   final String? gameDir;
@@ -109,8 +117,17 @@ class _$_Settings implements _Settings {
   final String? modsDir;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Settings(gameDir: $gameDir, modsDir: $modsDir)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Settings'))
+      ..add(DiagnosticsProperty('gameDir', gameDir))
+      ..add(DiagnosticsProperty('modsDir', modsDir));
   }
 
   @override
@@ -122,6 +139,7 @@ class _$_Settings implements _Settings {
             (identical(other.modsDir, modsDir) || other.modsDir == modsDir));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, gameDir, modsDir);
 
@@ -130,11 +148,20 @@ class _$_Settings implements _Settings {
   @pragma('vm:prefer-inline')
   _$$_SettingsCopyWith<_$_Settings> get copyWith =>
       __$$_SettingsCopyWithImpl<_$_Settings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_SettingsToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Settings implements Settings {
   factory _Settings({final String? gameDir, final String? modsDir}) =
       _$_Settings;
+
+  factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
   @override
   String? get gameDir;

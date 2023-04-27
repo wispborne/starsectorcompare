@@ -17,54 +17,103 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Weapon {
   String get name => throw _privateConstructorUsedError;
+  set name(String value) => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  set id(String value) => throw _privateConstructorUsedError;
   String get tier => throw _privateConstructorUsedError;
+  set tier(String value) => throw _privateConstructorUsedError;
   String get rarity => throw _privateConstructorUsedError;
+  set rarity(String value) => throw _privateConstructorUsedError;
   String get base_value => throw _privateConstructorUsedError;
+  set base_value(String value) => throw _privateConstructorUsedError;
   String get range => throw _privateConstructorUsedError;
+  set range(String value) => throw _privateConstructorUsedError;
   String get damage_per_second => throw _privateConstructorUsedError;
+  set damage_per_second(String value) => throw _privateConstructorUsedError;
   String get damage_per_shot => throw _privateConstructorUsedError;
+  set damage_per_shot(String value) => throw _privateConstructorUsedError;
   String get emp => throw _privateConstructorUsedError;
+  set emp(String value) => throw _privateConstructorUsedError;
   String get impact => throw _privateConstructorUsedError;
+  set impact(String value) => throw _privateConstructorUsedError;
   String get turn_rate => throw _privateConstructorUsedError;
+  set turn_rate(String value) => throw _privateConstructorUsedError;
   String get OPs => throw _privateConstructorUsedError;
+  set OPs(String value) => throw _privateConstructorUsedError;
   String get ammo => throw _privateConstructorUsedError;
+  set ammo(String value) => throw _privateConstructorUsedError;
   String get ammo_per_sec => throw _privateConstructorUsedError;
+  set ammo_per_sec(String value) => throw _privateConstructorUsedError;
   String get reload_size => throw _privateConstructorUsedError;
+  set reload_size(String value) => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
+  set type(String value) => throw _privateConstructorUsedError;
   String get energy_per_shot => throw _privateConstructorUsedError;
+  set energy_per_shot(String value) => throw _privateConstructorUsedError;
   String get energy_per_second => throw _privateConstructorUsedError;
+  set energy_per_second(String value) => throw _privateConstructorUsedError;
   String get chargeup => throw _privateConstructorUsedError;
+  set chargeup(String value) => throw _privateConstructorUsedError;
   String get chargedown => throw _privateConstructorUsedError;
+  set chargedown(String value) => throw _privateConstructorUsedError;
   String get burst_size => throw _privateConstructorUsedError;
+  set burst_size(String value) => throw _privateConstructorUsedError;
   String get burst_delay => throw _privateConstructorUsedError;
+  set burst_delay(String value) => throw _privateConstructorUsedError;
   String get min_spread => throw _privateConstructorUsedError;
+  set min_spread(String value) => throw _privateConstructorUsedError;
   String get max_spread => throw _privateConstructorUsedError;
+  set max_spread(String value) => throw _privateConstructorUsedError;
   String get spread_per_shot => throw _privateConstructorUsedError;
+  set spread_per_shot(String value) => throw _privateConstructorUsedError;
   String get spread_decay_per_sec => throw _privateConstructorUsedError;
+  set spread_decay_per_sec(String value) => throw _privateConstructorUsedError;
   String get beam_speed => throw _privateConstructorUsedError;
+  set beam_speed(String value) => throw _privateConstructorUsedError;
   String get proj_speed => throw _privateConstructorUsedError;
+  set proj_speed(String value) => throw _privateConstructorUsedError;
   String get launch_speed => throw _privateConstructorUsedError;
+  set launch_speed(String value) => throw _privateConstructorUsedError;
   String get flight_time => throw _privateConstructorUsedError;
+  set flight_time(String value) => throw _privateConstructorUsedError;
   String get proj_hitpoints => throw _privateConstructorUsedError;
+  set proj_hitpoints(String value) => throw _privateConstructorUsedError;
   String get autofireAccBonus => throw _privateConstructorUsedError;
+  set autofireAccBonus(String value) => throw _privateConstructorUsedError;
   String get extraArcForAI => throw _privateConstructorUsedError;
+  set extraArcForAI(String value) => throw _privateConstructorUsedError;
   String get hints => throw _privateConstructorUsedError;
+  set hints(String value) => throw _privateConstructorUsedError;
   String get tags => throw _privateConstructorUsedError;
+  set tags(String value) => throw _privateConstructorUsedError;
   String get groupTag => throw _privateConstructorUsedError;
+  set groupTag(String value) => throw _privateConstructorUsedError;
   String get tech_manufacturer => throw _privateConstructorUsedError;
+  set tech_manufacturer(String value) => throw _privateConstructorUsedError;
   String get for_weapon_tooltip => throw _privateConstructorUsedError;
+  set for_weapon_tooltip(String value) => throw _privateConstructorUsedError;
   String get primaryRoleStr => throw _privateConstructorUsedError;
+  set primaryRoleStr(String value) => throw _privateConstructorUsedError;
   String get speedStr => throw _privateConstructorUsedError;
+  set speedStr(String value) => throw _privateConstructorUsedError;
   String get trackingStr => throw _privateConstructorUsedError;
+  set trackingStr(String value) => throw _privateConstructorUsedError;
   String get turnRateStr => throw _privateConstructorUsedError;
+  set turnRateStr(String value) => throw _privateConstructorUsedError;
   String get accuracyStr => throw _privateConstructorUsedError;
+  set accuracyStr(String value) => throw _privateConstructorUsedError;
   String get customPrimary => throw _privateConstructorUsedError;
+  set customPrimary(String value) => throw _privateConstructorUsedError;
   String get customPrimaryHL => throw _privateConstructorUsedError;
+  set customPrimaryHL(String value) => throw _privateConstructorUsedError;
   String get customAncillary => throw _privateConstructorUsedError;
+  set customAncillary(String value) => throw _privateConstructorUsedError;
   String get customAncillaryHL => throw _privateConstructorUsedError;
+  set customAncillaryHL(String value) => throw _privateConstructorUsedError;
   String get noDPSInTooltip => throw _privateConstructorUsedError;
+  set noDPSInTooltip(String value) => throw _privateConstructorUsedError;
   String get number => throw _privateConstructorUsedError;
+  set number(String value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WeaponCopyWith<Weapon> get copyWith => throw _privateConstructorUsedError;
@@ -766,302 +815,156 @@ class _$_Weapon implements _Weapon {
 
   @override
   @JsonKey()
-  final String name;
+  String name;
   @override
   @JsonKey()
-  final String id;
+  String id;
   @override
   @JsonKey()
-  final String tier;
+  String tier;
   @override
   @JsonKey()
-  final String rarity;
+  String rarity;
   @override
   @JsonKey()
-  final String base_value;
+  String base_value;
   @override
   @JsonKey()
-  final String range;
+  String range;
   @override
   @JsonKey()
-  final String damage_per_second;
+  String damage_per_second;
   @override
   @JsonKey()
-  final String damage_per_shot;
+  String damage_per_shot;
   @override
   @JsonKey()
-  final String emp;
+  String emp;
   @override
   @JsonKey()
-  final String impact;
+  String impact;
   @override
   @JsonKey()
-  final String turn_rate;
+  String turn_rate;
   @override
   @JsonKey()
-  final String OPs;
+  String OPs;
   @override
   @JsonKey()
-  final String ammo;
+  String ammo;
   @override
   @JsonKey()
-  final String ammo_per_sec;
+  String ammo_per_sec;
   @override
   @JsonKey()
-  final String reload_size;
+  String reload_size;
   @override
   @JsonKey()
-  final String type;
+  String type;
   @override
   @JsonKey()
-  final String energy_per_shot;
+  String energy_per_shot;
   @override
   @JsonKey()
-  final String energy_per_second;
+  String energy_per_second;
   @override
   @JsonKey()
-  final String chargeup;
+  String chargeup;
   @override
   @JsonKey()
-  final String chargedown;
+  String chargedown;
   @override
   @JsonKey()
-  final String burst_size;
+  String burst_size;
   @override
   @JsonKey()
-  final String burst_delay;
+  String burst_delay;
   @override
   @JsonKey()
-  final String min_spread;
+  String min_spread;
   @override
   @JsonKey()
-  final String max_spread;
+  String max_spread;
   @override
   @JsonKey()
-  final String spread_per_shot;
+  String spread_per_shot;
   @override
   @JsonKey()
-  final String spread_decay_per_sec;
+  String spread_decay_per_sec;
   @override
   @JsonKey()
-  final String beam_speed;
+  String beam_speed;
   @override
   @JsonKey()
-  final String proj_speed;
+  String proj_speed;
   @override
   @JsonKey()
-  final String launch_speed;
+  String launch_speed;
   @override
   @JsonKey()
-  final String flight_time;
+  String flight_time;
   @override
   @JsonKey()
-  final String proj_hitpoints;
+  String proj_hitpoints;
   @override
   @JsonKey()
-  final String autofireAccBonus;
+  String autofireAccBonus;
   @override
   @JsonKey()
-  final String extraArcForAI;
+  String extraArcForAI;
   @override
   @JsonKey()
-  final String hints;
+  String hints;
   @override
   @JsonKey()
-  final String tags;
+  String tags;
   @override
   @JsonKey()
-  final String groupTag;
+  String groupTag;
   @override
   @JsonKey()
-  final String tech_manufacturer;
+  String tech_manufacturer;
   @override
   @JsonKey()
-  final String for_weapon_tooltip;
+  String for_weapon_tooltip;
   @override
   @JsonKey()
-  final String primaryRoleStr;
+  String primaryRoleStr;
   @override
   @JsonKey()
-  final String speedStr;
+  String speedStr;
   @override
   @JsonKey()
-  final String trackingStr;
+  String trackingStr;
   @override
   @JsonKey()
-  final String turnRateStr;
+  String turnRateStr;
   @override
   @JsonKey()
-  final String accuracyStr;
+  String accuracyStr;
   @override
   @JsonKey()
-  final String customPrimary;
+  String customPrimary;
   @override
   @JsonKey()
-  final String customPrimaryHL;
+  String customPrimaryHL;
   @override
   @JsonKey()
-  final String customAncillary;
+  String customAncillary;
   @override
   @JsonKey()
-  final String customAncillaryHL;
+  String customAncillaryHL;
   @override
   @JsonKey()
-  final String noDPSInTooltip;
+  String noDPSInTooltip;
   @override
   @JsonKey()
-  final String number;
+  String number;
 
   @override
   String toString() {
     return 'Weapon(name: $name, id: $id, tier: $tier, rarity: $rarity, base_value: $base_value, range: $range, damage_per_second: $damage_per_second, damage_per_shot: $damage_per_shot, emp: $emp, impact: $impact, turn_rate: $turn_rate, OPs: $OPs, ammo: $ammo, ammo_per_sec: $ammo_per_sec, reload_size: $reload_size, type: $type, energy_per_shot: $energy_per_shot, energy_per_second: $energy_per_second, chargeup: $chargeup, chargedown: $chargedown, burst_size: $burst_size, burst_delay: $burst_delay, min_spread: $min_spread, max_spread: $max_spread, spread_per_shot: $spread_per_shot, spread_decay_per_sec: $spread_decay_per_sec, beam_speed: $beam_speed, proj_speed: $proj_speed, launch_speed: $launch_speed, flight_time: $flight_time, proj_hitpoints: $proj_hitpoints, autofireAccBonus: $autofireAccBonus, extraArcForAI: $extraArcForAI, hints: $hints, tags: $tags, groupTag: $groupTag, tech_manufacturer: $tech_manufacturer, for_weapon_tooltip: $for_weapon_tooltip, primaryRoleStr: $primaryRoleStr, speedStr: $speedStr, trackingStr: $trackingStr, turnRateStr: $turnRateStr, accuracyStr: $accuracyStr, customPrimary: $customPrimary, customPrimaryHL: $customPrimaryHL, customAncillary: $customAncillary, customAncillaryHL: $customAncillaryHL, noDPSInTooltip: $noDPSInTooltip, number: $number)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Weapon &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.tier, tier) || other.tier == tier) &&
-            (identical(other.rarity, rarity) || other.rarity == rarity) &&
-            (identical(other.base_value, base_value) ||
-                other.base_value == base_value) &&
-            (identical(other.range, range) || other.range == range) &&
-            (identical(other.damage_per_second, damage_per_second) ||
-                other.damage_per_second == damage_per_second) &&
-            (identical(other.damage_per_shot, damage_per_shot) ||
-                other.damage_per_shot == damage_per_shot) &&
-            (identical(other.emp, emp) || other.emp == emp) &&
-            (identical(other.impact, impact) || other.impact == impact) &&
-            (identical(other.turn_rate, turn_rate) ||
-                other.turn_rate == turn_rate) &&
-            (identical(other.OPs, OPs) || other.OPs == OPs) &&
-            (identical(other.ammo, ammo) || other.ammo == ammo) &&
-            (identical(other.ammo_per_sec, ammo_per_sec) ||
-                other.ammo_per_sec == ammo_per_sec) &&
-            (identical(other.reload_size, reload_size) ||
-                other.reload_size == reload_size) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.energy_per_shot, energy_per_shot) ||
-                other.energy_per_shot == energy_per_shot) &&
-            (identical(other.energy_per_second, energy_per_second) ||
-                other.energy_per_second == energy_per_second) &&
-            (identical(other.chargeup, chargeup) ||
-                other.chargeup == chargeup) &&
-            (identical(other.chargedown, chargedown) ||
-                other.chargedown == chargedown) &&
-            (identical(other.burst_size, burst_size) ||
-                other.burst_size == burst_size) &&
-            (identical(other.burst_delay, burst_delay) ||
-                other.burst_delay == burst_delay) &&
-            (identical(other.min_spread, min_spread) ||
-                other.min_spread == min_spread) &&
-            (identical(other.max_spread, max_spread) ||
-                other.max_spread == max_spread) &&
-            (identical(other.spread_per_shot, spread_per_shot) ||
-                other.spread_per_shot == spread_per_shot) &&
-            (identical(other.spread_decay_per_sec, spread_decay_per_sec) ||
-                other.spread_decay_per_sec == spread_decay_per_sec) &&
-            (identical(other.beam_speed, beam_speed) ||
-                other.beam_speed == beam_speed) &&
-            (identical(other.proj_speed, proj_speed) ||
-                other.proj_speed == proj_speed) &&
-            (identical(other.launch_speed, launch_speed) ||
-                other.launch_speed == launch_speed) &&
-            (identical(other.flight_time, flight_time) ||
-                other.flight_time == flight_time) &&
-            (identical(other.proj_hitpoints, proj_hitpoints) ||
-                other.proj_hitpoints == proj_hitpoints) &&
-            (identical(other.autofireAccBonus, autofireAccBonus) ||
-                other.autofireAccBonus == autofireAccBonus) &&
-            (identical(other.extraArcForAI, extraArcForAI) ||
-                other.extraArcForAI == extraArcForAI) &&
-            (identical(other.hints, hints) || other.hints == hints) &&
-            (identical(other.tags, tags) || other.tags == tags) &&
-            (identical(other.groupTag, groupTag) ||
-                other.groupTag == groupTag) &&
-            (identical(other.tech_manufacturer, tech_manufacturer) ||
-                other.tech_manufacturer == tech_manufacturer) &&
-            (identical(other.for_weapon_tooltip, for_weapon_tooltip) ||
-                other.for_weapon_tooltip == for_weapon_tooltip) &&
-            (identical(other.primaryRoleStr, primaryRoleStr) ||
-                other.primaryRoleStr == primaryRoleStr) &&
-            (identical(other.speedStr, speedStr) ||
-                other.speedStr == speedStr) &&
-            (identical(other.trackingStr, trackingStr) ||
-                other.trackingStr == trackingStr) &&
-            (identical(other.turnRateStr, turnRateStr) ||
-                other.turnRateStr == turnRateStr) &&
-            (identical(other.accuracyStr, accuracyStr) ||
-                other.accuracyStr == accuracyStr) &&
-            (identical(other.customPrimary, customPrimary) ||
-                other.customPrimary == customPrimary) &&
-            (identical(other.customPrimaryHL, customPrimaryHL) ||
-                other.customPrimaryHL == customPrimaryHL) &&
-            (identical(other.customAncillary, customAncillary) ||
-                other.customAncillary == customAncillary) &&
-            (identical(other.customAncillaryHL, customAncillaryHL) ||
-                other.customAncillaryHL == customAncillaryHL) &&
-            (identical(other.noDPSInTooltip, noDPSInTooltip) ||
-                other.noDPSInTooltip == noDPSInTooltip) &&
-            (identical(other.number, number) || other.number == number));
-  }
-
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        name,
-        id,
-        tier,
-        rarity,
-        base_value,
-        range,
-        damage_per_second,
-        damage_per_shot,
-        emp,
-        impact,
-        turn_rate,
-        OPs,
-        ammo,
-        ammo_per_sec,
-        reload_size,
-        type,
-        energy_per_shot,
-        energy_per_second,
-        chargeup,
-        chargedown,
-        burst_size,
-        burst_delay,
-        min_spread,
-        max_spread,
-        spread_per_shot,
-        spread_decay_per_sec,
-        beam_speed,
-        proj_speed,
-        launch_speed,
-        flight_time,
-        proj_hitpoints,
-        autofireAccBonus,
-        extraArcForAI,
-        hints,
-        tags,
-        groupTag,
-        tech_manufacturer,
-        for_weapon_tooltip,
-        primaryRoleStr,
-        speedStr,
-        trackingStr,
-        turnRateStr,
-        accuracyStr,
-        customPrimary,
-        customPrimaryHL,
-        customAncillary,
-        customAncillaryHL,
-        noDPSInTooltip,
-        number
-      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1072,154 +975,203 @@ class _$_Weapon implements _Weapon {
 
 abstract class _Weapon implements Weapon {
   factory _Weapon(
-      {final String name,
-      final String id,
-      final String tier,
-      final String rarity,
-      final String base_value,
-      final String range,
-      final String damage_per_second,
-      final String damage_per_shot,
-      final String emp,
-      final String impact,
-      final String turn_rate,
-      final String OPs,
-      final String ammo,
-      final String ammo_per_sec,
-      final String reload_size,
-      final String type,
-      final String energy_per_shot,
-      final String energy_per_second,
-      final String chargeup,
-      final String chargedown,
-      final String burst_size,
-      final String burst_delay,
-      final String min_spread,
-      final String max_spread,
-      final String spread_per_shot,
-      final String spread_decay_per_sec,
-      final String beam_speed,
-      final String proj_speed,
-      final String launch_speed,
-      final String flight_time,
-      final String proj_hitpoints,
-      final String autofireAccBonus,
-      final String extraArcForAI,
-      final String hints,
-      final String tags,
-      final String groupTag,
-      final String tech_manufacturer,
-      final String for_weapon_tooltip,
-      final String primaryRoleStr,
-      final String speedStr,
-      final String trackingStr,
-      final String turnRateStr,
-      final String accuracyStr,
-      final String customPrimary,
-      final String customPrimaryHL,
-      final String customAncillary,
-      final String customAncillaryHL,
-      final String noDPSInTooltip,
-      final String number}) = _$_Weapon;
+      {String name,
+      String id,
+      String tier,
+      String rarity,
+      String base_value,
+      String range,
+      String damage_per_second,
+      String damage_per_shot,
+      String emp,
+      String impact,
+      String turn_rate,
+      String OPs,
+      String ammo,
+      String ammo_per_sec,
+      String reload_size,
+      String type,
+      String energy_per_shot,
+      String energy_per_second,
+      String chargeup,
+      String chargedown,
+      String burst_size,
+      String burst_delay,
+      String min_spread,
+      String max_spread,
+      String spread_per_shot,
+      String spread_decay_per_sec,
+      String beam_speed,
+      String proj_speed,
+      String launch_speed,
+      String flight_time,
+      String proj_hitpoints,
+      String autofireAccBonus,
+      String extraArcForAI,
+      String hints,
+      String tags,
+      String groupTag,
+      String tech_manufacturer,
+      String for_weapon_tooltip,
+      String primaryRoleStr,
+      String speedStr,
+      String trackingStr,
+      String turnRateStr,
+      String accuracyStr,
+      String customPrimary,
+      String customPrimaryHL,
+      String customAncillary,
+      String customAncillaryHL,
+      String noDPSInTooltip,
+      String number}) = _$_Weapon;
 
   @override
   String get name;
+  set name(String value);
   @override
   String get id;
+  set id(String value);
   @override
   String get tier;
+  set tier(String value);
   @override
   String get rarity;
+  set rarity(String value);
   @override
   String get base_value;
+  set base_value(String value);
   @override
   String get range;
+  set range(String value);
   @override
   String get damage_per_second;
+  set damage_per_second(String value);
   @override
   String get damage_per_shot;
+  set damage_per_shot(String value);
   @override
   String get emp;
+  set emp(String value);
   @override
   String get impact;
+  set impact(String value);
   @override
   String get turn_rate;
+  set turn_rate(String value);
   @override
   String get OPs;
+  set OPs(String value);
   @override
   String get ammo;
+  set ammo(String value);
   @override
   String get ammo_per_sec;
+  set ammo_per_sec(String value);
   @override
   String get reload_size;
+  set reload_size(String value);
   @override
   String get type;
+  set type(String value);
   @override
   String get energy_per_shot;
+  set energy_per_shot(String value);
   @override
   String get energy_per_second;
+  set energy_per_second(String value);
   @override
   String get chargeup;
+  set chargeup(String value);
   @override
   String get chargedown;
+  set chargedown(String value);
   @override
   String get burst_size;
+  set burst_size(String value);
   @override
   String get burst_delay;
+  set burst_delay(String value);
   @override
   String get min_spread;
+  set min_spread(String value);
   @override
   String get max_spread;
+  set max_spread(String value);
   @override
   String get spread_per_shot;
+  set spread_per_shot(String value);
   @override
   String get spread_decay_per_sec;
+  set spread_decay_per_sec(String value);
   @override
   String get beam_speed;
+  set beam_speed(String value);
   @override
   String get proj_speed;
+  set proj_speed(String value);
   @override
   String get launch_speed;
+  set launch_speed(String value);
   @override
   String get flight_time;
+  set flight_time(String value);
   @override
   String get proj_hitpoints;
+  set proj_hitpoints(String value);
   @override
   String get autofireAccBonus;
+  set autofireAccBonus(String value);
   @override
   String get extraArcForAI;
+  set extraArcForAI(String value);
   @override
   String get hints;
+  set hints(String value);
   @override
   String get tags;
+  set tags(String value);
   @override
   String get groupTag;
+  set groupTag(String value);
   @override
   String get tech_manufacturer;
+  set tech_manufacturer(String value);
   @override
   String get for_weapon_tooltip;
+  set for_weapon_tooltip(String value);
   @override
   String get primaryRoleStr;
+  set primaryRoleStr(String value);
   @override
   String get speedStr;
+  set speedStr(String value);
   @override
   String get trackingStr;
+  set trackingStr(String value);
   @override
   String get turnRateStr;
+  set turnRateStr(String value);
   @override
   String get accuracyStr;
+  set accuracyStr(String value);
   @override
   String get customPrimary;
+  set customPrimary(String value);
   @override
   String get customPrimaryHL;
+  set customPrimaryHL(String value);
   @override
   String get customAncillary;
+  set customAncillary(String value);
   @override
   String get customAncillaryHL;
+  set customAncillaryHL(String value);
   @override
   String get noDPSInTooltip;
+  set noDPSInTooltip(String value);
   @override
   String get number;
+  set number(String value);
   @override
   @JsonKey(ignore: true)
   _$$_WeaponCopyWith<_$_Weapon> get copyWith =>

@@ -1,22 +1,32 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starsectorcompare/csvDataLoader.dart';
+import 'package:starsectorcompare/extensions.dart';
+import 'package:starsectorcompare/homeView.dart';
 import 'package:starsectorcompare/mainMenu.dart';
 import 'package:starsectorcompare/models/settings.dart';
 import 'package:starsectorcompare/shortcuts.dart';
 import 'package:starsectorcompare/utils.dart';
 
-void main() {
+configureLogging() {
+  const logLevels = ["I", "W", "E"];
   Fimber.plantTree(
-      DebugTree.elapsed(logLevels: ["D", "I", "W", "E"], useColors: true));
+      DebugTree.elapsed(logLevels:logLevels, useColors: true));
+}
+
+void main() {
+  configureLogging();
   Fimber.i("Logging started.");
   Fimber.i(
       "Platform: ${Platform.operatingSystem} ${Platform.operatingSystemVersion}.");
   runApp(ProviderScope(observers: [SettingSaver()], child: const MyApp()));
 }
+
+// Only for use in this class. Danger danger.
+WidgetRef? _ref = null;
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -26,6 +36,7 @@ class MyApp extends ConsumerWidget {
     final orange = createMaterialColor(const Color.fromARGB(255, 255, 186, 8));
     final pink = createMaterialColor(const Color.fromARGB(255, 222, 13, 146));
     const useCustomDarkTheme = true;
+    _ref = ref;
 
     return MaterialApp(
       title: 'Flutter Demo',
@@ -66,7 +77,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
       body: Column(
         children: [
           Row(children: [Expanded(child: MainMenu())]),
-          // Expanded(child: TheGrid())
+          Expanded(child: HomeView())
           // Text(ref.watch(AppState.ship)?.toString() ?? "")
         ],
       ),
@@ -76,6 +87,19 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (settingsFile.existsSync()) {
+        Fimber.i("Loading settings from ${settingsFile.path}.");
+        try {
+          var settings =
+              Settings.fromJson(jsonDecode(settingsFile.readAsStringSync().ifEmptyOrNull("{}")));
+
+          _ref?.read(appSettings.notifier).update((state) => settings);
+        } catch (e) {
+          Fimber.e("Error loading settings from ${settingsFile.path}.", ex: e);
+        }
+      } else {
+        Fimber.i("Settings file ${settingsFile.path} does not exist.");
+      }
     });
   }
 }

@@ -5,7 +5,7 @@ import "package:freezed_annotation/freezed_annotation.dart";
 
 part '../generated/models/weapon.freezed.dart';
 
-@freezed
+@unfreezed
 class Weapon with _$Weapon {
   factory Weapon({
     @Default("") String name,
@@ -69,151 +69,151 @@ class Weapon with _$Weapon {
         var value = row[colIndex];
         switch (columnName) {
           case "name":
-            weapon = weapon.copyWith(name: value);
+            weapon.name = value;
             break;
           case "id":
-            weapon = weapon.copyWith(id: value);
+            weapon.id = value;
             break;
           case "tier":
-            weapon = weapon.copyWith(tier: value);
+            weapon.tier = value;
             break;
           case "rarity":
-            weapon = weapon.copyWith(rarity: value);
+            weapon.rarity = value;
             break;
           case "base value":
-            weapon = weapon.copyWith(base_value: value);
+            weapon.base_value = value;
             break;
           case "range":
-            weapon = weapon.copyWith(range: value);
+            weapon.range = value;
             break;
           case "damage/second":
-            weapon = weapon.copyWith(damage_per_second: value);
+            weapon.damage_per_second = value;
             break;
           case "damage/shot":
-            weapon = weapon.copyWith(damage_per_shot: value);
+            weapon.damage_per_shot = value;
             break;
           case "emp":
-            weapon = weapon.copyWith(emp: value);
+            weapon.emp = value;
             break;
           case "impact":
-            weapon = weapon.copyWith(impact: value);
+            weapon.impact = value;
             break;
           case "turn rate":
-            weapon = weapon.copyWith(turn_rate: value);
+            weapon.turn_rate = value;
             break;
           case "ops":
-            weapon = weapon.copyWith(OPs: value);
+            weapon.OPs = value;
             break;
           case "ammo":
-            weapon = weapon.copyWith(ammo: value);
+            weapon.ammo = value;
             break;
           case "ammo/sec":
-            weapon = weapon.copyWith(ammo_per_sec: value);
+            weapon.ammo_per_sec = value;
             break;
           case "reload size":
-            weapon = weapon.copyWith(reload_size: value);
+            weapon.reload_size = value;
             break;
           case "type":
-            weapon = weapon.copyWith(type: value);
+            weapon.type = value;
             break;
           case "energy/shot":
-            weapon = weapon.copyWith(energy_per_shot: value);
+            weapon.energy_per_shot = value;
             break;
           case "energy/second":
-            weapon = weapon.copyWith(energy_per_second: value);
+            weapon.energy_per_second = value;
             break;
           case "chargeup":
-            weapon = weapon.copyWith(chargeup: value);
+            weapon.chargeup = value;
             break;
           case "chargedown":
-            weapon = weapon.copyWith(chargedown: value);
+            weapon.chargedown = value;
             break;
           case "burst size":
-            weapon = weapon.copyWith(burst_size: value);
+            weapon.burst_size = value;
             break;
           case "burst delay":
-            weapon = weapon.copyWith(burst_delay: value);
+            weapon.burst_delay = value;
             break;
           case "min spread":
-            weapon = weapon.copyWith(min_spread: value);
+            weapon.min_spread = value;
             break;
           case "max spread":
-            weapon = weapon.copyWith(max_spread: value);
+            weapon.max_spread = value;
             break;
           case "spread/shot":
-            weapon = weapon.copyWith(spread_per_shot: value);
+            weapon.spread_per_shot = value;
             break;
           case "spread decay/sec":
-            weapon = weapon.copyWith(spread_decay_per_sec: value);
+            weapon.spread_decay_per_sec = value;
             break;
           case "beam speed":
-            weapon = weapon.copyWith(beam_speed: value);
+            weapon.beam_speed = value;
             break;
           case "proj speed":
-            weapon = weapon.copyWith(proj_speed: value);
+            weapon.proj_speed = value;
             break;
           case "launch speed":
-            weapon = weapon.copyWith(launch_speed: value);
+            weapon.launch_speed = value;
             break;
           case "flight time":
-            weapon = weapon.copyWith(flight_time: value);
+            weapon.flight_time = value;
             break;
           case "proj hitpoints":
-            weapon = weapon.copyWith(proj_hitpoints: value);
+            weapon.proj_hitpoints = value;
             break;
           case "autofireaccbonus":
-            weapon = weapon.copyWith(autofireAccBonus: value);
+            weapon.autofireAccBonus = value;
             break;
           case "extraarcforai":
-            weapon = weapon.copyWith(extraArcForAI: value);
+            weapon.extraArcForAI = value;
             break;
           case "hints":
-            weapon = weapon.copyWith(hints: value);
+            weapon.hints = value;
             break;
           case "tags":
-            weapon = weapon.copyWith(tags: value);
+            weapon.tags = value;
             break;
           case "grouptag":
-            weapon = weapon.copyWith(groupTag: value);
+            weapon.groupTag = value;
             break;
           case "tech/manufacturer":
-            weapon = weapon.copyWith(tech_manufacturer: value);
+            weapon.tech_manufacturer = value;
             break;
           case "for weapon tooltip>>":
-            weapon = weapon.copyWith(for_weapon_tooltip: value);
+            weapon.for_weapon_tooltip = value;
             break;
           case "primaryrolestr":
-            weapon = weapon.copyWith(primaryRoleStr: value);
+            weapon.primaryRoleStr = value;
             break;
           case "speedstr":
-            weapon = weapon.copyWith(speedStr: value);
+            weapon.speedStr = value;
             break;
           case "trackingstr":
-            weapon = weapon.copyWith(trackingStr: value);
+            weapon.trackingStr = value;
             break;
           case "turnratestr":
-            weapon = weapon.copyWith(turnRateStr: value);
+            weapon.turnRateStr = value;
             break;
           case "accuracystr":
-            weapon = weapon.copyWith(accuracyStr: value);
+            weapon.accuracyStr = value;
             break;
           case "customprimary":
-            weapon = weapon.copyWith(customPrimary: value);
+            weapon.customPrimary = value;
             break;
           case "customprimaryhl":
-            weapon = weapon.copyWith(customPrimaryHL: value);
+            weapon.customPrimaryHL = value;
             break;
           case "customancillary":
-            weapon = weapon.copyWith(customAncillary: value);
+            weapon.customAncillary = value;
             break;
           case "customancillaryhl":
-            weapon = weapon.copyWith(customAncillaryHL: value);
+            weapon.customAncillaryHL = value;
             break;
           case "nodpsintooltip":
-            weapon = weapon.copyWith(noDPSInTooltip: value);
+            weapon.noDPSInTooltip = value;
             break;
           case "number":
-            weapon = weapon.copyWith(number: value);
+            weapon.number = value;
             break;
         }
       }

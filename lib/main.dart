@@ -26,7 +26,7 @@ void main() {
 }
 
 // Only for use in this class. Danger danger.
-WidgetRef? _ref = null;
+WidgetRef? _ref;
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -73,6 +73,7 @@ class MyHomePage extends ConsumerStatefulWidget {
 class _MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 1), () => loadAppData(ref));
     return Scaffold(
       body: Column(
         children: [
@@ -86,20 +87,22 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      if (settingsFile.existsSync()) {
-        Fimber.i("Loading settings from ${settingsFile.path}.");
-        try {
-          var settings =
-              Settings.fromJson(jsonDecode(settingsFile.readAsStringSync().ifEmptyOrNull("{}")));
-
-          _ref?.read(appSettings.notifier).update((state) => settings);
-        } catch (e) {
-          Fimber.e("Error loading settings from ${settingsFile.path}.", ex: e);
-        }
-      } else {
-        Fimber.i("Settings file ${settingsFile.path} does not exist.");
-      }
-    });
   }
+
+  loadAppData(WidgetRef ref) {
+    if (settingsFile.existsSync()) {
+      Fimber.i("Loading settings from ${settingsFile.path}.");
+      try {
+        var settings = Settings.fromJson(
+            jsonDecode(settingsFile.readAsStringSync().ifEmptyOrNull("{}")));
+
+        ref.read(appSettings.notifier).update((state) => settings);
+      } catch (e) {
+        Fimber.e("Error loading settings from ${settingsFile.path}.", ex: e);
+      }
+    } else {
+      Fimber.i("Settings file ${settingsFile.path} does not exist.");
+    }
+  }
+
 }

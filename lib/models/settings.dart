@@ -5,6 +5,7 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ktx/collections.dart';
 import 'package:path/path.dart' as path;
 import 'package:starsectorcompare/models/ship.dart';
 import 'package:starsectorcompare/models/weapon.dart';
@@ -52,18 +53,16 @@ class SettingSaver extends ProviderObserver {
       var gameDir = settings.gameDir!;
 
       compute(loadData, gameDir).then((result) {
-        var weaponsByMod =
-        result["weaponsByMod"] as Map<String, Map<String, Weapon>>;
-        var shipsByMod = result["shipsByMod"] as Map<String, Map<String, Ship>>;
-        Fimber.i("Loading mods complete, ${weaponsByMod.length} weapons & ${shipsByMod.length} ships.");
+        var weaponsByMod = result["weaponsByMod"];
+        var shipsByMod = result["shipsByMod"];
 
         container
-            .read(AppState.vanillaWeaponsByIdByModId.notifier)
-            .update((state) => state..addAll(weaponsByMod));
+            .read(AppState.weaponsByIdByModId.notifier)
+            .update((state) => weaponsByMod);
 
         container
-            .read(AppState.vanillaShipsByHullIdByModId.notifier)
-            .update((state) => state..addAll(shipsByMod));
+            .read(AppState.shipsByHullIdByModId.notifier)
+            .update((state) => shipsByMod);
       });
     }
   }
@@ -81,9 +80,10 @@ List<String> getModFolderNames(String gameDir) {
 Future<Map<String, dynamic>> loadData(String gameDir) async {
   configureLogging();
   Fimber.i("Loading mods from '$gameDir'.");
+  var startTime = DateTime.now();
   // var gameDir = settings.gameDir; // context.get<String?>('gameDir');
-  var weaponsByMod = <String, Map<String, Weapon>>{};
-  var shipsByMod = <String, Map<String, Ship>>{};
+  var weaponsByMod = <String?, Map<String, Weapon>>{};
+  var shipsByMod = <String?, Map<String, Ship>>{};
 
 // Add null to the list of mod folders to load vanilla data
   List<String?> modFolderNames = [null, ...getModFolderNames(gameDir)];
@@ -92,19 +92,25 @@ Future<Map<String, dynamic>> loadData(String gameDir) async {
 
   for (var modFolderName in modFolderNames) {
     futures.add(CsvDataLoader.loadWeapons(gameDir, modFolderName).then((value) {
-      if (value != null) {
-        weaponsByMod[modFolderName ?? "vanilla"] = value;
+      if (value != null && value.isNotEmpty) {
+        weaponsByMod[modFolderName] = value;
       }
     }));
     futures.add(CsvDataLoader.loadShips(gameDir, modFolderName).then((value) {
-      if (value != null) {
-        shipsByMod[modFolderName ?? "vanilla"] = value;
+      if (value != null && value.isNotEmpty) {
+        shipsByMod[modFolderName] = value;
       }
     }));
   }
 
+  // var shipsCount = shipsByMod.map((key, value) => MapEntry(key, value.length);
+
   await Future.wait(futures);
-  Fimber.i("Done!");
+  Fimber.i(
+      "Loading data complete, ${weaponsByMod.values.sumBy((modItems) => modItems.length)} weapons "
+      "& ${shipsByMod.values.sumBy((modItems) => modItems.length)} ships "
+      "from ${{...weaponsByMod.keys, ...shipsByMod.keys}.length} mods "
+      "in ${DateTime.now().difference(startTime).inMilliseconds}ms.");
 
   return {
     "weaponsByMod": weaponsByMod,

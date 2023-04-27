@@ -6,9 +6,9 @@ import 'models/weapon.dart';
 abstract class AppState {
   static final mode = StateProvider((ref) => "null");
 
-  static final vanillaShipsByHullIdByModId =
+  static final shipsByHullIdByModId =
       StateProvider<Map<String?, Map<String, Ship>>>((ref) => {});
-  static final vanillaWeaponsByIdByModId =
+  static final weaponsByIdByModId =
       StateProvider<Map<String?, Map<String, Weapon>>>((ref) => {});
 }
 

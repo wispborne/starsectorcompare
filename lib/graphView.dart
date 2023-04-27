@@ -1,4 +1,5 @@
 import 'package:dart_extensions_methods/dart_extension_methods.dart';
+import 'package:fimber/fimber.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,17 +12,20 @@ class GraphView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var ships = ref.watch(AppState.shipsByHullIdByModId);
     return Column(
       children: [
         Container(height: 10),
         Expanded(
           child: LineChart(LineChartData(lineBarsData: [
             LineChartBarData(
-              spots: ref
-                  .watch(AppState.vanillaShipsByHullIdByModId)[null]
+              spots: ships[null]
                   ?.values
                   .map((e) => FlSpot(0, double.parse(e.hitpoints ?? "-1")))
-                  .toList(),
+                  .toList()
+                  .also((self) {
+                Fimber.i("Updated chart.");
+              }),
               isCurved: false,
             )
           ])),

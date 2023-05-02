@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/appState.dart';
 
 import 'graphView.dart';
+import 'graphViewGraphic.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({
@@ -14,7 +15,7 @@ class HomeView extends ConsumerWidget {
     return Row(
       children: [
         Expanded(
-          child: GraphView(),
+          child: GraphViewGraphic(),
         ),
       ],
     );

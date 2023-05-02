@@ -1,13 +1,3 @@
-extension ListExtensions<T> on List<T> {
-  T getOrElse(int index, T defaultValue) {
-    try {
-      return this[index];
-    } catch (e) {
-      return defaultValue;
-    }
-  }
-}
-
 extension IterableExtensions<E> on Iterable<E> {
   Iterable<List<E>> chunked(int chunkSize) sync* {
     if (length <= 0) {
@@ -33,5 +23,13 @@ extension StringExtensions on String? {
   String ifEmptyOrNull(String value) {
     if (this == null || this == "") return value;
     return this!;
+  }
+}
+
+extension DoubleExtensions on double? {
+  double? normalize(double min, double max) {
+    if (this == null) return null;
+    if (min == max) return 0;
+    return (this! - min) / (max - min);
   }
 }

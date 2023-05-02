@@ -19,7 +19,7 @@ class LoadingView extends ConsumerStatefulWidget {
 class _LoadingViewState extends ConsumerState<LoadingView> {
   @override
   Widget build(BuildContext context) {
-    loadData(ref);
+    // loadData(ref);
     return Container();
   }
 }

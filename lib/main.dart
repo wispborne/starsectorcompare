@@ -8,6 +8,7 @@ import 'package:starsectorcompare/extensions.dart';
 import 'package:starsectorcompare/homeView.dart';
 import 'package:starsectorcompare/mainMenu.dart';
 import 'package:starsectorcompare/models/settings.dart';
+import 'package:starsectorcompare/settingsSaver.dart';
 import 'package:starsectorcompare/shortcuts.dart';
 import 'package:starsectorcompare/utils.dart';
 

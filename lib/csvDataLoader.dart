@@ -7,6 +7,7 @@ import 'package:fimber/fimber.dart';
 import 'package:ktx/collections.dart';
 import 'package:path/path.dart' as p;
 import 'package:starsectorcompare/models/ship.dart';
+import 'package:starsectorcompare/utils.dart';
 
 import 'models/weapon.dart';
 
@@ -14,14 +15,20 @@ class CsvDataLoader {
   static Future<Map<String, Weapon>?> loadWeapons(
       String gameDir, String? modDirName) async {
     if (gameDir == null) return null;
+
+    // If modDirName is null, use vanilla
     var file = File(p.join(
         gameDir,
-        modDirName?.let((it) => "mods/$it") ?? "starsector-core",
+        modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,
         "data/weapons/weapon_data.csv"));
     Fimber.d("Loading '${file.path}'.");
 
     if (!file.existsSync()) {
-      Fimber.d("File doesn't exist: '$file'.");
+      if (modDirName == null) {
+        Fimber.w("File doesn't exist: '$file'.");
+      } else {
+        Fimber.d("File doesn't exist: '$file'.");
+      }
       return null;
     }
 
@@ -48,14 +55,19 @@ class CsvDataLoader {
   static Future<Map<String, Ship>?> loadShips(
       String gameDir, String? modDirName) async {
     if (gameDir == null) return null;
+    // If modDirName is null, use vanilla
     var file = File(p.join(
         gameDir,
-        modDirName?.let((it) => "mods/$it") ?? "starsector-core",
+        modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,
         "data/hulls/ship_data.csv"));
     Fimber.d("Loading '${file.path}'.");
 
     if (!file.existsSync()) {
-      Fimber.d("File doesn't exist: '$file'.");
+      if (modDirName == null) {
+        Fimber.w("File doesn't exist: '$file'.");
+      } else {
+        Fimber.d("File doesn't exist: '$file'.");
+      }
       return null;
     }
 

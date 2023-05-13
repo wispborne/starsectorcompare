@@ -8,6 +8,19 @@ import 'package:graphic/graphic.dart';
 import 'package:starsectorcompare/appState.dart';
 import 'package:starsectorcompare/extensions.dart';
 
+// class DataAttribute {
+//   String id;
+//   String name;
+//   String attr;
+//   String value;
+//   String normalizedValue;
+//   DataAttribute({
+//      this.id,
+//   });
+// }
+
+enum Columns { Hitpoints, Armor, MaxSpeed }
+
 class GraphViewGraphic extends ConsumerWidget {
   const GraphViewGraphic({
     Key? key,
@@ -21,7 +34,7 @@ class GraphViewGraphic extends ConsumerWidget {
     var attrHp = "Hitpoints";
     var attrArmor = "Armor";
     var attrMaxSpeed = "Max Speed";
-    var data = vanillaShips
+    var hpData = vanillaShips
         .map((ship) => {
               "id": ship.id,
               "name": ship.name ?? "null",
@@ -33,8 +46,8 @@ class GraphViewGraphic extends ConsumerWidget {
                       .map((e) => e.hitpoints?.toDoubleOrNull() ?? 0)
                       .max)
             })
-        .toList()
-      ..addAll(vanillaShips
+        .toList();
+    var armorData = vanillaShips
           .map((ship) => {
                 "id": ship.id,
                 "name": ship.name ?? "null",
@@ -48,8 +61,8 @@ class GraphViewGraphic extends ConsumerWidget {
                             .map((e) => e.armor_rating?.toDoubleOrNull() ?? 0)
                             .max)
               })
-          .toList())
-      ..addAll(vanillaShips
+          .toList();
+    var maxSpeedData = vanillaShips
           .map((ship) => {
                 "id": ship.id,
                 "name": ship.name ?? "null",
@@ -61,7 +74,14 @@ class GraphViewGraphic extends ConsumerWidget {
                         .map((e) => e.max_speed?.toDoubleOrNull() ?? 0)
                         .max)
               })
-          .toList());
+          .toList();
+
+
+    var columns = [
+      hpData, armorData, maxSpeedData
+    ];
+
+    var data = columns.reduce((value, element) => value..addAll(element));
 
     return data.isEmpty
         ? SizedBox.fromSize(
@@ -204,15 +224,19 @@ class GraphViewGraphic extends ConsumerWidget {
                           ],
                         ),
                         annotations: [
-                          TagAnnotation(
-                              label: Label(
-                                "HP",
-                                LabelStyle(
-                                    textStyle: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium),
-                              ),
-                              values: data.map((e) => ['Hitpoints', e['normalizedValue'] as double?]).flattened.toList()),
+                          ...([data[0]].map((entity) => TagAnnotation(
+                                  label: Label(
+                                    entity["name"].toString(),
+                                    LabelStyle(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium),
+                                  ),
+                                  // Takes each data point and uses the normalized value for the y coordinate.
+                                  values: [
+                                    entity['attr'],
+                                    entity['normalizedValue'] as double?
+                                  ]))),
                         ],
                       ))),
             ],

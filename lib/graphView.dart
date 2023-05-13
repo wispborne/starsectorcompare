@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/appState.dart';
 
+@Deprecated("Using graphicViewGraphic")
 class GraphView extends ConsumerWidget {
   const GraphView({
     Key? key,

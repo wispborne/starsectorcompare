@@ -51,6 +51,7 @@ dependencies:
   ossa: ^1.0.4
   graphic: ^2.1.0
   collection: ^1.17.1
+  #fluent_ui: ^4.4.2
 
 dev_dependencies:
   json_serializable: ^6.5.0

@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'models/ship.dart';
+import 'models/shipFilter.dart';
 import 'models/weapon.dart';
 
 abstract class AppState {
@@ -10,6 +11,8 @@ abstract class AppState {
       StateProvider<Map<String?, Map<String, Ship>>>((ref) => {});
   static final weaponsByIdByModId =
       StateProvider<Map<String?, Map<String, Weapon>>>((ref) => {});
+
+  static final shipFilter = StateProvider((ref) => ShipFilter());
 }
 
 extension SetAdding on Map<String, Set<String>> {

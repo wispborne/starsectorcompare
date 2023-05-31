@@ -7,11 +7,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ktx/collections.dart';
 import 'package:path/path.dart' as path;
-import 'package:starsectorcompare/models/ship.dart';
-import 'package:starsectorcompare/models/weapon.dart';
+import 'package:starsectorcompare/loading/loadVanilla.dart';
+import 'package:starsectorcompare/models/shipCsv.dart';
+import 'package:starsectorcompare/models/weaponCsv.dart';
 
 import '../appState.dart';
-import '../csvDataLoader.dart';
+import 'loading/csvDataLoader.dart';
 import '../main.dart';
 import 'models/settings.dart';
 
@@ -39,18 +40,28 @@ class SettingSaver extends ProviderObserver {
 
       var gameDir = settings.gameDir!;
 
-      compute(loadData, gameDir).then((result) {
-        var weaponsByMod = result["weaponsByMod"];
-        var shipsByMod = result["shipsByMod"];
+      try {
+        compute(loadData, gameDir).then((result) {
+          var weaponsByMod = result["weaponsByMod"];
+          var shipsByMod = result["shipsByMod"];
 
-        container
-            .read(AppState.weaponsByIdByModId.notifier)
-            .update((state) => weaponsByMod);
+          container
+              .read(AppState.weaponsInCsvByIdByModId.notifier)
+              .update((state) => weaponsByMod);
 
-        container
-            .read(AppState.shipsByHullIdByModId.notifier)
-            .update((state) => shipsByMod);
-      });
+          container
+              .read(AppState.shipsInCsvByHullIdByModId.notifier)
+              .update((state) => shipsByMod);
+
+          container.read(AppState.shipsInJsonByHullIIdByModId.notifier)
+          .update((state) => result["jsonShipsByIdByMod"]);
+
+          container.read(AppState.weaponsById.notifier)
+              .update((state) => result["wepsById"] ?? {});
+        });
+      } catch (e, s) {
+        Fimber.e("Error loading data", ex: e, stacktrace: s);
+      }
     }
   }
 }
@@ -60,8 +71,9 @@ Future<Map<String, dynamic>> loadData(String gameDir) async {
   Fimber.i("Loading vanilla and mod data from '$gameDir'.");
   var startTime = DateTime.now();
   // var gameDir = settings.gameDir; // context.get<String?>('gameDir');
-  var weaponsByMod = <String?, Map<String, Weapon>>{};
-  var shipsByMod = <String?, Map<String, Ship>>{};
+  var weaponsByMod = <String?, Map<String, WeaponCsv>>{};
+  var shipsByMod = <String?, Map<String, ShipCsv>>{};
+  var jsonShipsAndWepsByMod = <String?, Map<String, dynamic>>{};
 
 // Add null to the list of mod folders to load vanilla data
   List<String?> modFolderNames = [null, ...getModFolderNames(gameDir)];
@@ -79,6 +91,11 @@ Future<Map<String, dynamic>> loadData(String gameDir) async {
         shipsByMod[modFolderName] = value;
       }
     }));
+    futures.add(loadGameData(gameDir, modFolderName).then((value) {
+      if (value != null && value.isNotEmpty) {
+        jsonShipsAndWepsByMod[modFolderName] = value;
+      }
+    }));
   }
 
   // var shipsCount = shipsByMod.map((key, value) => MapEntry(key, value.length);
@@ -93,6 +110,8 @@ Future<Map<String, dynamic>> loadData(String gameDir) async {
   return {
     "weaponsByMod": weaponsByMod,
     "shipsByMod": shipsByMod,
+    "jsonShipsByIdByMod" : shipsAndWeps["jsonShipsByIdByMod"],
+    "weaponsById" : shipsAndWeps["wepsById"],
   };
 }
 

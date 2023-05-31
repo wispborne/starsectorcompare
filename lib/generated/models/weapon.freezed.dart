@@ -14,107 +14,99 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Weapon _$WeaponFromJson(Map<String, dynamic> json) {
+  return _Weapon.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Weapon {
-  String get name => throw _privateConstructorUsedError;
-  set name(String value) => throw _privateConstructorUsedError;
+// there are only two type of weapon for now.
+// specClass = projectile Or specClass = beam
+// essential to both
   String get id => throw _privateConstructorUsedError;
-  set id(String value) => throw _privateConstructorUsedError;
-  String get tier => throw _privateConstructorUsedError;
-  set tier(String value) => throw _privateConstructorUsedError;
-  String get rarity => throw _privateConstructorUsedError;
-  set rarity(String value) => throw _privateConstructorUsedError;
-  String get base_value => throw _privateConstructorUsedError;
-  set base_value(String value) => throw _privateConstructorUsedError;
-  String get range => throw _privateConstructorUsedError;
-  set range(String value) => throw _privateConstructorUsedError;
-  String get damage_per_second => throw _privateConstructorUsedError;
-  set damage_per_second(String value) => throw _privateConstructorUsedError;
-  String get damage_per_shot => throw _privateConstructorUsedError;
-  set damage_per_shot(String value) => throw _privateConstructorUsedError;
-  String get emp => throw _privateConstructorUsedError;
-  set emp(String value) => throw _privateConstructorUsedError;
-  String get impact => throw _privateConstructorUsedError;
-  set impact(String value) => throw _privateConstructorUsedError;
-  String get turn_rate => throw _privateConstructorUsedError;
-  set turn_rate(String value) => throw _privateConstructorUsedError;
-  String get OPs => throw _privateConstructorUsedError;
-  set OPs(String value) => throw _privateConstructorUsedError;
-  String get ammo => throw _privateConstructorUsedError;
-  set ammo(String value) => throw _privateConstructorUsedError;
-  String get ammo_per_sec => throw _privateConstructorUsedError;
-  set ammo_per_sec(String value) => throw _privateConstructorUsedError;
-  String get reload_size => throw _privateConstructorUsedError;
-  set reload_size(String value) => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  set type(String value) => throw _privateConstructorUsedError;
-  String get energy_per_shot => throw _privateConstructorUsedError;
-  set energy_per_shot(String value) => throw _privateConstructorUsedError;
-  String get energy_per_second => throw _privateConstructorUsedError;
-  set energy_per_second(String value) => throw _privateConstructorUsedError;
-  String get chargeup => throw _privateConstructorUsedError;
-  set chargeup(String value) => throw _privateConstructorUsedError;
-  String get chargedown => throw _privateConstructorUsedError;
-  set chargedown(String value) => throw _privateConstructorUsedError;
-  String get burst_size => throw _privateConstructorUsedError;
-  set burst_size(String value) => throw _privateConstructorUsedError;
-  String get burst_delay => throw _privateConstructorUsedError;
-  set burst_delay(String value) => throw _privateConstructorUsedError;
-  String get min_spread => throw _privateConstructorUsedError;
-  set min_spread(String value) => throw _privateConstructorUsedError;
-  String get max_spread => throw _privateConstructorUsedError;
-  set max_spread(String value) => throw _privateConstructorUsedError;
-  String get spread_per_shot => throw _privateConstructorUsedError;
-  set spread_per_shot(String value) => throw _privateConstructorUsedError;
-  String get spread_decay_per_sec => throw _privateConstructorUsedError;
-  set spread_decay_per_sec(String value) => throw _privateConstructorUsedError;
-  String get beam_speed => throw _privateConstructorUsedError;
-  set beam_speed(String value) => throw _privateConstructorUsedError;
-  String get proj_speed => throw _privateConstructorUsedError;
-  set proj_speed(String value) => throw _privateConstructorUsedError;
-  String get launch_speed => throw _privateConstructorUsedError;
-  set launch_speed(String value) => throw _privateConstructorUsedError;
-  String get flight_time => throw _privateConstructorUsedError;
-  set flight_time(String value) => throw _privateConstructorUsedError;
-  String get proj_hitpoints => throw _privateConstructorUsedError;
-  set proj_hitpoints(String value) => throw _privateConstructorUsedError;
-  String get autofireAccBonus => throw _privateConstructorUsedError;
-  set autofireAccBonus(String value) => throw _privateConstructorUsedError;
-  String get extraArcForAI => throw _privateConstructorUsedError;
-  set extraArcForAI(String value) => throw _privateConstructorUsedError;
-  String get hints => throw _privateConstructorUsedError;
-  set hints(String value) => throw _privateConstructorUsedError;
-  String get tags => throw _privateConstructorUsedError;
-  set tags(String value) => throw _privateConstructorUsedError;
-  String get groupTag => throw _privateConstructorUsedError;
-  set groupTag(String value) => throw _privateConstructorUsedError;
-  String get tech_manufacturer => throw _privateConstructorUsedError;
-  set tech_manufacturer(String value) => throw _privateConstructorUsedError;
-  String get for_weapon_tooltip => throw _privateConstructorUsedError;
-  set for_weapon_tooltip(String value) => throw _privateConstructorUsedError;
-  String get primaryRoleStr => throw _privateConstructorUsedError;
-  set primaryRoleStr(String value) => throw _privateConstructorUsedError;
-  String get speedStr => throw _privateConstructorUsedError;
-  set speedStr(String value) => throw _privateConstructorUsedError;
-  String get trackingStr => throw _privateConstructorUsedError;
-  set trackingStr(String value) => throw _privateConstructorUsedError;
-  String get turnRateStr => throw _privateConstructorUsedError;
-  set turnRateStr(String value) => throw _privateConstructorUsedError;
-  String get accuracyStr => throw _privateConstructorUsedError;
-  set accuracyStr(String value) => throw _privateConstructorUsedError;
-  String get customPrimary => throw _privateConstructorUsedError;
-  set customPrimary(String value) => throw _privateConstructorUsedError;
-  String get customPrimaryHL => throw _privateConstructorUsedError;
-  set customPrimaryHL(String value) => throw _privateConstructorUsedError;
-  String get customAncillary => throw _privateConstructorUsedError;
-  set customAncillary(String value) => throw _privateConstructorUsedError;
-  String get customAncillaryHL => throw _privateConstructorUsedError;
-  set customAncillaryHL(String value) => throw _privateConstructorUsedError;
-  String get noDPSInTooltip => throw _privateConstructorUsedError;
-  set noDPSInTooltip(String value) => throw _privateConstructorUsedError;
-  String get number => throw _privateConstructorUsedError;
-  set number(String value) => throw _privateConstructorUsedError;
+  String? get specClass => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  String? get size => throw _privateConstructorUsedError;
+  String? get turretSprite => throw _privateConstructorUsedError;
+  String? get hardpointSprite => throw _privateConstructorUsedError;
+  List<double>? get turretOffsets => throw _privateConstructorUsedError;
+  List<double>? get turretAngleOffsets => throw _privateConstructorUsedError;
+  List<double>? get hardpointOffsets => throw _privateConstructorUsedError;
+  List<double>? get hardpointAngleOffsets => throw _privateConstructorUsedError;
+  List<double>? get glowColor =>
+      throw _privateConstructorUsedError; // essential to projectile
+  String? get projectileSpecId => throw _privateConstructorUsedError;
+  String? get barrelMode =>
+      throw _privateConstructorUsedError; // essential to beam
+  List<double>? get fringeColor => throw _privateConstructorUsedError;
+  List<double>? get coreColor => throw _privateConstructorUsedError;
 
+  /// Enum or `Set<String>`
+  dynamic get textureType =>
+      throw _privateConstructorUsedError; // TEnum or TString[]
+// optional
+  String? get mountTypeOverride =>
+      throw _privateConstructorUsedError; // 0.95.1 new
+  String? get turretUnderSprite => throw _privateConstructorUsedError;
+  String? get turretGunSprite => throw _privateConstructorUsedError;
+  String? get turretGlowSprite => throw _privateConstructorUsedError;
+  String? get hardpointUnderSprite => throw _privateConstructorUsedError;
+  String? get hardpointGunSprite => throw _privateConstructorUsedError;
+  String? get hardpointGlowSprite => throw _privateConstructorUsedError;
+  String? get fireSoundOne => throw _privateConstructorUsedError;
+  String? get fireSoundTwo => throw _privateConstructorUsedError;
+  String? get everyFrameEffect => throw _privateConstructorUsedError;
+  bool? get animateWhileFiring => throw _privateConstructorUsedError;
+  @BoolConverter()
+  bool? get alwaysAnimate => throw _privateConstructorUsedError;
+  int? get numFrames => throw _privateConstructorUsedError;
+  double? get frameRate => throw _privateConstructorUsedError;
+  Set<String>? get renderHints => throw _privateConstructorUsedError;
+  bool? get renderBelowAllWeapons => throw _privateConstructorUsedError;
+  bool? get renderAboveAllWeapons => throw _privateConstructorUsedError;
+  bool? get showDamageWhenDecorative => throw _privateConstructorUsedError;
+  double? get displayArcRadius =>
+      throw _privateConstructorUsedError; // default is 250 but meh
+  double? get specialWeaponGlowHeight =>
+      throw _privateConstructorUsedError; // default is 0 but meh
+  double? get specialWeaponGlowWidth =>
+      throw _privateConstructorUsedError; // default is 0 but meh
+// optional, projectile only
+  String? get animationType => throw _privateConstructorUsedError;
+  double? get visualRecoil => throw _privateConstructorUsedError;
+  bool? get separateRecoilForLinkedBarrels =>
+      throw _privateConstructorUsedError;
+  bool? get interruptibleBurst => throw _privateConstructorUsedError;
+  bool? get autocharge => throw _privateConstructorUsedError;
+  bool? get requiresFullCharge => throw _privateConstructorUsedError;
+  WeaponMuzzleFlashSpec? get muzzleFlashSpec =>
+      throw _privateConstructorUsedError;
+  WeaponSmokeSpec? get smokeSpec => throw _privateConstructorUsedError;
+  bool? get noImpactSounds => throw _privateConstructorUsedError;
+  bool? get noShieldImpactSounds => throw _privateConstructorUsedError;
+  bool? get noNonShieldImpactSounds => throw _privateConstructorUsedError;
+  bool? get unaffectedByProjectileSpeedBonuses =>
+      throw _privateConstructorUsedError; // 0.95 new
+// optional, beam only
+  String? get beamEffect => throw _privateConstructorUsedError;
+  bool? get beamFireOnlyOnFullCharge => throw _privateConstructorUsedError;
+  bool? get convergeOnPoint => throw _privateConstructorUsedError;
+  double? get width => throw _privateConstructorUsedError;
+  double? get textureScrollSpeed => throw _privateConstructorUsedError;
+  double? get pixelsPerTexel => throw _privateConstructorUsedError;
+  double? get hitGlowRadius => throw _privateConstructorUsedError;
+  bool? get darkCore => throw _privateConstructorUsedError;
+  int? get darkFringeIter => throw _privateConstructorUsedError; // 0.95 new
+  int? get darkCoreIter => throw _privateConstructorUsedError; // 0.95 new
+  double? get coreWidthMult => throw _privateConstructorUsedError; // 0.95 new
+  String? get collisionClass => throw _privateConstructorUsedError;
+  String? get collisionClassByFighter => throw _privateConstructorUsedError;
+  Set<String>? get pierceSet => throw _privateConstructorUsedError;
+  bool get autofire => throw _privateConstructorUsedError;
+  String get mode => throw _privateConstructorUsedError;
+  Map<String, String> get weapons => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WeaponCopyWith<Weapon> get copyWith => throw _privateConstructorUsedError;
 }
@@ -125,55 +117,75 @@ abstract class $WeaponCopyWith<$Res> {
       _$WeaponCopyWithImpl<$Res, Weapon>;
   @useResult
   $Res call(
-      {String name,
-      String id,
-      String tier,
-      String rarity,
-      String base_value,
-      String range,
-      String damage_per_second,
-      String damage_per_shot,
-      String emp,
-      String impact,
-      String turn_rate,
-      String OPs,
-      String ammo,
-      String ammo_per_sec,
-      String reload_size,
-      String type,
-      String energy_per_shot,
-      String energy_per_second,
-      String chargeup,
-      String chargedown,
-      String burst_size,
-      String burst_delay,
-      String min_spread,
-      String max_spread,
-      String spread_per_shot,
-      String spread_decay_per_sec,
-      String beam_speed,
-      String proj_speed,
-      String launch_speed,
-      String flight_time,
-      String proj_hitpoints,
-      String autofireAccBonus,
-      String extraArcForAI,
-      String hints,
-      String tags,
-      String groupTag,
-      String tech_manufacturer,
-      String for_weapon_tooltip,
-      String primaryRoleStr,
-      String speedStr,
-      String trackingStr,
-      String turnRateStr,
-      String accuracyStr,
-      String customPrimary,
-      String customPrimaryHL,
-      String customAncillary,
-      String customAncillaryHL,
-      String noDPSInTooltip,
-      String number});
+      {String id,
+      String? specClass,
+      String? type,
+      String? size,
+      String? turretSprite,
+      String? hardpointSprite,
+      List<double>? turretOffsets,
+      List<double>? turretAngleOffsets,
+      List<double>? hardpointOffsets,
+      List<double>? hardpointAngleOffsets,
+      List<double>? glowColor,
+      String? projectileSpecId,
+      String? barrelMode,
+      List<double>? fringeColor,
+      List<double>? coreColor,
+      dynamic textureType,
+      String? mountTypeOverride,
+      String? turretUnderSprite,
+      String? turretGunSprite,
+      String? turretGlowSprite,
+      String? hardpointUnderSprite,
+      String? hardpointGunSprite,
+      String? hardpointGlowSprite,
+      String? fireSoundOne,
+      String? fireSoundTwo,
+      String? everyFrameEffect,
+      bool? animateWhileFiring,
+      @BoolConverter() bool? alwaysAnimate,
+      int? numFrames,
+      double? frameRate,
+      Set<String>? renderHints,
+      bool? renderBelowAllWeapons,
+      bool? renderAboveAllWeapons,
+      bool? showDamageWhenDecorative,
+      double? displayArcRadius,
+      double? specialWeaponGlowHeight,
+      double? specialWeaponGlowWidth,
+      String? animationType,
+      double? visualRecoil,
+      bool? separateRecoilForLinkedBarrels,
+      bool? interruptibleBurst,
+      bool? autocharge,
+      bool? requiresFullCharge,
+      WeaponMuzzleFlashSpec? muzzleFlashSpec,
+      WeaponSmokeSpec? smokeSpec,
+      bool? noImpactSounds,
+      bool? noShieldImpactSounds,
+      bool? noNonShieldImpactSounds,
+      bool? unaffectedByProjectileSpeedBonuses,
+      String? beamEffect,
+      bool? beamFireOnlyOnFullCharge,
+      bool? convergeOnPoint,
+      double? width,
+      double? textureScrollSpeed,
+      double? pixelsPerTexel,
+      double? hitGlowRadius,
+      bool? darkCore,
+      int? darkFringeIter,
+      int? darkCoreIter,
+      double? coreWidthMult,
+      String? collisionClass,
+      String? collisionClassByFighter,
+      Set<String>? pierceSet,
+      bool autofire,
+      String mode,
+      Map<String, String> weapons});
+
+  $WeaponMuzzleFlashSpecCopyWith<$Res>? get muzzleFlashSpec;
+  $WeaponSmokeSpecCopyWith<$Res>? get smokeSpec;
 }
 
 /// @nodoc
@@ -189,254 +201,365 @@ class _$WeaponCopyWithImpl<$Res, $Val extends Weapon>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? id = null,
-    Object? tier = null,
-    Object? rarity = null,
-    Object? base_value = null,
-    Object? range = null,
-    Object? damage_per_second = null,
-    Object? damage_per_shot = null,
-    Object? emp = null,
-    Object? impact = null,
-    Object? turn_rate = null,
-    Object? OPs = null,
-    Object? ammo = null,
-    Object? ammo_per_sec = null,
-    Object? reload_size = null,
-    Object? type = null,
-    Object? energy_per_shot = null,
-    Object? energy_per_second = null,
-    Object? chargeup = null,
-    Object? chargedown = null,
-    Object? burst_size = null,
-    Object? burst_delay = null,
-    Object? min_spread = null,
-    Object? max_spread = null,
-    Object? spread_per_shot = null,
-    Object? spread_decay_per_sec = null,
-    Object? beam_speed = null,
-    Object? proj_speed = null,
-    Object? launch_speed = null,
-    Object? flight_time = null,
-    Object? proj_hitpoints = null,
-    Object? autofireAccBonus = null,
-    Object? extraArcForAI = null,
-    Object? hints = null,
-    Object? tags = null,
-    Object? groupTag = null,
-    Object? tech_manufacturer = null,
-    Object? for_weapon_tooltip = null,
-    Object? primaryRoleStr = null,
-    Object? speedStr = null,
-    Object? trackingStr = null,
-    Object? turnRateStr = null,
-    Object? accuracyStr = null,
-    Object? customPrimary = null,
-    Object? customPrimaryHL = null,
-    Object? customAncillary = null,
-    Object? customAncillaryHL = null,
-    Object? noDPSInTooltip = null,
-    Object? number = null,
+    Object? specClass = freezed,
+    Object? type = freezed,
+    Object? size = freezed,
+    Object? turretSprite = freezed,
+    Object? hardpointSprite = freezed,
+    Object? turretOffsets = freezed,
+    Object? turretAngleOffsets = freezed,
+    Object? hardpointOffsets = freezed,
+    Object? hardpointAngleOffsets = freezed,
+    Object? glowColor = freezed,
+    Object? projectileSpecId = freezed,
+    Object? barrelMode = freezed,
+    Object? fringeColor = freezed,
+    Object? coreColor = freezed,
+    Object? textureType = freezed,
+    Object? mountTypeOverride = freezed,
+    Object? turretUnderSprite = freezed,
+    Object? turretGunSprite = freezed,
+    Object? turretGlowSprite = freezed,
+    Object? hardpointUnderSprite = freezed,
+    Object? hardpointGunSprite = freezed,
+    Object? hardpointGlowSprite = freezed,
+    Object? fireSoundOne = freezed,
+    Object? fireSoundTwo = freezed,
+    Object? everyFrameEffect = freezed,
+    Object? animateWhileFiring = freezed,
+    Object? alwaysAnimate = freezed,
+    Object? numFrames = freezed,
+    Object? frameRate = freezed,
+    Object? renderHints = freezed,
+    Object? renderBelowAllWeapons = freezed,
+    Object? renderAboveAllWeapons = freezed,
+    Object? showDamageWhenDecorative = freezed,
+    Object? displayArcRadius = freezed,
+    Object? specialWeaponGlowHeight = freezed,
+    Object? specialWeaponGlowWidth = freezed,
+    Object? animationType = freezed,
+    Object? visualRecoil = freezed,
+    Object? separateRecoilForLinkedBarrels = freezed,
+    Object? interruptibleBurst = freezed,
+    Object? autocharge = freezed,
+    Object? requiresFullCharge = freezed,
+    Object? muzzleFlashSpec = freezed,
+    Object? smokeSpec = freezed,
+    Object? noImpactSounds = freezed,
+    Object? noShieldImpactSounds = freezed,
+    Object? noNonShieldImpactSounds = freezed,
+    Object? unaffectedByProjectileSpeedBonuses = freezed,
+    Object? beamEffect = freezed,
+    Object? beamFireOnlyOnFullCharge = freezed,
+    Object? convergeOnPoint = freezed,
+    Object? width = freezed,
+    Object? textureScrollSpeed = freezed,
+    Object? pixelsPerTexel = freezed,
+    Object? hitGlowRadius = freezed,
+    Object? darkCore = freezed,
+    Object? darkFringeIter = freezed,
+    Object? darkCoreIter = freezed,
+    Object? coreWidthMult = freezed,
+    Object? collisionClass = freezed,
+    Object? collisionClassByFighter = freezed,
+    Object? pierceSet = freezed,
+    Object? autofire = null,
+    Object? mode = null,
+    Object? weapons = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      tier: null == tier
-          ? _value.tier
-          : tier // ignore: cast_nullable_to_non_nullable
-              as String,
-      rarity: null == rarity
-          ? _value.rarity
-          : rarity // ignore: cast_nullable_to_non_nullable
-              as String,
-      base_value: null == base_value
-          ? _value.base_value
-          : base_value // ignore: cast_nullable_to_non_nullable
-              as String,
-      range: null == range
-          ? _value.range
-          : range // ignore: cast_nullable_to_non_nullable
-              as String,
-      damage_per_second: null == damage_per_second
-          ? _value.damage_per_second
-          : damage_per_second // ignore: cast_nullable_to_non_nullable
-              as String,
-      damage_per_shot: null == damage_per_shot
-          ? _value.damage_per_shot
-          : damage_per_shot // ignore: cast_nullable_to_non_nullable
-              as String,
-      emp: null == emp
-          ? _value.emp
-          : emp // ignore: cast_nullable_to_non_nullable
-              as String,
-      impact: null == impact
-          ? _value.impact
-          : impact // ignore: cast_nullable_to_non_nullable
-              as String,
-      turn_rate: null == turn_rate
-          ? _value.turn_rate
-          : turn_rate // ignore: cast_nullable_to_non_nullable
-              as String,
-      OPs: null == OPs
-          ? _value.OPs
-          : OPs // ignore: cast_nullable_to_non_nullable
-              as String,
-      ammo: null == ammo
-          ? _value.ammo
-          : ammo // ignore: cast_nullable_to_non_nullable
-              as String,
-      ammo_per_sec: null == ammo_per_sec
-          ? _value.ammo_per_sec
-          : ammo_per_sec // ignore: cast_nullable_to_non_nullable
-              as String,
-      reload_size: null == reload_size
-          ? _value.reload_size
-          : reload_size // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+      specClass: freezed == specClass
+          ? _value.specClass
+          : specClass // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretSprite: freezed == turretSprite
+          ? _value.turretSprite
+          : turretSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointSprite: freezed == hardpointSprite
+          ? _value.hardpointSprite
+          : hardpointSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretOffsets: freezed == turretOffsets
+          ? _value.turretOffsets
+          : turretOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      turretAngleOffsets: freezed == turretAngleOffsets
+          ? _value.turretAngleOffsets
+          : turretAngleOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      hardpointOffsets: freezed == hardpointOffsets
+          ? _value.hardpointOffsets
+          : hardpointOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      hardpointAngleOffsets: freezed == hardpointAngleOffsets
+          ? _value.hardpointAngleOffsets
+          : hardpointAngleOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      glowColor: freezed == glowColor
+          ? _value.glowColor
+          : glowColor // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      projectileSpecId: freezed == projectileSpecId
+          ? _value.projectileSpecId
+          : projectileSpecId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      barrelMode: freezed == barrelMode
+          ? _value.barrelMode
+          : barrelMode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fringeColor: freezed == fringeColor
+          ? _value.fringeColor
+          : fringeColor // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      coreColor: freezed == coreColor
+          ? _value.coreColor
+          : coreColor // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      textureType: freezed == textureType
+          ? _value.textureType
+          : textureType // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      mountTypeOverride: freezed == mountTypeOverride
+          ? _value.mountTypeOverride
+          : mountTypeOverride // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretUnderSprite: freezed == turretUnderSprite
+          ? _value.turretUnderSprite
+          : turretUnderSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretGunSprite: freezed == turretGunSprite
+          ? _value.turretGunSprite
+          : turretGunSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretGlowSprite: freezed == turretGlowSprite
+          ? _value.turretGlowSprite
+          : turretGlowSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointUnderSprite: freezed == hardpointUnderSprite
+          ? _value.hardpointUnderSprite
+          : hardpointUnderSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointGunSprite: freezed == hardpointGunSprite
+          ? _value.hardpointGunSprite
+          : hardpointGunSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointGlowSprite: freezed == hardpointGlowSprite
+          ? _value.hardpointGlowSprite
+          : hardpointGlowSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fireSoundOne: freezed == fireSoundOne
+          ? _value.fireSoundOne
+          : fireSoundOne // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fireSoundTwo: freezed == fireSoundTwo
+          ? _value.fireSoundTwo
+          : fireSoundTwo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      everyFrameEffect: freezed == everyFrameEffect
+          ? _value.everyFrameEffect
+          : everyFrameEffect // ignore: cast_nullable_to_non_nullable
+              as String?,
+      animateWhileFiring: freezed == animateWhileFiring
+          ? _value.animateWhileFiring
+          : animateWhileFiring // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      alwaysAnimate: freezed == alwaysAnimate
+          ? _value.alwaysAnimate
+          : alwaysAnimate // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      numFrames: freezed == numFrames
+          ? _value.numFrames
+          : numFrames // ignore: cast_nullable_to_non_nullable
+              as int?,
+      frameRate: freezed == frameRate
+          ? _value.frameRate
+          : frameRate // ignore: cast_nullable_to_non_nullable
+              as double?,
+      renderHints: freezed == renderHints
+          ? _value.renderHints
+          : renderHints // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      renderBelowAllWeapons: freezed == renderBelowAllWeapons
+          ? _value.renderBelowAllWeapons
+          : renderBelowAllWeapons // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      renderAboveAllWeapons: freezed == renderAboveAllWeapons
+          ? _value.renderAboveAllWeapons
+          : renderAboveAllWeapons // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      showDamageWhenDecorative: freezed == showDamageWhenDecorative
+          ? _value.showDamageWhenDecorative
+          : showDamageWhenDecorative // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      displayArcRadius: freezed == displayArcRadius
+          ? _value.displayArcRadius
+          : displayArcRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      specialWeaponGlowHeight: freezed == specialWeaponGlowHeight
+          ? _value.specialWeaponGlowHeight
+          : specialWeaponGlowHeight // ignore: cast_nullable_to_non_nullable
+              as double?,
+      specialWeaponGlowWidth: freezed == specialWeaponGlowWidth
+          ? _value.specialWeaponGlowWidth
+          : specialWeaponGlowWidth // ignore: cast_nullable_to_non_nullable
+              as double?,
+      animationType: freezed == animationType
+          ? _value.animationType
+          : animationType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visualRecoil: freezed == visualRecoil
+          ? _value.visualRecoil
+          : visualRecoil // ignore: cast_nullable_to_non_nullable
+              as double?,
+      separateRecoilForLinkedBarrels: freezed == separateRecoilForLinkedBarrels
+          ? _value.separateRecoilForLinkedBarrels
+          : separateRecoilForLinkedBarrels // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      interruptibleBurst: freezed == interruptibleBurst
+          ? _value.interruptibleBurst
+          : interruptibleBurst // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      autocharge: freezed == autocharge
+          ? _value.autocharge
+          : autocharge // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      requiresFullCharge: freezed == requiresFullCharge
+          ? _value.requiresFullCharge
+          : requiresFullCharge // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      muzzleFlashSpec: freezed == muzzleFlashSpec
+          ? _value.muzzleFlashSpec
+          : muzzleFlashSpec // ignore: cast_nullable_to_non_nullable
+              as WeaponMuzzleFlashSpec?,
+      smokeSpec: freezed == smokeSpec
+          ? _value.smokeSpec
+          : smokeSpec // ignore: cast_nullable_to_non_nullable
+              as WeaponSmokeSpec?,
+      noImpactSounds: freezed == noImpactSounds
+          ? _value.noImpactSounds
+          : noImpactSounds // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      noShieldImpactSounds: freezed == noShieldImpactSounds
+          ? _value.noShieldImpactSounds
+          : noShieldImpactSounds // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      noNonShieldImpactSounds: freezed == noNonShieldImpactSounds
+          ? _value.noNonShieldImpactSounds
+          : noNonShieldImpactSounds // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      unaffectedByProjectileSpeedBonuses: freezed ==
+              unaffectedByProjectileSpeedBonuses
+          ? _value.unaffectedByProjectileSpeedBonuses
+          : unaffectedByProjectileSpeedBonuses // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      beamEffect: freezed == beamEffect
+          ? _value.beamEffect
+          : beamEffect // ignore: cast_nullable_to_non_nullable
+              as String?,
+      beamFireOnlyOnFullCharge: freezed == beamFireOnlyOnFullCharge
+          ? _value.beamFireOnlyOnFullCharge
+          : beamFireOnlyOnFullCharge // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      convergeOnPoint: freezed == convergeOnPoint
+          ? _value.convergeOnPoint
+          : convergeOnPoint // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      textureScrollSpeed: freezed == textureScrollSpeed
+          ? _value.textureScrollSpeed
+          : textureScrollSpeed // ignore: cast_nullable_to_non_nullable
+              as double?,
+      pixelsPerTexel: freezed == pixelsPerTexel
+          ? _value.pixelsPerTexel
+          : pixelsPerTexel // ignore: cast_nullable_to_non_nullable
+              as double?,
+      hitGlowRadius: freezed == hitGlowRadius
+          ? _value.hitGlowRadius
+          : hitGlowRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      darkCore: freezed == darkCore
+          ? _value.darkCore
+          : darkCore // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      darkFringeIter: freezed == darkFringeIter
+          ? _value.darkFringeIter
+          : darkFringeIter // ignore: cast_nullable_to_non_nullable
+              as int?,
+      darkCoreIter: freezed == darkCoreIter
+          ? _value.darkCoreIter
+          : darkCoreIter // ignore: cast_nullable_to_non_nullable
+              as int?,
+      coreWidthMult: freezed == coreWidthMult
+          ? _value.coreWidthMult
+          : coreWidthMult // ignore: cast_nullable_to_non_nullable
+              as double?,
+      collisionClass: freezed == collisionClass
+          ? _value.collisionClass
+          : collisionClass // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collisionClassByFighter: freezed == collisionClassByFighter
+          ? _value.collisionClassByFighter
+          : collisionClassByFighter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pierceSet: freezed == pierceSet
+          ? _value.pierceSet
+          : pierceSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      autofire: null == autofire
+          ? _value.autofire
+          : autofire // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
               as String,
-      energy_per_shot: null == energy_per_shot
-          ? _value.energy_per_shot
-          : energy_per_shot // ignore: cast_nullable_to_non_nullable
-              as String,
-      energy_per_second: null == energy_per_second
-          ? _value.energy_per_second
-          : energy_per_second // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargeup: null == chargeup
-          ? _value.chargeup
-          : chargeup // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargedown: null == chargedown
-          ? _value.chargedown
-          : chargedown // ignore: cast_nullable_to_non_nullable
-              as String,
-      burst_size: null == burst_size
-          ? _value.burst_size
-          : burst_size // ignore: cast_nullable_to_non_nullable
-              as String,
-      burst_delay: null == burst_delay
-          ? _value.burst_delay
-          : burst_delay // ignore: cast_nullable_to_non_nullable
-              as String,
-      min_spread: null == min_spread
-          ? _value.min_spread
-          : min_spread // ignore: cast_nullable_to_non_nullable
-              as String,
-      max_spread: null == max_spread
-          ? _value.max_spread
-          : max_spread // ignore: cast_nullable_to_non_nullable
-              as String,
-      spread_per_shot: null == spread_per_shot
-          ? _value.spread_per_shot
-          : spread_per_shot // ignore: cast_nullable_to_non_nullable
-              as String,
-      spread_decay_per_sec: null == spread_decay_per_sec
-          ? _value.spread_decay_per_sec
-          : spread_decay_per_sec // ignore: cast_nullable_to_non_nullable
-              as String,
-      beam_speed: null == beam_speed
-          ? _value.beam_speed
-          : beam_speed // ignore: cast_nullable_to_non_nullable
-              as String,
-      proj_speed: null == proj_speed
-          ? _value.proj_speed
-          : proj_speed // ignore: cast_nullable_to_non_nullable
-              as String,
-      launch_speed: null == launch_speed
-          ? _value.launch_speed
-          : launch_speed // ignore: cast_nullable_to_non_nullable
-              as String,
-      flight_time: null == flight_time
-          ? _value.flight_time
-          : flight_time // ignore: cast_nullable_to_non_nullable
-              as String,
-      proj_hitpoints: null == proj_hitpoints
-          ? _value.proj_hitpoints
-          : proj_hitpoints // ignore: cast_nullable_to_non_nullable
-              as String,
-      autofireAccBonus: null == autofireAccBonus
-          ? _value.autofireAccBonus
-          : autofireAccBonus // ignore: cast_nullable_to_non_nullable
-              as String,
-      extraArcForAI: null == extraArcForAI
-          ? _value.extraArcForAI
-          : extraArcForAI // ignore: cast_nullable_to_non_nullable
-              as String,
-      hints: null == hints
-          ? _value.hints
-          : hints // ignore: cast_nullable_to_non_nullable
-              as String,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as String,
-      groupTag: null == groupTag
-          ? _value.groupTag
-          : groupTag // ignore: cast_nullable_to_non_nullable
-              as String,
-      tech_manufacturer: null == tech_manufacturer
-          ? _value.tech_manufacturer
-          : tech_manufacturer // ignore: cast_nullable_to_non_nullable
-              as String,
-      for_weapon_tooltip: null == for_weapon_tooltip
-          ? _value.for_weapon_tooltip
-          : for_weapon_tooltip // ignore: cast_nullable_to_non_nullable
-              as String,
-      primaryRoleStr: null == primaryRoleStr
-          ? _value.primaryRoleStr
-          : primaryRoleStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      speedStr: null == speedStr
-          ? _value.speedStr
-          : speedStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      trackingStr: null == trackingStr
-          ? _value.trackingStr
-          : trackingStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      turnRateStr: null == turnRateStr
-          ? _value.turnRateStr
-          : turnRateStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      accuracyStr: null == accuracyStr
-          ? _value.accuracyStr
-          : accuracyStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      customPrimary: null == customPrimary
-          ? _value.customPrimary
-          : customPrimary // ignore: cast_nullable_to_non_nullable
-              as String,
-      customPrimaryHL: null == customPrimaryHL
-          ? _value.customPrimaryHL
-          : customPrimaryHL // ignore: cast_nullable_to_non_nullable
-              as String,
-      customAncillary: null == customAncillary
-          ? _value.customAncillary
-          : customAncillary // ignore: cast_nullable_to_non_nullable
-              as String,
-      customAncillaryHL: null == customAncillaryHL
-          ? _value.customAncillaryHL
-          : customAncillaryHL // ignore: cast_nullable_to_non_nullable
-              as String,
-      noDPSInTooltip: null == noDPSInTooltip
-          ? _value.noDPSInTooltip
-          : noDPSInTooltip // ignore: cast_nullable_to_non_nullable
-              as String,
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as String,
+      weapons: null == weapons
+          ? _value.weapons
+          : weapons // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WeaponMuzzleFlashSpecCopyWith<$Res>? get muzzleFlashSpec {
+    if (_value.muzzleFlashSpec == null) {
+      return null;
+    }
+
+    return $WeaponMuzzleFlashSpecCopyWith<$Res>(_value.muzzleFlashSpec!,
+        (value) {
+      return _then(_value.copyWith(muzzleFlashSpec: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $WeaponSmokeSpecCopyWith<$Res>? get smokeSpec {
+    if (_value.smokeSpec == null) {
+      return null;
+    }
+
+    return $WeaponSmokeSpecCopyWith<$Res>(_value.smokeSpec!, (value) {
+      return _then(_value.copyWith(smokeSpec: value) as $Val);
+    });
   }
 }
 
@@ -447,55 +570,77 @@ abstract class _$$_WeaponCopyWith<$Res> implements $WeaponCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
-      String id,
-      String tier,
-      String rarity,
-      String base_value,
-      String range,
-      String damage_per_second,
-      String damage_per_shot,
-      String emp,
-      String impact,
-      String turn_rate,
-      String OPs,
-      String ammo,
-      String ammo_per_sec,
-      String reload_size,
-      String type,
-      String energy_per_shot,
-      String energy_per_second,
-      String chargeup,
-      String chargedown,
-      String burst_size,
-      String burst_delay,
-      String min_spread,
-      String max_spread,
-      String spread_per_shot,
-      String spread_decay_per_sec,
-      String beam_speed,
-      String proj_speed,
-      String launch_speed,
-      String flight_time,
-      String proj_hitpoints,
-      String autofireAccBonus,
-      String extraArcForAI,
-      String hints,
-      String tags,
-      String groupTag,
-      String tech_manufacturer,
-      String for_weapon_tooltip,
-      String primaryRoleStr,
-      String speedStr,
-      String trackingStr,
-      String turnRateStr,
-      String accuracyStr,
-      String customPrimary,
-      String customPrimaryHL,
-      String customAncillary,
-      String customAncillaryHL,
-      String noDPSInTooltip,
-      String number});
+      {String id,
+      String? specClass,
+      String? type,
+      String? size,
+      String? turretSprite,
+      String? hardpointSprite,
+      List<double>? turretOffsets,
+      List<double>? turretAngleOffsets,
+      List<double>? hardpointOffsets,
+      List<double>? hardpointAngleOffsets,
+      List<double>? glowColor,
+      String? projectileSpecId,
+      String? barrelMode,
+      List<double>? fringeColor,
+      List<double>? coreColor,
+      dynamic textureType,
+      String? mountTypeOverride,
+      String? turretUnderSprite,
+      String? turretGunSprite,
+      String? turretGlowSprite,
+      String? hardpointUnderSprite,
+      String? hardpointGunSprite,
+      String? hardpointGlowSprite,
+      String? fireSoundOne,
+      String? fireSoundTwo,
+      String? everyFrameEffect,
+      bool? animateWhileFiring,
+      @BoolConverter() bool? alwaysAnimate,
+      int? numFrames,
+      double? frameRate,
+      Set<String>? renderHints,
+      bool? renderBelowAllWeapons,
+      bool? renderAboveAllWeapons,
+      bool? showDamageWhenDecorative,
+      double? displayArcRadius,
+      double? specialWeaponGlowHeight,
+      double? specialWeaponGlowWidth,
+      String? animationType,
+      double? visualRecoil,
+      bool? separateRecoilForLinkedBarrels,
+      bool? interruptibleBurst,
+      bool? autocharge,
+      bool? requiresFullCharge,
+      WeaponMuzzleFlashSpec? muzzleFlashSpec,
+      WeaponSmokeSpec? smokeSpec,
+      bool? noImpactSounds,
+      bool? noShieldImpactSounds,
+      bool? noNonShieldImpactSounds,
+      bool? unaffectedByProjectileSpeedBonuses,
+      String? beamEffect,
+      bool? beamFireOnlyOnFullCharge,
+      bool? convergeOnPoint,
+      double? width,
+      double? textureScrollSpeed,
+      double? pixelsPerTexel,
+      double? hitGlowRadius,
+      bool? darkCore,
+      int? darkFringeIter,
+      int? darkCoreIter,
+      double? coreWidthMult,
+      String? collisionClass,
+      String? collisionClassByFighter,
+      Set<String>? pierceSet,
+      bool autofire,
+      String mode,
+      Map<String, String> weapons});
+
+  @override
+  $WeaponMuzzleFlashSpecCopyWith<$Res>? get muzzleFlashSpec;
+  @override
+  $WeaponSmokeSpecCopyWith<$Res>? get smokeSpec;
 }
 
 /// @nodoc
@@ -508,670 +653,1141 @@ class __$$_WeaponCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? id = null,
-    Object? tier = null,
-    Object? rarity = null,
-    Object? base_value = null,
-    Object? range = null,
-    Object? damage_per_second = null,
-    Object? damage_per_shot = null,
-    Object? emp = null,
-    Object? impact = null,
-    Object? turn_rate = null,
-    Object? OPs = null,
-    Object? ammo = null,
-    Object? ammo_per_sec = null,
-    Object? reload_size = null,
-    Object? type = null,
-    Object? energy_per_shot = null,
-    Object? energy_per_second = null,
-    Object? chargeup = null,
-    Object? chargedown = null,
-    Object? burst_size = null,
-    Object? burst_delay = null,
-    Object? min_spread = null,
-    Object? max_spread = null,
-    Object? spread_per_shot = null,
-    Object? spread_decay_per_sec = null,
-    Object? beam_speed = null,
-    Object? proj_speed = null,
-    Object? launch_speed = null,
-    Object? flight_time = null,
-    Object? proj_hitpoints = null,
-    Object? autofireAccBonus = null,
-    Object? extraArcForAI = null,
-    Object? hints = null,
-    Object? tags = null,
-    Object? groupTag = null,
-    Object? tech_manufacturer = null,
-    Object? for_weapon_tooltip = null,
-    Object? primaryRoleStr = null,
-    Object? speedStr = null,
-    Object? trackingStr = null,
-    Object? turnRateStr = null,
-    Object? accuracyStr = null,
-    Object? customPrimary = null,
-    Object? customPrimaryHL = null,
-    Object? customAncillary = null,
-    Object? customAncillaryHL = null,
-    Object? noDPSInTooltip = null,
-    Object? number = null,
+    Object? specClass = freezed,
+    Object? type = freezed,
+    Object? size = freezed,
+    Object? turretSprite = freezed,
+    Object? hardpointSprite = freezed,
+    Object? turretOffsets = freezed,
+    Object? turretAngleOffsets = freezed,
+    Object? hardpointOffsets = freezed,
+    Object? hardpointAngleOffsets = freezed,
+    Object? glowColor = freezed,
+    Object? projectileSpecId = freezed,
+    Object? barrelMode = freezed,
+    Object? fringeColor = freezed,
+    Object? coreColor = freezed,
+    Object? textureType = freezed,
+    Object? mountTypeOverride = freezed,
+    Object? turretUnderSprite = freezed,
+    Object? turretGunSprite = freezed,
+    Object? turretGlowSprite = freezed,
+    Object? hardpointUnderSprite = freezed,
+    Object? hardpointGunSprite = freezed,
+    Object? hardpointGlowSprite = freezed,
+    Object? fireSoundOne = freezed,
+    Object? fireSoundTwo = freezed,
+    Object? everyFrameEffect = freezed,
+    Object? animateWhileFiring = freezed,
+    Object? alwaysAnimate = freezed,
+    Object? numFrames = freezed,
+    Object? frameRate = freezed,
+    Object? renderHints = freezed,
+    Object? renderBelowAllWeapons = freezed,
+    Object? renderAboveAllWeapons = freezed,
+    Object? showDamageWhenDecorative = freezed,
+    Object? displayArcRadius = freezed,
+    Object? specialWeaponGlowHeight = freezed,
+    Object? specialWeaponGlowWidth = freezed,
+    Object? animationType = freezed,
+    Object? visualRecoil = freezed,
+    Object? separateRecoilForLinkedBarrels = freezed,
+    Object? interruptibleBurst = freezed,
+    Object? autocharge = freezed,
+    Object? requiresFullCharge = freezed,
+    Object? muzzleFlashSpec = freezed,
+    Object? smokeSpec = freezed,
+    Object? noImpactSounds = freezed,
+    Object? noShieldImpactSounds = freezed,
+    Object? noNonShieldImpactSounds = freezed,
+    Object? unaffectedByProjectileSpeedBonuses = freezed,
+    Object? beamEffect = freezed,
+    Object? beamFireOnlyOnFullCharge = freezed,
+    Object? convergeOnPoint = freezed,
+    Object? width = freezed,
+    Object? textureScrollSpeed = freezed,
+    Object? pixelsPerTexel = freezed,
+    Object? hitGlowRadius = freezed,
+    Object? darkCore = freezed,
+    Object? darkFringeIter = freezed,
+    Object? darkCoreIter = freezed,
+    Object? coreWidthMult = freezed,
+    Object? collisionClass = freezed,
+    Object? collisionClassByFighter = freezed,
+    Object? pierceSet = freezed,
+    Object? autofire = null,
+    Object? mode = null,
+    Object? weapons = null,
   }) {
     return _then(_$_Weapon(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      tier: null == tier
-          ? _value.tier
-          : tier // ignore: cast_nullable_to_non_nullable
-              as String,
-      rarity: null == rarity
-          ? _value.rarity
-          : rarity // ignore: cast_nullable_to_non_nullable
-              as String,
-      base_value: null == base_value
-          ? _value.base_value
-          : base_value // ignore: cast_nullable_to_non_nullable
-              as String,
-      range: null == range
-          ? _value.range
-          : range // ignore: cast_nullable_to_non_nullable
-              as String,
-      damage_per_second: null == damage_per_second
-          ? _value.damage_per_second
-          : damage_per_second // ignore: cast_nullable_to_non_nullable
-              as String,
-      damage_per_shot: null == damage_per_shot
-          ? _value.damage_per_shot
-          : damage_per_shot // ignore: cast_nullable_to_non_nullable
-              as String,
-      emp: null == emp
-          ? _value.emp
-          : emp // ignore: cast_nullable_to_non_nullable
-              as String,
-      impact: null == impact
-          ? _value.impact
-          : impact // ignore: cast_nullable_to_non_nullable
-              as String,
-      turn_rate: null == turn_rate
-          ? _value.turn_rate
-          : turn_rate // ignore: cast_nullable_to_non_nullable
-              as String,
-      OPs: null == OPs
-          ? _value.OPs
-          : OPs // ignore: cast_nullable_to_non_nullable
-              as String,
-      ammo: null == ammo
-          ? _value.ammo
-          : ammo // ignore: cast_nullable_to_non_nullable
-              as String,
-      ammo_per_sec: null == ammo_per_sec
-          ? _value.ammo_per_sec
-          : ammo_per_sec // ignore: cast_nullable_to_non_nullable
-              as String,
-      reload_size: null == reload_size
-          ? _value.reload_size
-          : reload_size // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+      specClass: freezed == specClass
+          ? _value.specClass
+          : specClass // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      size: freezed == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretSprite: freezed == turretSprite
+          ? _value.turretSprite
+          : turretSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointSprite: freezed == hardpointSprite
+          ? _value.hardpointSprite
+          : hardpointSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretOffsets: freezed == turretOffsets
+          ? _value._turretOffsets
+          : turretOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      turretAngleOffsets: freezed == turretAngleOffsets
+          ? _value._turretAngleOffsets
+          : turretAngleOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      hardpointOffsets: freezed == hardpointOffsets
+          ? _value._hardpointOffsets
+          : hardpointOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      hardpointAngleOffsets: freezed == hardpointAngleOffsets
+          ? _value._hardpointAngleOffsets
+          : hardpointAngleOffsets // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      glowColor: freezed == glowColor
+          ? _value._glowColor
+          : glowColor // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      projectileSpecId: freezed == projectileSpecId
+          ? _value.projectileSpecId
+          : projectileSpecId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      barrelMode: freezed == barrelMode
+          ? _value.barrelMode
+          : barrelMode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fringeColor: freezed == fringeColor
+          ? _value._fringeColor
+          : fringeColor // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      coreColor: freezed == coreColor
+          ? _value._coreColor
+          : coreColor // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
+      textureType: freezed == textureType
+          ? _value.textureType
+          : textureType // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      mountTypeOverride: freezed == mountTypeOverride
+          ? _value.mountTypeOverride
+          : mountTypeOverride // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretUnderSprite: freezed == turretUnderSprite
+          ? _value.turretUnderSprite
+          : turretUnderSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretGunSprite: freezed == turretGunSprite
+          ? _value.turretGunSprite
+          : turretGunSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      turretGlowSprite: freezed == turretGlowSprite
+          ? _value.turretGlowSprite
+          : turretGlowSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointUnderSprite: freezed == hardpointUnderSprite
+          ? _value.hardpointUnderSprite
+          : hardpointUnderSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointGunSprite: freezed == hardpointGunSprite
+          ? _value.hardpointGunSprite
+          : hardpointGunSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hardpointGlowSprite: freezed == hardpointGlowSprite
+          ? _value.hardpointGlowSprite
+          : hardpointGlowSprite // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fireSoundOne: freezed == fireSoundOne
+          ? _value.fireSoundOne
+          : fireSoundOne // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fireSoundTwo: freezed == fireSoundTwo
+          ? _value.fireSoundTwo
+          : fireSoundTwo // ignore: cast_nullable_to_non_nullable
+              as String?,
+      everyFrameEffect: freezed == everyFrameEffect
+          ? _value.everyFrameEffect
+          : everyFrameEffect // ignore: cast_nullable_to_non_nullable
+              as String?,
+      animateWhileFiring: freezed == animateWhileFiring
+          ? _value.animateWhileFiring
+          : animateWhileFiring // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      alwaysAnimate: freezed == alwaysAnimate
+          ? _value.alwaysAnimate
+          : alwaysAnimate // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      numFrames: freezed == numFrames
+          ? _value.numFrames
+          : numFrames // ignore: cast_nullable_to_non_nullable
+              as int?,
+      frameRate: freezed == frameRate
+          ? _value.frameRate
+          : frameRate // ignore: cast_nullable_to_non_nullable
+              as double?,
+      renderHints: freezed == renderHints
+          ? _value._renderHints
+          : renderHints // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      renderBelowAllWeapons: freezed == renderBelowAllWeapons
+          ? _value.renderBelowAllWeapons
+          : renderBelowAllWeapons // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      renderAboveAllWeapons: freezed == renderAboveAllWeapons
+          ? _value.renderAboveAllWeapons
+          : renderAboveAllWeapons // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      showDamageWhenDecorative: freezed == showDamageWhenDecorative
+          ? _value.showDamageWhenDecorative
+          : showDamageWhenDecorative // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      displayArcRadius: freezed == displayArcRadius
+          ? _value.displayArcRadius
+          : displayArcRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      specialWeaponGlowHeight: freezed == specialWeaponGlowHeight
+          ? _value.specialWeaponGlowHeight
+          : specialWeaponGlowHeight // ignore: cast_nullable_to_non_nullable
+              as double?,
+      specialWeaponGlowWidth: freezed == specialWeaponGlowWidth
+          ? _value.specialWeaponGlowWidth
+          : specialWeaponGlowWidth // ignore: cast_nullable_to_non_nullable
+              as double?,
+      animationType: freezed == animationType
+          ? _value.animationType
+          : animationType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      visualRecoil: freezed == visualRecoil
+          ? _value.visualRecoil
+          : visualRecoil // ignore: cast_nullable_to_non_nullable
+              as double?,
+      separateRecoilForLinkedBarrels: freezed == separateRecoilForLinkedBarrels
+          ? _value.separateRecoilForLinkedBarrels
+          : separateRecoilForLinkedBarrels // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      interruptibleBurst: freezed == interruptibleBurst
+          ? _value.interruptibleBurst
+          : interruptibleBurst // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      autocharge: freezed == autocharge
+          ? _value.autocharge
+          : autocharge // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      requiresFullCharge: freezed == requiresFullCharge
+          ? _value.requiresFullCharge
+          : requiresFullCharge // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      muzzleFlashSpec: freezed == muzzleFlashSpec
+          ? _value.muzzleFlashSpec
+          : muzzleFlashSpec // ignore: cast_nullable_to_non_nullable
+              as WeaponMuzzleFlashSpec?,
+      smokeSpec: freezed == smokeSpec
+          ? _value.smokeSpec
+          : smokeSpec // ignore: cast_nullable_to_non_nullable
+              as WeaponSmokeSpec?,
+      noImpactSounds: freezed == noImpactSounds
+          ? _value.noImpactSounds
+          : noImpactSounds // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      noShieldImpactSounds: freezed == noShieldImpactSounds
+          ? _value.noShieldImpactSounds
+          : noShieldImpactSounds // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      noNonShieldImpactSounds: freezed == noNonShieldImpactSounds
+          ? _value.noNonShieldImpactSounds
+          : noNonShieldImpactSounds // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      unaffectedByProjectileSpeedBonuses: freezed ==
+              unaffectedByProjectileSpeedBonuses
+          ? _value.unaffectedByProjectileSpeedBonuses
+          : unaffectedByProjectileSpeedBonuses // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      beamEffect: freezed == beamEffect
+          ? _value.beamEffect
+          : beamEffect // ignore: cast_nullable_to_non_nullable
+              as String?,
+      beamFireOnlyOnFullCharge: freezed == beamFireOnlyOnFullCharge
+          ? _value.beamFireOnlyOnFullCharge
+          : beamFireOnlyOnFullCharge // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      convergeOnPoint: freezed == convergeOnPoint
+          ? _value.convergeOnPoint
+          : convergeOnPoint // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      width: freezed == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      textureScrollSpeed: freezed == textureScrollSpeed
+          ? _value.textureScrollSpeed
+          : textureScrollSpeed // ignore: cast_nullable_to_non_nullable
+              as double?,
+      pixelsPerTexel: freezed == pixelsPerTexel
+          ? _value.pixelsPerTexel
+          : pixelsPerTexel // ignore: cast_nullable_to_non_nullable
+              as double?,
+      hitGlowRadius: freezed == hitGlowRadius
+          ? _value.hitGlowRadius
+          : hitGlowRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      darkCore: freezed == darkCore
+          ? _value.darkCore
+          : darkCore // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      darkFringeIter: freezed == darkFringeIter
+          ? _value.darkFringeIter
+          : darkFringeIter // ignore: cast_nullable_to_non_nullable
+              as int?,
+      darkCoreIter: freezed == darkCoreIter
+          ? _value.darkCoreIter
+          : darkCoreIter // ignore: cast_nullable_to_non_nullable
+              as int?,
+      coreWidthMult: freezed == coreWidthMult
+          ? _value.coreWidthMult
+          : coreWidthMult // ignore: cast_nullable_to_non_nullable
+              as double?,
+      collisionClass: freezed == collisionClass
+          ? _value.collisionClass
+          : collisionClass // ignore: cast_nullable_to_non_nullable
+              as String?,
+      collisionClassByFighter: freezed == collisionClassByFighter
+          ? _value.collisionClassByFighter
+          : collisionClassByFighter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      pierceSet: freezed == pierceSet
+          ? _value._pierceSet
+          : pierceSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
+      autofire: null == autofire
+          ? _value.autofire
+          : autofire // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mode: null == mode
+          ? _value.mode
+          : mode // ignore: cast_nullable_to_non_nullable
               as String,
-      energy_per_shot: null == energy_per_shot
-          ? _value.energy_per_shot
-          : energy_per_shot // ignore: cast_nullable_to_non_nullable
-              as String,
-      energy_per_second: null == energy_per_second
-          ? _value.energy_per_second
-          : energy_per_second // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargeup: null == chargeup
-          ? _value.chargeup
-          : chargeup // ignore: cast_nullable_to_non_nullable
-              as String,
-      chargedown: null == chargedown
-          ? _value.chargedown
-          : chargedown // ignore: cast_nullable_to_non_nullable
-              as String,
-      burst_size: null == burst_size
-          ? _value.burst_size
-          : burst_size // ignore: cast_nullable_to_non_nullable
-              as String,
-      burst_delay: null == burst_delay
-          ? _value.burst_delay
-          : burst_delay // ignore: cast_nullable_to_non_nullable
-              as String,
-      min_spread: null == min_spread
-          ? _value.min_spread
-          : min_spread // ignore: cast_nullable_to_non_nullable
-              as String,
-      max_spread: null == max_spread
-          ? _value.max_spread
-          : max_spread // ignore: cast_nullable_to_non_nullable
-              as String,
-      spread_per_shot: null == spread_per_shot
-          ? _value.spread_per_shot
-          : spread_per_shot // ignore: cast_nullable_to_non_nullable
-              as String,
-      spread_decay_per_sec: null == spread_decay_per_sec
-          ? _value.spread_decay_per_sec
-          : spread_decay_per_sec // ignore: cast_nullable_to_non_nullable
-              as String,
-      beam_speed: null == beam_speed
-          ? _value.beam_speed
-          : beam_speed // ignore: cast_nullable_to_non_nullable
-              as String,
-      proj_speed: null == proj_speed
-          ? _value.proj_speed
-          : proj_speed // ignore: cast_nullable_to_non_nullable
-              as String,
-      launch_speed: null == launch_speed
-          ? _value.launch_speed
-          : launch_speed // ignore: cast_nullable_to_non_nullable
-              as String,
-      flight_time: null == flight_time
-          ? _value.flight_time
-          : flight_time // ignore: cast_nullable_to_non_nullable
-              as String,
-      proj_hitpoints: null == proj_hitpoints
-          ? _value.proj_hitpoints
-          : proj_hitpoints // ignore: cast_nullable_to_non_nullable
-              as String,
-      autofireAccBonus: null == autofireAccBonus
-          ? _value.autofireAccBonus
-          : autofireAccBonus // ignore: cast_nullable_to_non_nullable
-              as String,
-      extraArcForAI: null == extraArcForAI
-          ? _value.extraArcForAI
-          : extraArcForAI // ignore: cast_nullable_to_non_nullable
-              as String,
-      hints: null == hints
-          ? _value.hints
-          : hints // ignore: cast_nullable_to_non_nullable
-              as String,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as String,
-      groupTag: null == groupTag
-          ? _value.groupTag
-          : groupTag // ignore: cast_nullable_to_non_nullable
-              as String,
-      tech_manufacturer: null == tech_manufacturer
-          ? _value.tech_manufacturer
-          : tech_manufacturer // ignore: cast_nullable_to_non_nullable
-              as String,
-      for_weapon_tooltip: null == for_weapon_tooltip
-          ? _value.for_weapon_tooltip
-          : for_weapon_tooltip // ignore: cast_nullable_to_non_nullable
-              as String,
-      primaryRoleStr: null == primaryRoleStr
-          ? _value.primaryRoleStr
-          : primaryRoleStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      speedStr: null == speedStr
-          ? _value.speedStr
-          : speedStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      trackingStr: null == trackingStr
-          ? _value.trackingStr
-          : trackingStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      turnRateStr: null == turnRateStr
-          ? _value.turnRateStr
-          : turnRateStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      accuracyStr: null == accuracyStr
-          ? _value.accuracyStr
-          : accuracyStr // ignore: cast_nullable_to_non_nullable
-              as String,
-      customPrimary: null == customPrimary
-          ? _value.customPrimary
-          : customPrimary // ignore: cast_nullable_to_non_nullable
-              as String,
-      customPrimaryHL: null == customPrimaryHL
-          ? _value.customPrimaryHL
-          : customPrimaryHL // ignore: cast_nullable_to_non_nullable
-              as String,
-      customAncillary: null == customAncillary
-          ? _value.customAncillary
-          : customAncillary // ignore: cast_nullable_to_non_nullable
-              as String,
-      customAncillaryHL: null == customAncillaryHL
-          ? _value.customAncillaryHL
-          : customAncillaryHL // ignore: cast_nullable_to_non_nullable
-              as String,
-      noDPSInTooltip: null == noDPSInTooltip
-          ? _value.noDPSInTooltip
-          : noDPSInTooltip // ignore: cast_nullable_to_non_nullable
-              as String,
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as String,
+      weapons: null == weapons
+          ? _value._weapons
+          : weapons // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Weapon implements _Weapon {
   _$_Weapon(
-      {this.name = "",
-      this.id = "",
-      this.tier = "",
-      this.rarity = "",
-      this.base_value = "",
-      this.range = "",
-      this.damage_per_second = "",
-      this.damage_per_shot = "",
-      this.emp = "",
-      this.impact = "",
-      this.turn_rate = "",
-      this.OPs = "",
-      this.ammo = "",
-      this.ammo_per_sec = "",
-      this.reload_size = "",
-      this.type = "",
-      this.energy_per_shot = "",
-      this.energy_per_second = "",
-      this.chargeup = "",
-      this.chargedown = "",
-      this.burst_size = "",
-      this.burst_delay = "",
-      this.min_spread = "",
-      this.max_spread = "",
-      this.spread_per_shot = "",
-      this.spread_decay_per_sec = "",
-      this.beam_speed = "",
-      this.proj_speed = "",
-      this.launch_speed = "",
-      this.flight_time = "",
-      this.proj_hitpoints = "",
-      this.autofireAccBonus = "",
-      this.extraArcForAI = "",
-      this.hints = "",
-      this.tags = "",
-      this.groupTag = "",
-      this.tech_manufacturer = "",
-      this.for_weapon_tooltip = "",
-      this.primaryRoleStr = "",
-      this.speedStr = "",
-      this.trackingStr = "",
-      this.turnRateStr = "",
-      this.accuracyStr = "",
-      this.customPrimary = "",
-      this.customPrimaryHL = "",
-      this.customAncillary = "",
-      this.customAncillaryHL = "",
-      this.noDPSInTooltip = "",
-      this.number = ""});
+      {this.id = "new_weapon",
+      this.specClass = "projectile",
+      this.type = "ENERGY",
+      this.size = "SMALL",
+      this.turretSprite = "",
+      this.hardpointSprite = "",
+      final List<double>? turretOffsets = const [0.0, 0.0],
+      final List<double>? turretAngleOffsets = const [0.0],
+      final List<double>? hardpointOffsets = const [0.0, 0.0],
+      final List<double>? hardpointAngleOffsets = const [0.0],
+      final List<double>? glowColor = const [255.0, 255.0, 255.0, 255.0],
+      this.projectileSpecId = "",
+      this.barrelMode = "ALTERNATING",
+      final List<double>? fringeColor = const [255.0, 255.0, 255.0, 255.0],
+      final List<double>? coreColor = const [255.0, 255.0, 255.0, 255.0],
+      this.textureType = "ROUGH",
+      this.mountTypeOverride = "",
+      this.turretUnderSprite = "",
+      this.turretGunSprite = "",
+      this.turretGlowSprite = "",
+      this.hardpointUnderSprite = "",
+      this.hardpointGunSprite = "",
+      this.hardpointGlowSprite = "",
+      this.fireSoundOne = "",
+      this.fireSoundTwo = "",
+      this.everyFrameEffect = "",
+      this.animateWhileFiring = true,
+      @BoolConverter() this.alwaysAnimate = false,
+      this.numFrames = 1,
+      this.frameRate = 1.0,
+      final Set<String>? renderHints = const {},
+      this.renderBelowAllWeapons = false,
+      this.renderAboveAllWeapons = false,
+      this.showDamageWhenDecorative = false,
+      this.displayArcRadius = 0.0,
+      this.specialWeaponGlowHeight = 0.0,
+      this.specialWeaponGlowWidth = 0.0,
+      this.animationType = "NONE",
+      this.visualRecoil = 0.0,
+      this.separateRecoilForLinkedBarrels = false,
+      this.interruptibleBurst = false,
+      this.autocharge = false,
+      this.requiresFullCharge = true,
+      this.muzzleFlashSpec,
+      this.smokeSpec,
+      this.noImpactSounds = false,
+      this.noShieldImpactSounds = false,
+      this.noNonShieldImpactSounds = false,
+      this.unaffectedByProjectileSpeedBonuses = false,
+      this.beamEffect = "",
+      this.beamFireOnlyOnFullCharge = false,
+      this.convergeOnPoint = false,
+      this.width = 10.0,
+      this.textureScrollSpeed = 64.0,
+      this.pixelsPerTexel = 1.0,
+      this.hitGlowRadius = 0.0,
+      this.darkCore = false,
+      this.darkFringeIter = 0,
+      this.darkCoreIter = 0,
+      this.coreWidthMult = 0.0,
+      this.collisionClass = "RAY",
+      this.collisionClassByFighter = "RAY_FIGHTER",
+      final Set<String>? pierceSet = const {},
+      this.autofire = false,
+      this.mode = "",
+      final Map<String, String> weapons = const {}})
+      : _turretOffsets = turretOffsets,
+        _turretAngleOffsets = turretAngleOffsets,
+        _hardpointOffsets = hardpointOffsets,
+        _hardpointAngleOffsets = hardpointAngleOffsets,
+        _glowColor = glowColor,
+        _fringeColor = fringeColor,
+        _coreColor = coreColor,
+        _renderHints = renderHints,
+        _pierceSet = pierceSet,
+        _weapons = weapons;
+
+  factory _$_Weapon.fromJson(Map<String, dynamic> json) =>
+      _$$_WeaponFromJson(json);
+
+// there are only two type of weapon for now.
+// specClass = projectile Or specClass = beam
+// essential to both
+  @override
+  @JsonKey()
+  final String id;
+  @override
+  @JsonKey()
+  final String? specClass;
+  @override
+  @JsonKey()
+  final String? type;
+  @override
+  @JsonKey()
+  final String? size;
+  @override
+  @JsonKey()
+  final String? turretSprite;
+  @override
+  @JsonKey()
+  final String? hardpointSprite;
+  final List<double>? _turretOffsets;
+  @override
+  @JsonKey()
+  List<double>? get turretOffsets {
+    final value = _turretOffsets;
+    if (value == null) return null;
+    if (_turretOffsets is EqualUnmodifiableListView) return _turretOffsets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<double>? _turretAngleOffsets;
+  @override
+  @JsonKey()
+  List<double>? get turretAngleOffsets {
+    final value = _turretAngleOffsets;
+    if (value == null) return null;
+    if (_turretAngleOffsets is EqualUnmodifiableListView)
+      return _turretAngleOffsets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<double>? _hardpointOffsets;
+  @override
+  @JsonKey()
+  List<double>? get hardpointOffsets {
+    final value = _hardpointOffsets;
+    if (value == null) return null;
+    if (_hardpointOffsets is EqualUnmodifiableListView)
+      return _hardpointOffsets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<double>? _hardpointAngleOffsets;
+  @override
+  @JsonKey()
+  List<double>? get hardpointAngleOffsets {
+    final value = _hardpointAngleOffsets;
+    if (value == null) return null;
+    if (_hardpointAngleOffsets is EqualUnmodifiableListView)
+      return _hardpointAngleOffsets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<double>? _glowColor;
+  @override
+  @JsonKey()
+  List<double>? get glowColor {
+    final value = _glowColor;
+    if (value == null) return null;
+    if (_glowColor is EqualUnmodifiableListView) return _glowColor;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+// essential to projectile
+  @override
+  @JsonKey()
+  final String? projectileSpecId;
+  @override
+  @JsonKey()
+  final String? barrelMode;
+// essential to beam
+  final List<double>? _fringeColor;
+// essential to beam
+  @override
+  @JsonKey()
+  List<double>? get fringeColor {
+    final value = _fringeColor;
+    if (value == null) return null;
+    if (_fringeColor is EqualUnmodifiableListView) return _fringeColor;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<double>? _coreColor;
+  @override
+  @JsonKey()
+  List<double>? get coreColor {
+    final value = _coreColor;
+    if (value == null) return null;
+    if (_coreColor is EqualUnmodifiableListView) return _coreColor;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  /// Enum or `Set<String>`
+  @override
+  @JsonKey()
+  final dynamic textureType;
+// TEnum or TString[]
+// optional
+  @override
+  @JsonKey()
+  final String? mountTypeOverride;
+// 0.95.1 new
+  @override
+  @JsonKey()
+  final String? turretUnderSprite;
+  @override
+  @JsonKey()
+  final String? turretGunSprite;
+  @override
+  @JsonKey()
+  final String? turretGlowSprite;
+  @override
+  @JsonKey()
+  final String? hardpointUnderSprite;
+  @override
+  @JsonKey()
+  final String? hardpointGunSprite;
+  @override
+  @JsonKey()
+  final String? hardpointGlowSprite;
+  @override
+  @JsonKey()
+  final String? fireSoundOne;
+  @override
+  @JsonKey()
+  final String? fireSoundTwo;
+  @override
+  @JsonKey()
+  final String? everyFrameEffect;
+  @override
+  @JsonKey()
+  final bool? animateWhileFiring;
+  @override
+  @JsonKey()
+  @BoolConverter()
+  final bool? alwaysAnimate;
+  @override
+  @JsonKey()
+  final int? numFrames;
+  @override
+  @JsonKey()
+  final double? frameRate;
+  final Set<String>? _renderHints;
+  @override
+  @JsonKey()
+  Set<String>? get renderHints {
+    final value = _renderHints;
+    if (value == null) return null;
+    if (_renderHints is EqualUnmodifiableSetView) return _renderHints;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(value);
+  }
 
   @override
   @JsonKey()
-  String name;
+  final bool? renderBelowAllWeapons;
   @override
   @JsonKey()
-  String id;
+  final bool? renderAboveAllWeapons;
   @override
   @JsonKey()
-  String tier;
+  final bool? showDamageWhenDecorative;
   @override
   @JsonKey()
-  String rarity;
+  final double? displayArcRadius;
+// default is 250 but meh
   @override
   @JsonKey()
-  String base_value;
+  final double? specialWeaponGlowHeight;
+// default is 0 but meh
   @override
   @JsonKey()
-  String range;
+  final double? specialWeaponGlowWidth;
+// default is 0 but meh
+// optional, projectile only
   @override
   @JsonKey()
-  String damage_per_second;
+  final String? animationType;
   @override
   @JsonKey()
-  String damage_per_shot;
+  final double? visualRecoil;
   @override
   @JsonKey()
-  String emp;
+  final bool? separateRecoilForLinkedBarrels;
   @override
   @JsonKey()
-  String impact;
+  final bool? interruptibleBurst;
   @override
   @JsonKey()
-  String turn_rate;
+  final bool? autocharge;
   @override
   @JsonKey()
-  String OPs;
+  final bool? requiresFullCharge;
+  @override
+  final WeaponMuzzleFlashSpec? muzzleFlashSpec;
+  @override
+  final WeaponSmokeSpec? smokeSpec;
   @override
   @JsonKey()
-  String ammo;
+  final bool? noImpactSounds;
   @override
   @JsonKey()
-  String ammo_per_sec;
+  final bool? noShieldImpactSounds;
   @override
   @JsonKey()
-  String reload_size;
+  final bool? noNonShieldImpactSounds;
   @override
   @JsonKey()
-  String type;
+  final bool? unaffectedByProjectileSpeedBonuses;
+// 0.95 new
+// optional, beam only
   @override
   @JsonKey()
-  String energy_per_shot;
+  final String? beamEffect;
   @override
   @JsonKey()
-  String energy_per_second;
+  final bool? beamFireOnlyOnFullCharge;
   @override
   @JsonKey()
-  String chargeup;
+  final bool? convergeOnPoint;
   @override
   @JsonKey()
-  String chargedown;
+  final double? width;
   @override
   @JsonKey()
-  String burst_size;
+  final double? textureScrollSpeed;
   @override
   @JsonKey()
-  String burst_delay;
+  final double? pixelsPerTexel;
   @override
   @JsonKey()
-  String min_spread;
+  final double? hitGlowRadius;
   @override
   @JsonKey()
-  String max_spread;
+  final bool? darkCore;
   @override
   @JsonKey()
-  String spread_per_shot;
+  final int? darkFringeIter;
+// 0.95 new
   @override
   @JsonKey()
-  String spread_decay_per_sec;
+  final int? darkCoreIter;
+// 0.95 new
   @override
   @JsonKey()
-  String beam_speed;
+  final double? coreWidthMult;
+// 0.95 new
   @override
   @JsonKey()
-  String proj_speed;
+  final String? collisionClass;
   @override
   @JsonKey()
-  String launch_speed;
+  final String? collisionClassByFighter;
+  final Set<String>? _pierceSet;
   @override
   @JsonKey()
-  String flight_time;
+  Set<String>? get pierceSet {
+    final value = _pierceSet;
+    if (value == null) return null;
+    if (_pierceSet is EqualUnmodifiableSetView) return _pierceSet;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(value);
+  }
+
   @override
   @JsonKey()
-  String proj_hitpoints;
+  final bool autofire;
   @override
   @JsonKey()
-  String autofireAccBonus;
+  final String mode;
+  final Map<String, String> _weapons;
   @override
   @JsonKey()
-  String extraArcForAI;
-  @override
-  @JsonKey()
-  String hints;
-  @override
-  @JsonKey()
-  String tags;
-  @override
-  @JsonKey()
-  String groupTag;
-  @override
-  @JsonKey()
-  String tech_manufacturer;
-  @override
-  @JsonKey()
-  String for_weapon_tooltip;
-  @override
-  @JsonKey()
-  String primaryRoleStr;
-  @override
-  @JsonKey()
-  String speedStr;
-  @override
-  @JsonKey()
-  String trackingStr;
-  @override
-  @JsonKey()
-  String turnRateStr;
-  @override
-  @JsonKey()
-  String accuracyStr;
-  @override
-  @JsonKey()
-  String customPrimary;
-  @override
-  @JsonKey()
-  String customPrimaryHL;
-  @override
-  @JsonKey()
-  String customAncillary;
-  @override
-  @JsonKey()
-  String customAncillaryHL;
-  @override
-  @JsonKey()
-  String noDPSInTooltip;
-  @override
-  @JsonKey()
-  String number;
+  Map<String, String> get weapons {
+    if (_weapons is EqualUnmodifiableMapView) return _weapons;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_weapons);
+  }
 
   @override
   String toString() {
-    return 'Weapon(name: $name, id: $id, tier: $tier, rarity: $rarity, base_value: $base_value, range: $range, damage_per_second: $damage_per_second, damage_per_shot: $damage_per_shot, emp: $emp, impact: $impact, turn_rate: $turn_rate, OPs: $OPs, ammo: $ammo, ammo_per_sec: $ammo_per_sec, reload_size: $reload_size, type: $type, energy_per_shot: $energy_per_shot, energy_per_second: $energy_per_second, chargeup: $chargeup, chargedown: $chargedown, burst_size: $burst_size, burst_delay: $burst_delay, min_spread: $min_spread, max_spread: $max_spread, spread_per_shot: $spread_per_shot, spread_decay_per_sec: $spread_decay_per_sec, beam_speed: $beam_speed, proj_speed: $proj_speed, launch_speed: $launch_speed, flight_time: $flight_time, proj_hitpoints: $proj_hitpoints, autofireAccBonus: $autofireAccBonus, extraArcForAI: $extraArcForAI, hints: $hints, tags: $tags, groupTag: $groupTag, tech_manufacturer: $tech_manufacturer, for_weapon_tooltip: $for_weapon_tooltip, primaryRoleStr: $primaryRoleStr, speedStr: $speedStr, trackingStr: $trackingStr, turnRateStr: $turnRateStr, accuracyStr: $accuracyStr, customPrimary: $customPrimary, customPrimaryHL: $customPrimaryHL, customAncillary: $customAncillary, customAncillaryHL: $customAncillaryHL, noDPSInTooltip: $noDPSInTooltip, number: $number)';
+    return 'Weapon(id: $id, specClass: $specClass, type: $type, size: $size, turretSprite: $turretSprite, hardpointSprite: $hardpointSprite, turretOffsets: $turretOffsets, turretAngleOffsets: $turretAngleOffsets, hardpointOffsets: $hardpointOffsets, hardpointAngleOffsets: $hardpointAngleOffsets, glowColor: $glowColor, projectileSpecId: $projectileSpecId, barrelMode: $barrelMode, fringeColor: $fringeColor, coreColor: $coreColor, textureType: $textureType, mountTypeOverride: $mountTypeOverride, turretUnderSprite: $turretUnderSprite, turretGunSprite: $turretGunSprite, turretGlowSprite: $turretGlowSprite, hardpointUnderSprite: $hardpointUnderSprite, hardpointGunSprite: $hardpointGunSprite, hardpointGlowSprite: $hardpointGlowSprite, fireSoundOne: $fireSoundOne, fireSoundTwo: $fireSoundTwo, everyFrameEffect: $everyFrameEffect, animateWhileFiring: $animateWhileFiring, alwaysAnimate: $alwaysAnimate, numFrames: $numFrames, frameRate: $frameRate, renderHints: $renderHints, renderBelowAllWeapons: $renderBelowAllWeapons, renderAboveAllWeapons: $renderAboveAllWeapons, showDamageWhenDecorative: $showDamageWhenDecorative, displayArcRadius: $displayArcRadius, specialWeaponGlowHeight: $specialWeaponGlowHeight, specialWeaponGlowWidth: $specialWeaponGlowWidth, animationType: $animationType, visualRecoil: $visualRecoil, separateRecoilForLinkedBarrels: $separateRecoilForLinkedBarrels, interruptibleBurst: $interruptibleBurst, autocharge: $autocharge, requiresFullCharge: $requiresFullCharge, muzzleFlashSpec: $muzzleFlashSpec, smokeSpec: $smokeSpec, noImpactSounds: $noImpactSounds, noShieldImpactSounds: $noShieldImpactSounds, noNonShieldImpactSounds: $noNonShieldImpactSounds, unaffectedByProjectileSpeedBonuses: $unaffectedByProjectileSpeedBonuses, beamEffect: $beamEffect, beamFireOnlyOnFullCharge: $beamFireOnlyOnFullCharge, convergeOnPoint: $convergeOnPoint, width: $width, textureScrollSpeed: $textureScrollSpeed, pixelsPerTexel: $pixelsPerTexel, hitGlowRadius: $hitGlowRadius, darkCore: $darkCore, darkFringeIter: $darkFringeIter, darkCoreIter: $darkCoreIter, coreWidthMult: $coreWidthMult, collisionClass: $collisionClass, collisionClassByFighter: $collisionClassByFighter, pierceSet: $pierceSet, autofire: $autofire, mode: $mode, weapons: $weapons)';
   }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Weapon &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.specClass, specClass) ||
+                other.specClass == specClass) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.turretSprite, turretSprite) ||
+                other.turretSprite == turretSprite) &&
+            (identical(other.hardpointSprite, hardpointSprite) ||
+                other.hardpointSprite == hardpointSprite) &&
+            const DeepCollectionEquality()
+                .equals(other._turretOffsets, _turretOffsets) &&
+            const DeepCollectionEquality()
+                .equals(other._turretAngleOffsets, _turretAngleOffsets) &&
+            const DeepCollectionEquality()
+                .equals(other._hardpointOffsets, _hardpointOffsets) &&
+            const DeepCollectionEquality()
+                .equals(other._hardpointAngleOffsets, _hardpointAngleOffsets) &&
+            const DeepCollectionEquality()
+                .equals(other._glowColor, _glowColor) &&
+            (identical(other.projectileSpecId, projectileSpecId) ||
+                other.projectileSpecId == projectileSpecId) &&
+            (identical(other.barrelMode, barrelMode) ||
+                other.barrelMode == barrelMode) &&
+            const DeepCollectionEquality()
+                .equals(other._fringeColor, _fringeColor) &&
+            const DeepCollectionEquality()
+                .equals(other._coreColor, _coreColor) &&
+            const DeepCollectionEquality()
+                .equals(other.textureType, textureType) &&
+            (identical(other.mountTypeOverride, mountTypeOverride) ||
+                other.mountTypeOverride == mountTypeOverride) &&
+            (identical(other.turretUnderSprite, turretUnderSprite) ||
+                other.turretUnderSprite == turretUnderSprite) &&
+            (identical(other.turretGunSprite, turretGunSprite) ||
+                other.turretGunSprite == turretGunSprite) &&
+            (identical(other.turretGlowSprite, turretGlowSprite) ||
+                other.turretGlowSprite == turretGlowSprite) &&
+            (identical(other.hardpointUnderSprite, hardpointUnderSprite) ||
+                other.hardpointUnderSprite == hardpointUnderSprite) &&
+            (identical(other.hardpointGunSprite, hardpointGunSprite) ||
+                other.hardpointGunSprite == hardpointGunSprite) &&
+            (identical(other.hardpointGlowSprite, hardpointGlowSprite) ||
+                other.hardpointGlowSprite == hardpointGlowSprite) &&
+            (identical(other.fireSoundOne, fireSoundOne) ||
+                other.fireSoundOne == fireSoundOne) &&
+            (identical(other.fireSoundTwo, fireSoundTwo) ||
+                other.fireSoundTwo == fireSoundTwo) &&
+            (identical(other.everyFrameEffect, everyFrameEffect) ||
+                other.everyFrameEffect == everyFrameEffect) &&
+            (identical(other.animateWhileFiring, animateWhileFiring) ||
+                other.animateWhileFiring == animateWhileFiring) &&
+            (identical(other.alwaysAnimate, alwaysAnimate) ||
+                other.alwaysAnimate == alwaysAnimate) &&
+            (identical(other.numFrames, numFrames) ||
+                other.numFrames == numFrames) &&
+            (identical(other.frameRate, frameRate) ||
+                other.frameRate == frameRate) &&
+            const DeepCollectionEquality()
+                .equals(other._renderHints, _renderHints) &&
+            (identical(other.renderBelowAllWeapons, renderBelowAllWeapons) ||
+                other.renderBelowAllWeapons == renderBelowAllWeapons) &&
+            (identical(other.renderAboveAllWeapons, renderAboveAllWeapons) ||
+                other.renderAboveAllWeapons == renderAboveAllWeapons) &&
+            (identical(other.showDamageWhenDecorative, showDamageWhenDecorative) ||
+                other.showDamageWhenDecorative == showDamageWhenDecorative) &&
+            (identical(other.displayArcRadius, displayArcRadius) ||
+                other.displayArcRadius == displayArcRadius) &&
+            (identical(other.specialWeaponGlowHeight, specialWeaponGlowHeight) ||
+                other.specialWeaponGlowHeight == specialWeaponGlowHeight) &&
+            (identical(other.specialWeaponGlowWidth, specialWeaponGlowWidth) ||
+                other.specialWeaponGlowWidth == specialWeaponGlowWidth) &&
+            (identical(other.animationType, animationType) ||
+                other.animationType == animationType) &&
+            (identical(other.visualRecoil, visualRecoil) ||
+                other.visualRecoil == visualRecoil) &&
+            (identical(other.separateRecoilForLinkedBarrels, separateRecoilForLinkedBarrels) ||
+                other.separateRecoilForLinkedBarrels ==
+                    separateRecoilForLinkedBarrels) &&
+            (identical(other.interruptibleBurst, interruptibleBurst) ||
+                other.interruptibleBurst == interruptibleBurst) &&
+            (identical(other.autocharge, autocharge) ||
+                other.autocharge == autocharge) &&
+            (identical(other.requiresFullCharge, requiresFullCharge) ||
+                other.requiresFullCharge == requiresFullCharge) &&
+            (identical(other.muzzleFlashSpec, muzzleFlashSpec) ||
+                other.muzzleFlashSpec == muzzleFlashSpec) &&
+            (identical(other.smokeSpec, smokeSpec) || other.smokeSpec == smokeSpec) &&
+            (identical(other.noImpactSounds, noImpactSounds) || other.noImpactSounds == noImpactSounds) &&
+            (identical(other.noShieldImpactSounds, noShieldImpactSounds) || other.noShieldImpactSounds == noShieldImpactSounds) &&
+            (identical(other.noNonShieldImpactSounds, noNonShieldImpactSounds) || other.noNonShieldImpactSounds == noNonShieldImpactSounds) &&
+            (identical(other.unaffectedByProjectileSpeedBonuses, unaffectedByProjectileSpeedBonuses) || other.unaffectedByProjectileSpeedBonuses == unaffectedByProjectileSpeedBonuses) &&
+            (identical(other.beamEffect, beamEffect) || other.beamEffect == beamEffect) &&
+            (identical(other.beamFireOnlyOnFullCharge, beamFireOnlyOnFullCharge) || other.beamFireOnlyOnFullCharge == beamFireOnlyOnFullCharge) &&
+            (identical(other.convergeOnPoint, convergeOnPoint) || other.convergeOnPoint == convergeOnPoint) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.textureScrollSpeed, textureScrollSpeed) || other.textureScrollSpeed == textureScrollSpeed) &&
+            (identical(other.pixelsPerTexel, pixelsPerTexel) || other.pixelsPerTexel == pixelsPerTexel) &&
+            (identical(other.hitGlowRadius, hitGlowRadius) || other.hitGlowRadius == hitGlowRadius) &&
+            (identical(other.darkCore, darkCore) || other.darkCore == darkCore) &&
+            (identical(other.darkFringeIter, darkFringeIter) || other.darkFringeIter == darkFringeIter) &&
+            (identical(other.darkCoreIter, darkCoreIter) || other.darkCoreIter == darkCoreIter) &&
+            (identical(other.coreWidthMult, coreWidthMult) || other.coreWidthMult == coreWidthMult) &&
+            (identical(other.collisionClass, collisionClass) || other.collisionClass == collisionClass) &&
+            (identical(other.collisionClassByFighter, collisionClassByFighter) || other.collisionClassByFighter == collisionClassByFighter) &&
+            const DeepCollectionEquality().equals(other._pierceSet, _pierceSet) &&
+            (identical(other.autofire, autofire) || other.autofire == autofire) &&
+            (identical(other.mode, mode) || other.mode == mode) &&
+            const DeepCollectionEquality().equals(other._weapons, _weapons));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        specClass,
+        type,
+        size,
+        turretSprite,
+        hardpointSprite,
+        const DeepCollectionEquality().hash(_turretOffsets),
+        const DeepCollectionEquality().hash(_turretAngleOffsets),
+        const DeepCollectionEquality().hash(_hardpointOffsets),
+        const DeepCollectionEquality().hash(_hardpointAngleOffsets),
+        const DeepCollectionEquality().hash(_glowColor),
+        projectileSpecId,
+        barrelMode,
+        const DeepCollectionEquality().hash(_fringeColor),
+        const DeepCollectionEquality().hash(_coreColor),
+        const DeepCollectionEquality().hash(textureType),
+        mountTypeOverride,
+        turretUnderSprite,
+        turretGunSprite,
+        turretGlowSprite,
+        hardpointUnderSprite,
+        hardpointGunSprite,
+        hardpointGlowSprite,
+        fireSoundOne,
+        fireSoundTwo,
+        everyFrameEffect,
+        animateWhileFiring,
+        alwaysAnimate,
+        numFrames,
+        frameRate,
+        const DeepCollectionEquality().hash(_renderHints),
+        renderBelowAllWeapons,
+        renderAboveAllWeapons,
+        showDamageWhenDecorative,
+        displayArcRadius,
+        specialWeaponGlowHeight,
+        specialWeaponGlowWidth,
+        animationType,
+        visualRecoil,
+        separateRecoilForLinkedBarrels,
+        interruptibleBurst,
+        autocharge,
+        requiresFullCharge,
+        muzzleFlashSpec,
+        smokeSpec,
+        noImpactSounds,
+        noShieldImpactSounds,
+        noNonShieldImpactSounds,
+        unaffectedByProjectileSpeedBonuses,
+        beamEffect,
+        beamFireOnlyOnFullCharge,
+        convergeOnPoint,
+        width,
+        textureScrollSpeed,
+        pixelsPerTexel,
+        hitGlowRadius,
+        darkCore,
+        darkFringeIter,
+        darkCoreIter,
+        coreWidthMult,
+        collisionClass,
+        collisionClassByFighter,
+        const DeepCollectionEquality().hash(_pierceSet),
+        autofire,
+        mode,
+        const DeepCollectionEquality().hash(_weapons)
+      ]);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_WeaponCopyWith<_$_Weapon> get copyWith =>
       __$$_WeaponCopyWithImpl<_$_Weapon>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WeaponToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Weapon implements Weapon {
   factory _Weapon(
-      {String name,
-      String id,
-      String tier,
-      String rarity,
-      String base_value,
-      String range,
-      String damage_per_second,
-      String damage_per_shot,
-      String emp,
-      String impact,
-      String turn_rate,
-      String OPs,
-      String ammo,
-      String ammo_per_sec,
-      String reload_size,
-      String type,
-      String energy_per_shot,
-      String energy_per_second,
-      String chargeup,
-      String chargedown,
-      String burst_size,
-      String burst_delay,
-      String min_spread,
-      String max_spread,
-      String spread_per_shot,
-      String spread_decay_per_sec,
-      String beam_speed,
-      String proj_speed,
-      String launch_speed,
-      String flight_time,
-      String proj_hitpoints,
-      String autofireAccBonus,
-      String extraArcForAI,
-      String hints,
-      String tags,
-      String groupTag,
-      String tech_manufacturer,
-      String for_weapon_tooltip,
-      String primaryRoleStr,
-      String speedStr,
-      String trackingStr,
-      String turnRateStr,
-      String accuracyStr,
-      String customPrimary,
-      String customPrimaryHL,
-      String customAncillary,
-      String customAncillaryHL,
-      String noDPSInTooltip,
-      String number}) = _$_Weapon;
+      {final String id,
+      final String? specClass,
+      final String? type,
+      final String? size,
+      final String? turretSprite,
+      final String? hardpointSprite,
+      final List<double>? turretOffsets,
+      final List<double>? turretAngleOffsets,
+      final List<double>? hardpointOffsets,
+      final List<double>? hardpointAngleOffsets,
+      final List<double>? glowColor,
+      final String? projectileSpecId,
+      final String? barrelMode,
+      final List<double>? fringeColor,
+      final List<double>? coreColor,
+      final dynamic textureType,
+      final String? mountTypeOverride,
+      final String? turretUnderSprite,
+      final String? turretGunSprite,
+      final String? turretGlowSprite,
+      final String? hardpointUnderSprite,
+      final String? hardpointGunSprite,
+      final String? hardpointGlowSprite,
+      final String? fireSoundOne,
+      final String? fireSoundTwo,
+      final String? everyFrameEffect,
+      final bool? animateWhileFiring,
+      @BoolConverter() final bool? alwaysAnimate,
+      final int? numFrames,
+      final double? frameRate,
+      final Set<String>? renderHints,
+      final bool? renderBelowAllWeapons,
+      final bool? renderAboveAllWeapons,
+      final bool? showDamageWhenDecorative,
+      final double? displayArcRadius,
+      final double? specialWeaponGlowHeight,
+      final double? specialWeaponGlowWidth,
+      final String? animationType,
+      final double? visualRecoil,
+      final bool? separateRecoilForLinkedBarrels,
+      final bool? interruptibleBurst,
+      final bool? autocharge,
+      final bool? requiresFullCharge,
+      final WeaponMuzzleFlashSpec? muzzleFlashSpec,
+      final WeaponSmokeSpec? smokeSpec,
+      final bool? noImpactSounds,
+      final bool? noShieldImpactSounds,
+      final bool? noNonShieldImpactSounds,
+      final bool? unaffectedByProjectileSpeedBonuses,
+      final String? beamEffect,
+      final bool? beamFireOnlyOnFullCharge,
+      final bool? convergeOnPoint,
+      final double? width,
+      final double? textureScrollSpeed,
+      final double? pixelsPerTexel,
+      final double? hitGlowRadius,
+      final bool? darkCore,
+      final int? darkFringeIter,
+      final int? darkCoreIter,
+      final double? coreWidthMult,
+      final String? collisionClass,
+      final String? collisionClassByFighter,
+      final Set<String>? pierceSet,
+      final bool autofire,
+      final String mode,
+      final Map<String, String> weapons}) = _$_Weapon;
 
-  @override
-  String get name;
-  set name(String value);
-  @override
+  factory _Weapon.fromJson(Map<String, dynamic> json) = _$_Weapon.fromJson;
+
+  @override // there are only two type of weapon for now.
+// specClass = projectile Or specClass = beam
+// essential to both
   String get id;
-  set id(String value);
   @override
-  String get tier;
-  set tier(String value);
+  String? get specClass;
   @override
-  String get rarity;
-  set rarity(String value);
+  String? get type;
   @override
-  String get base_value;
-  set base_value(String value);
+  String? get size;
   @override
-  String get range;
-  set range(String value);
+  String? get turretSprite;
   @override
-  String get damage_per_second;
-  set damage_per_second(String value);
+  String? get hardpointSprite;
   @override
-  String get damage_per_shot;
-  set damage_per_shot(String value);
+  List<double>? get turretOffsets;
   @override
-  String get emp;
-  set emp(String value);
+  List<double>? get turretAngleOffsets;
   @override
-  String get impact;
-  set impact(String value);
+  List<double>? get hardpointOffsets;
   @override
-  String get turn_rate;
-  set turn_rate(String value);
+  List<double>? get hardpointAngleOffsets;
   @override
-  String get OPs;
-  set OPs(String value);
+  List<double>? get glowColor;
+  @override // essential to projectile
+  String? get projectileSpecId;
   @override
-  String get ammo;
-  set ammo(String value);
+  String? get barrelMode;
+  @override // essential to beam
+  List<double>? get fringeColor;
   @override
-  String get ammo_per_sec;
-  set ammo_per_sec(String value);
+  List<double>? get coreColor;
   @override
-  String get reload_size;
-  set reload_size(String value);
+
+  /// Enum or `Set<String>`
+  dynamic get textureType;
+  @override // TEnum or TString[]
+// optional
+  String? get mountTypeOverride;
+  @override // 0.95.1 new
+  String? get turretUnderSprite;
   @override
-  String get type;
-  set type(String value);
+  String? get turretGunSprite;
   @override
-  String get energy_per_shot;
-  set energy_per_shot(String value);
+  String? get turretGlowSprite;
   @override
-  String get energy_per_second;
-  set energy_per_second(String value);
+  String? get hardpointUnderSprite;
   @override
-  String get chargeup;
-  set chargeup(String value);
+  String? get hardpointGunSprite;
   @override
-  String get chargedown;
-  set chargedown(String value);
+  String? get hardpointGlowSprite;
   @override
-  String get burst_size;
-  set burst_size(String value);
+  String? get fireSoundOne;
   @override
-  String get burst_delay;
-  set burst_delay(String value);
+  String? get fireSoundTwo;
   @override
-  String get min_spread;
-  set min_spread(String value);
+  String? get everyFrameEffect;
   @override
-  String get max_spread;
-  set max_spread(String value);
+  bool? get animateWhileFiring;
   @override
-  String get spread_per_shot;
-  set spread_per_shot(String value);
+  @BoolConverter()
+  bool? get alwaysAnimate;
   @override
-  String get spread_decay_per_sec;
-  set spread_decay_per_sec(String value);
+  int? get numFrames;
   @override
-  String get beam_speed;
-  set beam_speed(String value);
+  double? get frameRate;
   @override
-  String get proj_speed;
-  set proj_speed(String value);
+  Set<String>? get renderHints;
   @override
-  String get launch_speed;
-  set launch_speed(String value);
+  bool? get renderBelowAllWeapons;
   @override
-  String get flight_time;
-  set flight_time(String value);
+  bool? get renderAboveAllWeapons;
   @override
-  String get proj_hitpoints;
-  set proj_hitpoints(String value);
+  bool? get showDamageWhenDecorative;
   @override
-  String get autofireAccBonus;
-  set autofireAccBonus(String value);
+  double? get displayArcRadius;
+  @override // default is 250 but meh
+  double? get specialWeaponGlowHeight;
+  @override // default is 0 but meh
+  double? get specialWeaponGlowWidth;
+  @override // default is 0 but meh
+// optional, projectile only
+  String? get animationType;
   @override
-  String get extraArcForAI;
-  set extraArcForAI(String value);
+  double? get visualRecoil;
   @override
-  String get hints;
-  set hints(String value);
+  bool? get separateRecoilForLinkedBarrels;
   @override
-  String get tags;
-  set tags(String value);
+  bool? get interruptibleBurst;
   @override
-  String get groupTag;
-  set groupTag(String value);
+  bool? get autocharge;
   @override
-  String get tech_manufacturer;
-  set tech_manufacturer(String value);
+  bool? get requiresFullCharge;
   @override
-  String get for_weapon_tooltip;
-  set for_weapon_tooltip(String value);
+  WeaponMuzzleFlashSpec? get muzzleFlashSpec;
   @override
-  String get primaryRoleStr;
-  set primaryRoleStr(String value);
+  WeaponSmokeSpec? get smokeSpec;
   @override
-  String get speedStr;
-  set speedStr(String value);
+  bool? get noImpactSounds;
   @override
-  String get trackingStr;
-  set trackingStr(String value);
+  bool? get noShieldImpactSounds;
   @override
-  String get turnRateStr;
-  set turnRateStr(String value);
+  bool? get noNonShieldImpactSounds;
   @override
-  String get accuracyStr;
-  set accuracyStr(String value);
+  bool? get unaffectedByProjectileSpeedBonuses;
+  @override // 0.95 new
+// optional, beam only
+  String? get beamEffect;
   @override
-  String get customPrimary;
-  set customPrimary(String value);
+  bool? get beamFireOnlyOnFullCharge;
   @override
-  String get customPrimaryHL;
-  set customPrimaryHL(String value);
+  bool? get convergeOnPoint;
   @override
-  String get customAncillary;
-  set customAncillary(String value);
+  double? get width;
   @override
-  String get customAncillaryHL;
-  set customAncillaryHL(String value);
+  double? get textureScrollSpeed;
   @override
-  String get noDPSInTooltip;
-  set noDPSInTooltip(String value);
+  double? get pixelsPerTexel;
   @override
-  String get number;
-  set number(String value);
+  double? get hitGlowRadius;
+  @override
+  bool? get darkCore;
+  @override
+  int? get darkFringeIter;
+  @override // 0.95 new
+  int? get darkCoreIter;
+  @override // 0.95 new
+  double? get coreWidthMult;
+  @override // 0.95 new
+  String? get collisionClass;
+  @override
+  String? get collisionClassByFighter;
+  @override
+  Set<String>? get pierceSet;
+  @override
+  bool get autofire;
+  @override
+  String get mode;
+  @override
+  Map<String, String> get weapons;
   @override
   @JsonKey(ignore: true)
   _$$_WeaponCopyWith<_$_Weapon> get copyWith =>

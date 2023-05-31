@@ -8,7 +8,7 @@ import 'package:graphic/graphic.dart';
 import 'package:starsectorcompare/appState.dart';
 import 'package:starsectorcompare/extensions.dart';
 
-import 'models/ship.dart';
+import 'models/shipCsv.dart';
 
 // class DataAttribute {
 //   String id;
@@ -29,7 +29,7 @@ class GraphViewGraphic extends ConsumerWidget {
   }) : super(key: key);
 
   List<Map<String, Object?>> _createShipData(
-      Iterable<Ship> ships, String attr, String? Function(Ship) valueGetter) {
+      Iterable<ShipCsv> ships, String attr, String? Function(ShipCsv) valueGetter) {
     return ships
         .map((ship) => {
               "id": ship.id,
@@ -46,7 +46,7 @@ class GraphViewGraphic extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var isSpiderWeb = false;
-    var ships = ref.watch(AppState.shipsByHullIdByModId);
+    var ships = ref.watch(AppState.shipsInCsvByHullIdByModId);
     var vanillaShips = ships[null]?.values.take(10) ?? {};
     var hpData =
         _createShipData(vanillaShips, "Hitpoints", (ship) => ship.hitpoints);

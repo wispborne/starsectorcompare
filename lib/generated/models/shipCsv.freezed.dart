@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of '../../models/ship.dart';
+part of '../../models/shipCsv.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Ship {
+mixin _$ShipCsv {
   String? get name => throw _privateConstructorUsedError;
   set name(String? value) => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
@@ -127,13 +127,13 @@ mixin _$Ship {
   set number(String? value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ShipCopyWith<Ship> get copyWith => throw _privateConstructorUsedError;
+  $ShipCsvCopyWith<ShipCsv> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ShipCopyWith<$Res> {
-  factory $ShipCopyWith(Ship value, $Res Function(Ship) then) =
-      _$ShipCopyWithImpl<$Res, Ship>;
+abstract class $ShipCsvCopyWith<$Res> {
+  factory $ShipCsvCopyWith(ShipCsv value, $Res Function(ShipCsv) then) =
+      _$ShipCsvCopyWithImpl<$Res, ShipCsv>;
   @useResult
   $Res call(
       {String? name,
@@ -193,9 +193,9 @@ abstract class $ShipCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ShipCopyWithImpl<$Res, $Val extends Ship>
-    implements $ShipCopyWith<$Res> {
-  _$ShipCopyWithImpl(this._value, this._then);
+class _$ShipCsvCopyWithImpl<$Res, $Val extends ShipCsv>
+    implements $ShipCsvCopyWith<$Res> {
+  _$ShipCsvCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -482,9 +482,10 @@ class _$ShipCopyWithImpl<$Res, $Val extends Ship>
 }
 
 /// @nodoc
-abstract class _$$_ShipCopyWith<$Res> implements $ShipCopyWith<$Res> {
-  factory _$$_ShipCopyWith(_$_Ship value, $Res Function(_$_Ship) then) =
-      __$$_ShipCopyWithImpl<$Res>;
+abstract class _$$_ShipCsvCopyWith<$Res> implements $ShipCsvCopyWith<$Res> {
+  factory _$$_ShipCsvCopyWith(
+          _$_ShipCsv value, $Res Function(_$_ShipCsv) then) =
+      __$$_ShipCsvCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -545,9 +546,10 @@ abstract class _$$_ShipCopyWith<$Res> implements $ShipCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ShipCopyWithImpl<$Res> extends _$ShipCopyWithImpl<$Res, _$_Ship>
-    implements _$$_ShipCopyWith<$Res> {
-  __$$_ShipCopyWithImpl(_$_Ship _value, $Res Function(_$_Ship) _then)
+class __$$_ShipCsvCopyWithImpl<$Res>
+    extends _$ShipCsvCopyWithImpl<$Res, _$_ShipCsv>
+    implements _$$_ShipCsvCopyWith<$Res> {
+  __$$_ShipCsvCopyWithImpl(_$_ShipCsv _value, $Res Function(_$_ShipCsv) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -608,7 +610,7 @@ class __$$_ShipCopyWithImpl<$Res> extends _$ShipCopyWithImpl<$Res, _$_Ship>
     Object? travel_drive = freezed,
     Object? number = freezed,
   }) {
-    return _then(_$_Ship(
+    return _then(_$_ShipCsv(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -831,8 +833,8 @@ class __$$_ShipCopyWithImpl<$Res> extends _$ShipCopyWithImpl<$Res, _$_Ship>
 
 /// @nodoc
 
-class _$_Ship implements _Ship {
-  _$_Ship(
+class _$_ShipCsv implements _ShipCsv {
+  _$_ShipCsv(
       {this.name = "",
       this.id = "",
       this.designation = "",
@@ -1053,18 +1055,18 @@ class _$_Ship implements _Ship {
 
   @override
   String toString() {
-    return 'Ship(name: $name, id: $id, designation: $designation, tech_manufacturer: $tech_manufacturer, system_id: $system_id, fleet_pts: $fleet_pts, hitpoints: $hitpoints, armor_rating: $armor_rating, max_flux: $max_flux, eight_six_five_four_percent: $eight_six_five_four_percent, flux_dissipation: $flux_dissipation, ordnance_points: $ordnance_points, fighter_bays: $fighter_bays, max_speed: $max_speed, acceleration: $acceleration, deceleration: $deceleration, max_turn_rate: $max_turn_rate, turn_acceleration: $turn_acceleration, mass: $mass, shield_type: $shield_type, defense_id: $defense_id, shield_arc: $shield_arc, shield_upkeep: $shield_upkeep, shield_efficiency: $shield_efficiency, phase_cost: $phase_cost, phase_upkeep: $phase_upkeep, min_crew: $min_crew, max_crew: $max_crew, cargo: $cargo, fuel: $fuel, fuel_ly: $fuel_ly, range: $range, max_burn: $max_burn, base_value: $base_value, cr_percent_day: $cr_percent_day, CR_to_deploy: $CR_to_deploy, peak_CR_sec: $peak_CR_sec, CR_loss_sec: $CR_loss_sec, supplies_rec: $supplies_rec, supplies_mo: $supplies_mo, c_per_s: $c_per_s, c_per_f: $c_per_f, f_per_s: $f_per_s, f_per_f: $f_per_f, crew_per_s: $crew_per_s, crew_per_f: $crew_per_f, hints: $hints, tags: $tags, rarity: $rarity, breakProb: $breakProb, minPieces: $minPieces, maxPieces: $maxPieces, travel_drive: $travel_drive, number: $number)';
+    return 'ShipCsv(name: $name, id: $id, designation: $designation, tech_manufacturer: $tech_manufacturer, system_id: $system_id, fleet_pts: $fleet_pts, hitpoints: $hitpoints, armor_rating: $armor_rating, max_flux: $max_flux, eight_six_five_four_percent: $eight_six_five_four_percent, flux_dissipation: $flux_dissipation, ordnance_points: $ordnance_points, fighter_bays: $fighter_bays, max_speed: $max_speed, acceleration: $acceleration, deceleration: $deceleration, max_turn_rate: $max_turn_rate, turn_acceleration: $turn_acceleration, mass: $mass, shield_type: $shield_type, defense_id: $defense_id, shield_arc: $shield_arc, shield_upkeep: $shield_upkeep, shield_efficiency: $shield_efficiency, phase_cost: $phase_cost, phase_upkeep: $phase_upkeep, min_crew: $min_crew, max_crew: $max_crew, cargo: $cargo, fuel: $fuel, fuel_ly: $fuel_ly, range: $range, max_burn: $max_burn, base_value: $base_value, cr_percent_day: $cr_percent_day, CR_to_deploy: $CR_to_deploy, peak_CR_sec: $peak_CR_sec, CR_loss_sec: $CR_loss_sec, supplies_rec: $supplies_rec, supplies_mo: $supplies_mo, c_per_s: $c_per_s, c_per_f: $c_per_f, f_per_s: $f_per_s, f_per_f: $f_per_f, crew_per_s: $crew_per_s, crew_per_f: $crew_per_f, hints: $hints, tags: $tags, rarity: $rarity, breakProb: $breakProb, minPieces: $minPieces, maxPieces: $maxPieces, travel_drive: $travel_drive, number: $number)';
   }
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShipCopyWith<_$_Ship> get copyWith =>
-      __$$_ShipCopyWithImpl<_$_Ship>(this, _$identity);
+  _$$_ShipCsvCopyWith<_$_ShipCsv> get copyWith =>
+      __$$_ShipCsvCopyWithImpl<_$_ShipCsv>(this, _$identity);
 }
 
-abstract class _Ship implements Ship {
-  factory _Ship(
+abstract class _ShipCsv implements ShipCsv {
+  factory _ShipCsv(
       {String? name,
       String id,
       String? designation,
@@ -1118,7 +1120,7 @@ abstract class _Ship implements Ship {
       String? minPieces,
       String? maxPieces,
       String? travel_drive,
-      String? number}) = _$_Ship;
+      String? number}) = _$_ShipCsv;
 
   @override
   String? get name;
@@ -1284,5 +1286,6 @@ abstract class _Ship implements Ship {
   set number(String? value);
   @override
   @JsonKey(ignore: true)
-  _$$_ShipCopyWith<_$_Ship> get copyWith => throw _privateConstructorUsedError;
+  _$$_ShipCsvCopyWith<_$_ShipCsv> get copyWith =>
+      throw _privateConstructorUsedError;
 }

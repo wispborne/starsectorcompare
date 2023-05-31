@@ -6,13 +6,13 @@ import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:fimber/fimber.dart';
 import 'package:ktx/collections.dart';
 import 'package:path/path.dart' as p;
-import 'package:starsectorcompare/models/ship.dart';
+import 'package:starsectorcompare/models/shipCsv.dart';
 import 'package:starsectorcompare/utils.dart';
 
-import 'models/weapon.dart';
+import '../models/weaponCsv.dart';
 
 class CsvDataLoader {
-  static Future<Map<String, Weapon>?> loadWeapons(
+  static Future<Map<String, WeaponCsv>?> loadWeapons(
       String gameDir, String? modDirName) async {
     if (gameDir == null) return null;
 
@@ -46,13 +46,13 @@ class CsvDataLoader {
       return null;
     }
 
-    var weapons = Weapon.fromCsv(csv);
+    var weapons = WeaponCsv.fromCsv(csv);
     Fimber.i("Loaded '${file.path}'.");
     Fimber.d("'$modDirName' weapons: ${weapons.length.toString()}");
     return weapons.associateBy((weapon) => weapon.id);
   }
 
-  static Future<Map<String, Ship>?> loadShips(
+  static Future<Map<String, ShipCsv>?> loadShips(
       String gameDir, String? modDirName) async {
     if (gameDir == null) return null;
     // If modDirName is null, use vanilla
@@ -85,7 +85,7 @@ class CsvDataLoader {
       return null;
     }
 
-    var ships = Ship.fromCsv(csv);
+    var ships = ShipCsv.fromCsv(csv);
     Fimber.i("Loaded '${file.path}'.");
     Fimber.d("'$modDirName' ships: ${ships.length.toString()}");
     return ships.associateBy((ship) => ship.id);

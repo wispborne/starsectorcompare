@@ -7,11 +7,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ktx/collections.dart';
 import 'package:path/path.dart' as path;
-import 'package:starsectorcompare/models/ship.dart';
-import 'package:starsectorcompare/models/weapon.dart';
+import 'package:starsectorcompare/models/shipCsv.dart';
+import 'package:starsectorcompare/models/weaponCsv.dart';
 
 import '../appState.dart';
-import '../csvDataLoader.dart';
+import '../loading/csvDataLoader.dart';
 import '../main.dart';
 
 part '../generated/models/shipFilter.freezed.dart';

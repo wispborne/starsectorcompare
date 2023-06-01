@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../models/weapon.dart';
+part of '../../models/weaponJson.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Weapon _$$_WeaponFromJson(Map<String, dynamic> json) => _$_Weapon(
+_$_WeaponJson _$$_WeaponJsonFromJson(Map<String, dynamic> json) =>
+    _$_WeaponJson(
       id: json['id'] as String? ?? "new_weapon",
       specClass: json['specClass'] as String? ?? "projectile",
       type: json['type'] as String? ?? "ENERGY",
@@ -121,7 +122,8 @@ _$_Weapon _$$_WeaponFromJson(Map<String, dynamic> json) => _$_Weapon(
           const {},
     );
 
-Map<String, dynamic> _$$_WeaponToJson(_$_Weapon instance) => <String, dynamic>{
+Map<String, dynamic> _$$_WeaponJsonToJson(_$_WeaponJson instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'specClass': instance.specClass,
       'type': instance.type,

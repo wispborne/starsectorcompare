@@ -36,11 +36,11 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
   @override
   Widget build(BuildContext context) {
     List<String?> shipHullTypes = ref
-        .watch(AppState.shipsInJsonByHullIIdByModId)
+        .watch(AppState.shipsByHullIdByModId)
         .values
         .map((e) => e.values)
         .flattened
-        .map((e) => e.hullSize)
+        .map((e) => e.shipJson.hullSize)
         .filter((e) => e.isNotEmpty)
         .toSet()
         .toList();

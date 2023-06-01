@@ -8,6 +8,7 @@ import 'package:graphic/graphic.dart';
 import 'package:starsectorcompare/appState.dart';
 import 'package:starsectorcompare/extensions.dart';
 
+import 'models/ship.dart';
 import 'models/shipCsv.dart';
 
 // class DataAttribute {
@@ -29,11 +30,11 @@ class GraphViewGraphic extends ConsumerWidget {
   }) : super(key: key);
 
   List<Map<String, Object?>> _createShipData(
-      Iterable<ShipCsv> ships, String attr, String? Function(ShipCsv) valueGetter) {
+      Iterable<Ship> ships, String attr, String? Function(Ship) valueGetter) {
     return ships
         .map((ship) => {
               "id": ship.id,
-              "name": ship.name ?? "null",
+              "name": ship.shipCsv.name ?? "null",
               "attr": attr,
               "value": valueGetter(ship),
               "normalizedValue": valueGetter(ship)?.toDoubleOrNull()?.normalize(
@@ -46,18 +47,18 @@ class GraphViewGraphic extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var isSpiderWeb = false;
-    var ships = ref.watch(AppState.shipsInCsvByHullIdByModId);
+    var ships = ref.watch(AppState.shipsByHullIdByModId);
     var vanillaShips = ships[null]?.values.take(10) ?? {};
     var hpData =
-        _createShipData(vanillaShips, "Hitpoints", (ship) => ship.hitpoints);
+        _createShipData(vanillaShips, "Hitpoints", (ship) => ship.shipCsv.hitpoints);
     var armorData =
-        _createShipData(vanillaShips, "Armor", (ship) => ship.armor_rating);
+        _createShipData(vanillaShips, "Armor", (ship) => ship.shipCsv.armor_rating);
     var maxSpeedData =
-        _createShipData(vanillaShips, "Max Speed", (ship) => ship.max_speed);
+        _createShipData(vanillaShips, "Max Speed", (ship) => ship.shipCsv.max_speed);
     var capacityData =
-    _createShipData(vanillaShips, "Flux Cap", (ship) => ship.max_flux);
+    _createShipData(vanillaShips, "Flux Cap", (ship) => ship.shipCsv.max_flux);
     var dissipationData =
-    _createShipData(vanillaShips, "Flux Diss", (ship) => ship.flux_dissipation);
+    _createShipData(vanillaShips, "Flux Diss", (ship) => ship.shipCsv.flux_dissipation);
 
     var columns = [hpData, armorData, maxSpeedData, capacityData, dissipationData];
 

@@ -2,102 +2,73 @@ import 'dart:io';
 
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ktx/ktx.dart';
 import 'package:path/path.dart' as p;
 import 'package:starsectorcompare/appState.dart';
-import 'package:starsectorcompare/loading/loaders.dart';
-import 'package:starsectorcompare/models/settings.dart';
-import 'package:starsectorcompare/models/ship.dart';
+import 'package:starsectorcompare/models/shipJson.dart';
 import 'package:starsectorcompare/models/variant.dart';
 
+import '../json_parser/relaxed-json.dart';
 import '../models/shipEngineSlot.dart';
 import '../models/shipSkin.dart';
 import '../models/shipWeaponSlot.dart';
-import '../models/weapon.dart';
+import '../models/weaponJson.dart';
 import '../utils.dart';
 
-Future<Map<String, dynamic>> loadGameData(String gameDir, String? modDirName) async {
-  // if (settings.hideVanillaData != true) {
-  var gameDataPath = Directory(p.join(gameDir, gameFilesRelPath()));
+Future<Map<String, ShipJson>> loadJsonShipData(
+    String gameDir, String? modDirName) async {
+  var gameDataPath = Directory(gameDir);
   // If modDirName is null, use vanilla
   var file = File(p.join(
       gameDataPath.path,
       modDirName?.let((it) => "mods/$it") ??
-          gameFilesPath(gameDataPath)?.path));
-  return loadVanillaData(Directory(file.path));
-  // }
-}
+          gameFilesPath(Directory(gameDir))?.path));
 
-/// not just vanilla
-Future<Map<String, dynamic>> loadVanillaData(
-    Directory dataPath) async {
+  var dataPath = Directory(file.path);
 
   Fimber.i("Starting to load data from ${dataPath.path}.");
   final path = dataPath.path;
   final stockShipsDir = Directory(p.join(path, "data/hulls/"));
-  final variantsDirs = [
-    "data/variants/",
-    "data/variants/fighters/",
-    "data/variants/drones/"
-  ].map((it) => Directory(p.join(path, it)));
-  final stockSkinsDir = Directory(p.join(path, "data/hulls/skins/"));
-  final stockWeaponsDir = Directory(p.join(path, "data/weapons/"));
-  final stockHullmodsDir = Directory(p.join(path, "data/hullmods/"));
-  final stockConfigDir = Directory(p.join(path, "data/config/"));
 
-  //// Load everything
+  // Load everything
   final shipTimer = Stopwatch()..start();
   final shipsFuture = loadShips(stockShipsDir)
     ..then((value) => Fimber.i(
         "Took ${shipTimer.elapsed}ms to load ${value.length} vanilla ships."));
 
-  final variantsFutures = variantsDirs.map((dir) {
-    final variantTimer = Stopwatch()..start();
-    return loadVariants(dir)
-      ..then((value) => Fimber.i(
-          "Took ${variantTimer.elapsed}ms to load ${value.length} vanilla variants from $dir."));
-  });
+  // Add ships
+  var ships = (await shipsFuture).whereType<ShipJson>().toList();
+  var shipsById = ships.associateBy((x) => x.hullId);
 
-  final shipSkinTimer = Stopwatch()..start();
-  // final shipSkinsFuture = loadShipSkins(stockSkinsDir)
-  //   ..then((value) =>
-  //       Fimber.i("Took ${shipSkinTimer.elapsed}ms to load ${value.length} vanilla ship skins from $stockSkinsDir."));
+  return shipsById;
+}
+
+Future<Map<String, WeaponJson>> loadJsonWeaponData(
+    String gameDir, String? modDirName) async {
+  var gameDataPath = Directory(gameDir);
+  // If modDirName is null, use vanilla
+  var file = File(p.join(
+      gameDataPath.path,
+      modDirName?.let((it) => "mods/$it") ??
+          gameFilesPath(Directory(gameDir))?.path));
+
+  var dataPath = Directory(file.path);
+
+  Fimber.i("Starting to load data from ${dataPath.path}.");
+  final path = dataPath.path;
+  final stockWeaponsDir = Directory(p.join(path, "data/weapons/"));
 
   final weaponsTimer = Stopwatch()..start();
   final weaponsFuture = loadWeapons(stockWeaponsDir)
     ..then((value) => Fimber.i(
         "Took ${weaponsTimer.elapsed}ms to load ${value.length} vanilla weapons from $stockWeaponsDir."));
 
-  //// Process loaded stuff
-  // Add ship skins
-  // final shipSkins = await shipSkinsFuture;
-  // ref.read(AppState.vanillaSkinsByHullId.notifier).update((state) => cacheShipSkins((shipSkins).toList()));
-  // ref.read(AppState.vanillaHullSkinsAssoc.notifier).update((state) => groupSkinHullIdsByHullId((shipSkins).toList()));
-
-  // Add variants
-  // final variants = (await Future.wait(variantsFutures)).flatten().whereType<Variant>().toList(growable: false);
-  // ref.read(AppState.vanillaVariantsByVariantId.notifier).update((state) => variants.associateBy((it) => it.variantId));
-
-  // Add ships
-  var ships = (await shipsFuture).whereType<Ship>().toList();
-  var shipsById = ships.associateBy((x) => x.hullId);
-  // Add ship-related enums
-  // var enums = generateShipEnums(ships);
-  // ref.read(AppState.enums.notifier).update((state) => state..addAll(enums));
-  // Add variant weapon groups to enums.
-  // ref.read(AppState.enums.notifier).update((state) => state
-  //   ..addAll({"variant.weaponGroup.mode": variants.expand((it) => it.weaponGroups).map((it) => it.mode).toSet()}));
-
   // Add weapons
   final weapons =
-      (await weaponsFuture).whereType<Weapon>().toList(growable: false);
+      (await weaponsFuture).whereType<WeaponJson>().toList(growable: false);
   var wepsById = weapons.associateBy((it) => it.id);
 
-  return {
-    "jsonShipsByIdByMod": shipsById,
-    "wepsById": wepsById,
-  };
+  return wepsById;
 }
 
 Map<String, Set<ShipSkin>> cacheShipSkins(List<ShipSkin> skins) {
@@ -132,10 +103,10 @@ Map<String, Set<String>> groupSkinHullIdsByHullId(List<ShipSkin> skins) {
   return skinHullIdsByHull;
 }
 
-Map<String, Set<String>> generateShipEnums(List<Ship> ships) {
+Map<String, Set<String>> generateShipEnums(List<ShipJson> ships) {
   final Map<String, Set<String>> enums = {};
 
-  for (Ship ship in ships) {
+  for (ShipJson ship in ships) {
     try {
       enums.createAndAdd("ship.hullSize", ship.hullSize);
       enums.createAndAdd("ship.style", ship.style);
@@ -162,7 +133,7 @@ Map<String, Set<String>> generateShipEnums(List<Ship> ships) {
 }
 
 /// `load_stock_ship`
-Future<List<Ship?>> loadShips(Directory folder) async {
+Future<List<ShipJson?>> loadShips(Directory folder) async {
   Fimber.i("Loading ships from $folder");
   return folder
       .list(recursive: true)
@@ -213,7 +184,7 @@ Future<List<ShipSkin>> loadShipSkins(Directory folder) async {
 }
 
 /// `load_stock_weapon`
-Future<List<Weapon?>> loadWeapons(Directory folder) async {
+Future<List<WeaponJson?>> loadWeapons(Directory folder) async {
   Fimber.i("Loading weapons from $folder");
   return folder
       .list(recursive: true)
@@ -241,14 +212,30 @@ String? defaultGamePath() {
   return null;
 }
 
-String gameFilesRelPath() {
-  if (Platform.isWindows) {
-    return "starsector-core";
-  } else if (Platform.isMacOS) {
-    return "Contents/Resources/Java";
-  } else if (kIsWeb) {
-    return "null"; // huh
-  }
+Future<ShipJson?> loadShip(File file) async {
+  return ShipJson.fromJson(
+      parseRjson(await file.readAsString()) as Map<String, dynamic>);
+}
 
-  return "null";
+Future<Variant?> loadVariant(File file) async {
+  //Variant.fromJson(jsonDecode() as Map<String, dynamic>);
+  // var jsonEncodedYaml = json.encode(parseRjson(await file.readAsString()));
+  // Fimber.v(jsonEncodedYaml);
+  return Variant.fromJson(
+      parseRjson(await file.readAsString(), withTrace: false)
+          as Map<String, dynamic>);
+}
+
+Future<ShipSkin?> loadShipSkin(File file) async {
+  // var jsonEncodedYaml = json.encode(parseRjson(await file.readAsString()));
+  // Fimber.v(jsonEncodedYaml);
+  return ShipSkin.fromJson(
+      parseRjson(await file.readAsString()) as Map<String, dynamic>);
+}
+
+Future<WeaponJson?> loadWeapon(File file) async {
+  // var jsonEncodedYaml = json.encode(parseRjson(await file.readAsString()));
+  // Fimber.v(jsonEncodedYaml);
+  return WeaponJson.fromJson(
+      parseRjson(await file.readAsString()) as Map<String, dynamic>);
 }

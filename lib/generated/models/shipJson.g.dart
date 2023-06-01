@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../../models/ship.dart';
+part of '../../models/shipJson.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Ship _$ShipFromJson(Map<String, dynamic> json) => Ship(
+ShipJson _$ShipJsonFromJson(Map<String, dynamic> json) => ShipJson(
       bounds: (json['bounds'] as List<dynamic>?)
               ?.map((e) => (e as num).toDouble())
               .toList() ??
@@ -54,7 +54,7 @@ Ship _$ShipFromJson(Map<String, dynamic> json) => Ship(
           const [],
     );
 
-Map<String, dynamic> _$ShipToJson(Ship instance) => <String, dynamic>{
+Map<String, dynamic> _$ShipJsonToJson(ShipJson instance) => <String, dynamic>{
       'bounds': instance.bounds,
       'center': instance.center,
       'collisionRadius': instance.collisionRadius,

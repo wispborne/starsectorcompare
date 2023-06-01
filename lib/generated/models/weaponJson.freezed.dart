@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of '../../models/weapon.dart';
+part of '../../models/weaponJson.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Weapon _$WeaponFromJson(Map<String, dynamic> json) {
-  return _Weapon.fromJson(json);
+WeaponJson _$WeaponJsonFromJson(Map<String, dynamic> json) {
+  return _WeaponJson.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Weapon {
+mixin _$WeaponJson {
 // there are only two type of weapon for now.
 // specClass = projectile Or specClass = beam
 // essential to both
@@ -108,13 +108,15 @@ mixin _$Weapon {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $WeaponCopyWith<Weapon> get copyWith => throw _privateConstructorUsedError;
+  $WeaponJsonCopyWith<WeaponJson> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WeaponCopyWith<$Res> {
-  factory $WeaponCopyWith(Weapon value, $Res Function(Weapon) then) =
-      _$WeaponCopyWithImpl<$Res, Weapon>;
+abstract class $WeaponJsonCopyWith<$Res> {
+  factory $WeaponJsonCopyWith(
+          WeaponJson value, $Res Function(WeaponJson) then) =
+      _$WeaponJsonCopyWithImpl<$Res, WeaponJson>;
   @useResult
   $Res call(
       {String id,
@@ -189,9 +191,9 @@ abstract class $WeaponCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WeaponCopyWithImpl<$Res, $Val extends Weapon>
-    implements $WeaponCopyWith<$Res> {
-  _$WeaponCopyWithImpl(this._value, this._then);
+class _$WeaponJsonCopyWithImpl<$Res, $Val extends WeaponJson>
+    implements $WeaponJsonCopyWith<$Res> {
+  _$WeaponJsonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -564,9 +566,11 @@ class _$WeaponCopyWithImpl<$Res, $Val extends Weapon>
 }
 
 /// @nodoc
-abstract class _$$_WeaponCopyWith<$Res> implements $WeaponCopyWith<$Res> {
-  factory _$$_WeaponCopyWith(_$_Weapon value, $Res Function(_$_Weapon) then) =
-      __$$_WeaponCopyWithImpl<$Res>;
+abstract class _$$_WeaponJsonCopyWith<$Res>
+    implements $WeaponJsonCopyWith<$Res> {
+  factory _$$_WeaponJsonCopyWith(
+          _$_WeaponJson value, $Res Function(_$_WeaponJson) then) =
+      __$$_WeaponJsonCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -644,10 +648,11 @@ abstract class _$$_WeaponCopyWith<$Res> implements $WeaponCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WeaponCopyWithImpl<$Res>
-    extends _$WeaponCopyWithImpl<$Res, _$_Weapon>
-    implements _$$_WeaponCopyWith<$Res> {
-  __$$_WeaponCopyWithImpl(_$_Weapon _value, $Res Function(_$_Weapon) _then)
+class __$$_WeaponJsonCopyWithImpl<$Res>
+    extends _$WeaponJsonCopyWithImpl<$Res, _$_WeaponJson>
+    implements _$$_WeaponJsonCopyWith<$Res> {
+  __$$_WeaponJsonCopyWithImpl(
+      _$_WeaponJson _value, $Res Function(_$_WeaponJson) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -720,7 +725,7 @@ class __$$_WeaponCopyWithImpl<$Res>
     Object? mode = null,
     Object? weapons = null,
   }) {
-    return _then(_$_Weapon(
+    return _then(_$_WeaponJson(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -992,8 +997,8 @@ class __$$_WeaponCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Weapon implements _Weapon {
-  _$_Weapon(
+class _$_WeaponJson implements _WeaponJson {
+  _$_WeaponJson(
       {this.id = "new_weapon",
       this.specClass = "projectile",
       this.type = "ENERGY",
@@ -1071,8 +1076,8 @@ class _$_Weapon implements _Weapon {
         _pierceSet = pierceSet,
         _weapons = weapons;
 
-  factory _$_Weapon.fromJson(Map<String, dynamic> json) =>
-      _$$_WeaponFromJson(json);
+  factory _$_WeaponJson.fromJson(Map<String, dynamic> json) =>
+      _$$_WeaponJsonFromJson(json);
 
 // there are only two type of weapon for now.
 // specClass = projectile Or specClass = beam
@@ -1373,14 +1378,14 @@ class _$_Weapon implements _Weapon {
 
   @override
   String toString() {
-    return 'Weapon(id: $id, specClass: $specClass, type: $type, size: $size, turretSprite: $turretSprite, hardpointSprite: $hardpointSprite, turretOffsets: $turretOffsets, turretAngleOffsets: $turretAngleOffsets, hardpointOffsets: $hardpointOffsets, hardpointAngleOffsets: $hardpointAngleOffsets, glowColor: $glowColor, projectileSpecId: $projectileSpecId, barrelMode: $barrelMode, fringeColor: $fringeColor, coreColor: $coreColor, textureType: $textureType, mountTypeOverride: $mountTypeOverride, turretUnderSprite: $turretUnderSprite, turretGunSprite: $turretGunSprite, turretGlowSprite: $turretGlowSprite, hardpointUnderSprite: $hardpointUnderSprite, hardpointGunSprite: $hardpointGunSprite, hardpointGlowSprite: $hardpointGlowSprite, fireSoundOne: $fireSoundOne, fireSoundTwo: $fireSoundTwo, everyFrameEffect: $everyFrameEffect, animateWhileFiring: $animateWhileFiring, alwaysAnimate: $alwaysAnimate, numFrames: $numFrames, frameRate: $frameRate, renderHints: $renderHints, renderBelowAllWeapons: $renderBelowAllWeapons, renderAboveAllWeapons: $renderAboveAllWeapons, showDamageWhenDecorative: $showDamageWhenDecorative, displayArcRadius: $displayArcRadius, specialWeaponGlowHeight: $specialWeaponGlowHeight, specialWeaponGlowWidth: $specialWeaponGlowWidth, animationType: $animationType, visualRecoil: $visualRecoil, separateRecoilForLinkedBarrels: $separateRecoilForLinkedBarrels, interruptibleBurst: $interruptibleBurst, autocharge: $autocharge, requiresFullCharge: $requiresFullCharge, muzzleFlashSpec: $muzzleFlashSpec, smokeSpec: $smokeSpec, noImpactSounds: $noImpactSounds, noShieldImpactSounds: $noShieldImpactSounds, noNonShieldImpactSounds: $noNonShieldImpactSounds, unaffectedByProjectileSpeedBonuses: $unaffectedByProjectileSpeedBonuses, beamEffect: $beamEffect, beamFireOnlyOnFullCharge: $beamFireOnlyOnFullCharge, convergeOnPoint: $convergeOnPoint, width: $width, textureScrollSpeed: $textureScrollSpeed, pixelsPerTexel: $pixelsPerTexel, hitGlowRadius: $hitGlowRadius, darkCore: $darkCore, darkFringeIter: $darkFringeIter, darkCoreIter: $darkCoreIter, coreWidthMult: $coreWidthMult, collisionClass: $collisionClass, collisionClassByFighter: $collisionClassByFighter, pierceSet: $pierceSet, autofire: $autofire, mode: $mode, weapons: $weapons)';
+    return 'WeaponJson(id: $id, specClass: $specClass, type: $type, size: $size, turretSprite: $turretSprite, hardpointSprite: $hardpointSprite, turretOffsets: $turretOffsets, turretAngleOffsets: $turretAngleOffsets, hardpointOffsets: $hardpointOffsets, hardpointAngleOffsets: $hardpointAngleOffsets, glowColor: $glowColor, projectileSpecId: $projectileSpecId, barrelMode: $barrelMode, fringeColor: $fringeColor, coreColor: $coreColor, textureType: $textureType, mountTypeOverride: $mountTypeOverride, turretUnderSprite: $turretUnderSprite, turretGunSprite: $turretGunSprite, turretGlowSprite: $turretGlowSprite, hardpointUnderSprite: $hardpointUnderSprite, hardpointGunSprite: $hardpointGunSprite, hardpointGlowSprite: $hardpointGlowSprite, fireSoundOne: $fireSoundOne, fireSoundTwo: $fireSoundTwo, everyFrameEffect: $everyFrameEffect, animateWhileFiring: $animateWhileFiring, alwaysAnimate: $alwaysAnimate, numFrames: $numFrames, frameRate: $frameRate, renderHints: $renderHints, renderBelowAllWeapons: $renderBelowAllWeapons, renderAboveAllWeapons: $renderAboveAllWeapons, showDamageWhenDecorative: $showDamageWhenDecorative, displayArcRadius: $displayArcRadius, specialWeaponGlowHeight: $specialWeaponGlowHeight, specialWeaponGlowWidth: $specialWeaponGlowWidth, animationType: $animationType, visualRecoil: $visualRecoil, separateRecoilForLinkedBarrels: $separateRecoilForLinkedBarrels, interruptibleBurst: $interruptibleBurst, autocharge: $autocharge, requiresFullCharge: $requiresFullCharge, muzzleFlashSpec: $muzzleFlashSpec, smokeSpec: $smokeSpec, noImpactSounds: $noImpactSounds, noShieldImpactSounds: $noShieldImpactSounds, noNonShieldImpactSounds: $noNonShieldImpactSounds, unaffectedByProjectileSpeedBonuses: $unaffectedByProjectileSpeedBonuses, beamEffect: $beamEffect, beamFireOnlyOnFullCharge: $beamFireOnlyOnFullCharge, convergeOnPoint: $convergeOnPoint, width: $width, textureScrollSpeed: $textureScrollSpeed, pixelsPerTexel: $pixelsPerTexel, hitGlowRadius: $hitGlowRadius, darkCore: $darkCore, darkFringeIter: $darkFringeIter, darkCoreIter: $darkCoreIter, coreWidthMult: $coreWidthMult, collisionClass: $collisionClass, collisionClassByFighter: $collisionClassByFighter, pierceSet: $pierceSet, autofire: $autofire, mode: $mode, weapons: $weapons)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Weapon &&
+            other is _$_WeaponJson &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.specClass, specClass) ||
                 other.specClass == specClass) &&
@@ -1566,19 +1571,19 @@ class _$_Weapon implements _Weapon {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_WeaponCopyWith<_$_Weapon> get copyWith =>
-      __$$_WeaponCopyWithImpl<_$_Weapon>(this, _$identity);
+  _$$_WeaponJsonCopyWith<_$_WeaponJson> get copyWith =>
+      __$$_WeaponJsonCopyWithImpl<_$_WeaponJson>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WeaponToJson(
+    return _$$_WeaponJsonToJson(
       this,
     );
   }
 }
 
-abstract class _Weapon implements Weapon {
-  factory _Weapon(
+abstract class _WeaponJson implements WeaponJson {
+  factory _WeaponJson(
       {final String id,
       final String? specClass,
       final String? type,
@@ -1644,9 +1649,10 @@ abstract class _Weapon implements Weapon {
       final Set<String>? pierceSet,
       final bool autofire,
       final String mode,
-      final Map<String, String> weapons}) = _$_Weapon;
+      final Map<String, String> weapons}) = _$_WeaponJson;
 
-  factory _Weapon.fromJson(Map<String, dynamic> json) = _$_Weapon.fromJson;
+  factory _WeaponJson.fromJson(Map<String, dynamic> json) =
+      _$_WeaponJson.fromJson;
 
   @override // there are only two type of weapon for now.
 // specClass = projectile Or specClass = beam
@@ -1790,6 +1796,6 @@ abstract class _Weapon implements Weapon {
   Map<String, String> get weapons;
   @override
   @JsonKey(ignore: true)
-  _$$_WeaponCopyWith<_$_Weapon> get copyWith =>
+  _$$_WeaponJsonCopyWith<_$_WeaponJson> get copyWith =>
       throw _privateConstructorUsedError;
 }

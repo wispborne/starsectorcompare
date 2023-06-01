@@ -1,64 +1,10 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:starsectorcompare/models/shipEngineSlot.dart';
-import 'package:starsectorcompare/models/shipWeaponSlot.dart';
+import 'package:starsectorcompare/models/shipCsv.dart';
+import 'package:starsectorcompare/models/shipJson.dart';
 
-part '../generated/models/ship.g.dart';
-
-/// TStarfarerShip
-@JsonSerializable()
 class Ship {
-  final List<double>? bounds;
-  final List<double>? center;
-  final double collisionRadius;
-  final List<EngineSlot>? engineSlots;
-  final double height;
-  final double width;
-  final String hullId;
-  final String hullName;
-  final String hullSize;
-  final List<double>? shieldCenter;
-  final double shieldRadius;
-  final String spriteName;
-  final String style;
-  final double viewOffset;
-  final List<ShipWeaponSlot>? weaponSlots;
-  final Map<String, String> builtInWeapons;
-  final List<String>? builtInMods;
-  final String coversColor;
-  final List<String>? builtInWings;
-  final List<double>? moduleAnchor;
+  String id;
+  ShipCsv shipCsv;
+  ShipJson shipJson;
 
-  const Ship(
-      {this.bounds = const [],
-      this.center,
-      this.collisionRadius = 0,
-      this.engineSlots,
-      this.height = 0,
-      this.width = 0,
-      this.hullId = "",
-      this.hullName = "",
-      this.hullSize = "",
-      this.shieldCenter = const [],
-      this.shieldRadius = 0,
-      this.spriteName = "",
-      this.style = "",
-      this.viewOffset = 0,
-      this.weaponSlots = const [],
-      this.builtInWeapons = const {},
-      this.builtInMods = const [],
-      this.coversColor = "",
-      this.builtInWings = const [],
-      this.moduleAnchor = const []});
-
-  /// Connect the generated function to the `fromJson`
-  /// factory.
-  factory Ship.fromJson(Map<String, dynamic> json) => _$ShipFromJson(json);
-
-  /// Connect the generated function to the `toJson` method.
-  Map<String, dynamic> toJson() => _$ShipToJson(this);
-
-  @override
-  String toString() {
-    return 'Ship{bounds: $bounds, center: $center, collisionRadius: $collisionRadius, engineSlots: $engineSlots, height: $height, width: $width, hullId: $hullId, hullName: $hullName, hullSize: $hullSize, shieldCenter: $shieldCenter, shieldRadius: $shieldRadius, spriteName: $spriteName, style: $style, viewOffset: $viewOffset, weaponSlots: $weaponSlots, builtInWeapons: $builtInWeapons, builtInMods: $builtInMods, coversColor: $coversColor, builtInWings: $builtInWings, moduleAnchor: $moduleAnchor}';
-  }
+  Ship({required this.id, required this.shipCsv, required this.shipJson});
 }

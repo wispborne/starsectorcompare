@@ -51,11 +51,12 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
             padding: const EdgeInsets.all(16),
             child: GridView.extent(
               maxCrossAxisExtent: 150,
+              childAspectRatio: 12 / 3,
               padding: const EdgeInsets.all(8),
-              shrinkWrap: true,
               children: shipHullTypes
                   .map((e) => OutlinedButton(
                       onPressed: () {},
+                  style: OutlinedButton.styleFrom(textStyle: TextStyle(fontSize: 12)),
                       child: Text(e?.replaceAll("_", " ") ?? "")))
                   .toList(),
             )));

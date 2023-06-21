@@ -22,6 +22,7 @@ Settings _$SettingsFromJson(Map<String, dynamic> json) {
 mixin _$Settings {
   String? get gameDir => throw _privateConstructorUsedError;
   String? get modsDir => throw _privateConstructorUsedError;
+  String? get numberShipsToLoad => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $SettingsCopyWith<$Res> {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
       _$SettingsCopyWithImpl<$Res, Settings>;
   @useResult
-  $Res call({String? gameDir, String? modsDir});
+  $Res call({String? gameDir, String? modsDir, String? numberShipsToLoad});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   $Res call({
     Object? gameDir = freezed,
     Object? modsDir = freezed,
+    Object? numberShipsToLoad = freezed,
   }) {
     return _then(_value.copyWith(
       gameDir: freezed == gameDir
@@ -61,6 +63,10 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
       modsDir: freezed == modsDir
           ? _value.modsDir
           : modsDir // ignore: cast_nullable_to_non_nullable
+              as String?,
+      numberShipsToLoad: freezed == numberShipsToLoad
+          ? _value.numberShipsToLoad
+          : numberShipsToLoad // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -73,7 +79,7 @@ abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
       __$$_SettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? gameDir, String? modsDir});
+  $Res call({String? gameDir, String? modsDir, String? numberShipsToLoad});
 }
 
 /// @nodoc
@@ -89,6 +95,7 @@ class __$$_SettingsCopyWithImpl<$Res>
   $Res call({
     Object? gameDir = freezed,
     Object? modsDir = freezed,
+    Object? numberShipsToLoad = freezed,
   }) {
     return _then(_$_Settings(
       gameDir: freezed == gameDir
@@ -99,6 +106,10 @@ class __$$_SettingsCopyWithImpl<$Res>
           ? _value.modsDir
           : modsDir // ignore: cast_nullable_to_non_nullable
               as String?,
+      numberShipsToLoad: freezed == numberShipsToLoad
+          ? _value.numberShipsToLoad
+          : numberShipsToLoad // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -106,7 +117,7 @@ class __$$_SettingsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Settings with DiagnosticableTreeMixin implements _Settings {
-  _$_Settings({this.gameDir, this.modsDir});
+  _$_Settings({this.gameDir, this.modsDir, this.numberShipsToLoad = "20"});
 
   factory _$_Settings.fromJson(Map<String, dynamic> json) =>
       _$$_SettingsFromJson(json);
@@ -115,10 +126,13 @@ class _$_Settings with DiagnosticableTreeMixin implements _Settings {
   final String? gameDir;
   @override
   final String? modsDir;
+  @override
+  @JsonKey()
+  final String? numberShipsToLoad;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Settings(gameDir: $gameDir, modsDir: $modsDir)';
+    return 'Settings(gameDir: $gameDir, modsDir: $modsDir, numberShipsToLoad: $numberShipsToLoad)';
   }
 
   @override
@@ -127,7 +141,8 @@ class _$_Settings with DiagnosticableTreeMixin implements _Settings {
     properties
       ..add(DiagnosticsProperty('type', 'Settings'))
       ..add(DiagnosticsProperty('gameDir', gameDir))
-      ..add(DiagnosticsProperty('modsDir', modsDir));
+      ..add(DiagnosticsProperty('modsDir', modsDir))
+      ..add(DiagnosticsProperty('numberShipsToLoad', numberShipsToLoad));
   }
 
   @override
@@ -136,12 +151,15 @@ class _$_Settings with DiagnosticableTreeMixin implements _Settings {
         (other.runtimeType == runtimeType &&
             other is _$_Settings &&
             (identical(other.gameDir, gameDir) || other.gameDir == gameDir) &&
-            (identical(other.modsDir, modsDir) || other.modsDir == modsDir));
+            (identical(other.modsDir, modsDir) || other.modsDir == modsDir) &&
+            (identical(other.numberShipsToLoad, numberShipsToLoad) ||
+                other.numberShipsToLoad == numberShipsToLoad));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, gameDir, modsDir);
+  int get hashCode =>
+      Object.hash(runtimeType, gameDir, modsDir, numberShipsToLoad);
 
   @JsonKey(ignore: true)
   @override
@@ -158,8 +176,10 @@ class _$_Settings with DiagnosticableTreeMixin implements _Settings {
 }
 
 abstract class _Settings implements Settings {
-  factory _Settings({final String? gameDir, final String? modsDir}) =
-      _$_Settings;
+  factory _Settings(
+      {final String? gameDir,
+      final String? modsDir,
+      final String? numberShipsToLoad}) = _$_Settings;
 
   factory _Settings.fromJson(Map<String, dynamic> json) = _$_Settings.fromJson;
 
@@ -167,6 +187,8 @@ abstract class _Settings implements Settings {
   String? get gameDir;
   @override
   String? get modsDir;
+  @override
+  String? get numberShipsToLoad;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsCopyWith<_$_Settings> get copyWith =>

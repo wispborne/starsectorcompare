@@ -30,6 +30,11 @@ Future<Map<String, ShipJson>> loadJsonShipData(
   final path = dataPath.path;
   final stockShipsDir = Directory(p.join(path, "data/hulls/"));
 
+  if (!stockShipsDir.existsSync()) {
+    Fimber.w("Directory doesn't exist: '${stockShipsDir.path}'.");
+    return {};
+  }
+
   // Load everything
   final shipTimer = Stopwatch()..start();
   final shipsFuture = loadShips(stockShipsDir)
@@ -57,6 +62,11 @@ Future<Map<String, WeaponJson>> loadJsonWeaponData(
   Fimber.i("Starting to load data from ${dataPath.path}.");
   final path = dataPath.path;
   final stockWeaponsDir = Directory(p.join(path, "data/weapons/"));
+
+  if (!stockWeaponsDir.existsSync()) {
+    Fimber.w("Directory doesn't exist: '${stockWeaponsDir.path}'.");
+    return {};
+  }
 
   final weaponsTimer = Stopwatch()..start();
   final weaponsFuture = loadWeapons(stockWeaponsDir)

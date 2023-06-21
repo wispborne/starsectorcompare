@@ -8,8 +8,8 @@ import 'package:graphic/graphic.dart';
 import 'package:starsectorcompare/appState.dart';
 import 'package:starsectorcompare/extensions.dart';
 
-import 'models/ship.dart';
-import 'models/shipCsv.dart';
+import '../models/ship.dart';
+import '../models/shipCsv.dart';
 
 // class DataAttribute {
 //   String id;

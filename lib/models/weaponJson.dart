@@ -54,9 +54,9 @@ class WeaponJson with _$WeaponJson {
     @Default(1) int? numFrames,
     @Default(1.0) double? frameRate,
     @Default({}) Set<String>? renderHints,
-    @Default(false) bool? renderBelowAllWeapons,
-    @Default(false) bool? renderAboveAllWeapons,
-    @Default(false) bool? showDamageWhenDecorative,
+    @BoolConverter() @Default(false) bool? renderBelowAllWeapons,
+    @BoolConverter() @Default(false) bool? renderAboveAllWeapons,
+    @BoolConverter() @Default(false) bool? showDamageWhenDecorative,
     @Default(0.0) double? displayArcRadius, // default is 250 but meh
 
     @Default(0.0) double? specialWeaponGlowHeight, // default is 0 but meh
@@ -65,26 +65,26 @@ class WeaponJson with _$WeaponJson {
     // optional, projectile only
     @Default("NONE") String? animationType,
     @Default(0.0) double? visualRecoil,
-    @Default(false) bool? separateRecoilForLinkedBarrels,
-    @Default(false) bool? interruptibleBurst,
-    @Default(false) bool? autocharge,
-    @Default(true) bool? requiresFullCharge,
+    @BoolConverter() @Default(false) bool? separateRecoilForLinkedBarrels,
+    @BoolConverter() @Default(false) bool? interruptibleBurst,
+    @BoolConverter() @Default(false) bool? autocharge,
+    @BoolConverter() @Default(true) bool? requiresFullCharge,
     WeaponMuzzleFlashSpec? muzzleFlashSpec,
     WeaponSmokeSpec? smokeSpec,
-    @Default(false) bool? noImpactSounds,
-    @Default(false) bool? noShieldImpactSounds,
-    @Default(false) bool? noNonShieldImpactSounds,
-    @Default(false) bool? unaffectedByProjectileSpeedBonuses, // 0.95 new
+    @BoolConverter() @Default(false) bool? noImpactSounds,
+    @BoolConverter() @Default(false) bool? noShieldImpactSounds,
+    @BoolConverter() @Default(false) bool? noNonShieldImpactSounds,
+    @BoolConverter() @Default(false) bool? unaffectedByProjectileSpeedBonuses, // 0.95 new
 
     // optional, beam only
     @Default("") String? beamEffect,
-    @Default(false) bool? beamFireOnlyOnFullCharge,
-    @Default(false) bool? convergeOnPoint,
+    @BoolConverter() @Default(false) bool? beamFireOnlyOnFullCharge,
+    @BoolConverter() @Default(false) bool? convergeOnPoint,
     @Default(10.0) double? width,
     @Default(64.0) double? textureScrollSpeed,
     @Default(1.0) double? pixelsPerTexel,
     @Default(0.0) double? hitGlowRadius,
-    @Default(false) bool? darkCore,
+    @BoolConverter() @Default(false) bool? darkCore,
     @Default(0) int? darkFringeIter, // 0.95 new
     @Default(0) int? darkCoreIter, // 0.95 new
     @Default(0.0) double? coreWidthMult, // 0.95 new
@@ -92,7 +92,7 @@ class WeaponJson with _$WeaponJson {
     @Default("RAY") String? collisionClass,
     @Default("RAY_FIGHTER") String? collisionClassByFighter,
     @Default({}) Set<String>? pierceSet,
-    @Default(false) final bool autofire,
+    @BoolConverter() @Default(false) final bool autofire,
     @Default("") final String mode,
     @Default({}) final Map<String, String> weapons,
   }) = _WeaponJson;

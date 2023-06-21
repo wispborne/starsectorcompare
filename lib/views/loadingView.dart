@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/extensions.dart';
 
-import 'models/settings.dart';
+import '../models/settings.dart';
 
 class LoadingView extends ConsumerStatefulWidget {
   const LoadingView({

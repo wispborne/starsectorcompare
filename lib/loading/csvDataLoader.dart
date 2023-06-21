@@ -54,7 +54,7 @@ class CsvDataLoader {
 
   static Future<Map<String, ShipCsv>?> loadShips(
       String gameDir, String? modDirName) async {
-    if (gameDir == null) return null;
+
     // If modDirName is null, use vanilla
     var file = File(p.join(
         gameDir,

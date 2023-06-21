@@ -62,8 +62,11 @@ mixin _$WeaponJson {
   int? get numFrames => throw _privateConstructorUsedError;
   double? get frameRate => throw _privateConstructorUsedError;
   Set<String>? get renderHints => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get renderBelowAllWeapons => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get renderAboveAllWeapons => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get showDamageWhenDecorative => throw _privateConstructorUsedError;
   double? get displayArcRadius =>
       throw _privateConstructorUsedError; // default is 250 but meh
@@ -74,27 +77,38 @@ mixin _$WeaponJson {
 // optional, projectile only
   String? get animationType => throw _privateConstructorUsedError;
   double? get visualRecoil => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get separateRecoilForLinkedBarrels =>
       throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get interruptibleBurst => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get autocharge => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get requiresFullCharge => throw _privateConstructorUsedError;
   WeaponMuzzleFlashSpec? get muzzleFlashSpec =>
       throw _privateConstructorUsedError;
   WeaponSmokeSpec? get smokeSpec => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get noImpactSounds => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get noShieldImpactSounds => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get noNonShieldImpactSounds => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get unaffectedByProjectileSpeedBonuses =>
       throw _privateConstructorUsedError; // 0.95 new
 // optional, beam only
   String? get beamEffect => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get beamFireOnlyOnFullCharge => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get convergeOnPoint => throw _privateConstructorUsedError;
   double? get width => throw _privateConstructorUsedError;
   double? get textureScrollSpeed => throw _privateConstructorUsedError;
   double? get pixelsPerTexel => throw _privateConstructorUsedError;
   double? get hitGlowRadius => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool? get darkCore => throw _privateConstructorUsedError;
   int? get darkFringeIter => throw _privateConstructorUsedError; // 0.95 new
   int? get darkCoreIter => throw _privateConstructorUsedError; // 0.95 new
@@ -102,6 +116,7 @@ mixin _$WeaponJson {
   String? get collisionClass => throw _privateConstructorUsedError;
   String? get collisionClassByFighter => throw _privateConstructorUsedError;
   Set<String>? get pierceSet => throw _privateConstructorUsedError;
+  @BoolConverter()
   bool get autofire => throw _privateConstructorUsedError;
   String get mode => throw _privateConstructorUsedError;
   Map<String, String> get weapons => throw _privateConstructorUsedError;
@@ -150,39 +165,39 @@ abstract class $WeaponJsonCopyWith<$Res> {
       int? numFrames,
       double? frameRate,
       Set<String>? renderHints,
-      bool? renderBelowAllWeapons,
-      bool? renderAboveAllWeapons,
-      bool? showDamageWhenDecorative,
+      @BoolConverter() bool? renderBelowAllWeapons,
+      @BoolConverter() bool? renderAboveAllWeapons,
+      @BoolConverter() bool? showDamageWhenDecorative,
       double? displayArcRadius,
       double? specialWeaponGlowHeight,
       double? specialWeaponGlowWidth,
       String? animationType,
       double? visualRecoil,
-      bool? separateRecoilForLinkedBarrels,
-      bool? interruptibleBurst,
-      bool? autocharge,
-      bool? requiresFullCharge,
+      @BoolConverter() bool? separateRecoilForLinkedBarrels,
+      @BoolConverter() bool? interruptibleBurst,
+      @BoolConverter() bool? autocharge,
+      @BoolConverter() bool? requiresFullCharge,
       WeaponMuzzleFlashSpec? muzzleFlashSpec,
       WeaponSmokeSpec? smokeSpec,
-      bool? noImpactSounds,
-      bool? noShieldImpactSounds,
-      bool? noNonShieldImpactSounds,
-      bool? unaffectedByProjectileSpeedBonuses,
+      @BoolConverter() bool? noImpactSounds,
+      @BoolConverter() bool? noShieldImpactSounds,
+      @BoolConverter() bool? noNonShieldImpactSounds,
+      @BoolConverter() bool? unaffectedByProjectileSpeedBonuses,
       String? beamEffect,
-      bool? beamFireOnlyOnFullCharge,
-      bool? convergeOnPoint,
+      @BoolConverter() bool? beamFireOnlyOnFullCharge,
+      @BoolConverter() bool? convergeOnPoint,
       double? width,
       double? textureScrollSpeed,
       double? pixelsPerTexel,
       double? hitGlowRadius,
-      bool? darkCore,
+      @BoolConverter() bool? darkCore,
       int? darkFringeIter,
       int? darkCoreIter,
       double? coreWidthMult,
       String? collisionClass,
       String? collisionClassByFighter,
       Set<String>? pierceSet,
-      bool autofire,
+      @BoolConverter() bool autofire,
       String mode,
       Map<String, String> weapons});
 
@@ -605,39 +620,39 @@ abstract class _$$_WeaponJsonCopyWith<$Res>
       int? numFrames,
       double? frameRate,
       Set<String>? renderHints,
-      bool? renderBelowAllWeapons,
-      bool? renderAboveAllWeapons,
-      bool? showDamageWhenDecorative,
+      @BoolConverter() bool? renderBelowAllWeapons,
+      @BoolConverter() bool? renderAboveAllWeapons,
+      @BoolConverter() bool? showDamageWhenDecorative,
       double? displayArcRadius,
       double? specialWeaponGlowHeight,
       double? specialWeaponGlowWidth,
       String? animationType,
       double? visualRecoil,
-      bool? separateRecoilForLinkedBarrels,
-      bool? interruptibleBurst,
-      bool? autocharge,
-      bool? requiresFullCharge,
+      @BoolConverter() bool? separateRecoilForLinkedBarrels,
+      @BoolConverter() bool? interruptibleBurst,
+      @BoolConverter() bool? autocharge,
+      @BoolConverter() bool? requiresFullCharge,
       WeaponMuzzleFlashSpec? muzzleFlashSpec,
       WeaponSmokeSpec? smokeSpec,
-      bool? noImpactSounds,
-      bool? noShieldImpactSounds,
-      bool? noNonShieldImpactSounds,
-      bool? unaffectedByProjectileSpeedBonuses,
+      @BoolConverter() bool? noImpactSounds,
+      @BoolConverter() bool? noShieldImpactSounds,
+      @BoolConverter() bool? noNonShieldImpactSounds,
+      @BoolConverter() bool? unaffectedByProjectileSpeedBonuses,
       String? beamEffect,
-      bool? beamFireOnlyOnFullCharge,
-      bool? convergeOnPoint,
+      @BoolConverter() bool? beamFireOnlyOnFullCharge,
+      @BoolConverter() bool? convergeOnPoint,
       double? width,
       double? textureScrollSpeed,
       double? pixelsPerTexel,
       double? hitGlowRadius,
-      bool? darkCore,
+      @BoolConverter() bool? darkCore,
       int? darkFringeIter,
       int? darkCoreIter,
       double? coreWidthMult,
       String? collisionClass,
       String? collisionClassByFighter,
       Set<String>? pierceSet,
-      bool autofire,
+      @BoolConverter() bool autofire,
       String mode,
       Map<String, String> weapons});
 
@@ -1030,39 +1045,39 @@ class _$_WeaponJson implements _WeaponJson {
       this.numFrames = 1,
       this.frameRate = 1.0,
       final Set<String>? renderHints = const {},
-      this.renderBelowAllWeapons = false,
-      this.renderAboveAllWeapons = false,
-      this.showDamageWhenDecorative = false,
+      @BoolConverter() this.renderBelowAllWeapons = false,
+      @BoolConverter() this.renderAboveAllWeapons = false,
+      @BoolConverter() this.showDamageWhenDecorative = false,
       this.displayArcRadius = 0.0,
       this.specialWeaponGlowHeight = 0.0,
       this.specialWeaponGlowWidth = 0.0,
       this.animationType = "NONE",
       this.visualRecoil = 0.0,
-      this.separateRecoilForLinkedBarrels = false,
-      this.interruptibleBurst = false,
-      this.autocharge = false,
-      this.requiresFullCharge = true,
+      @BoolConverter() this.separateRecoilForLinkedBarrels = false,
+      @BoolConverter() this.interruptibleBurst = false,
+      @BoolConverter() this.autocharge = false,
+      @BoolConverter() this.requiresFullCharge = true,
       this.muzzleFlashSpec,
       this.smokeSpec,
-      this.noImpactSounds = false,
-      this.noShieldImpactSounds = false,
-      this.noNonShieldImpactSounds = false,
-      this.unaffectedByProjectileSpeedBonuses = false,
+      @BoolConverter() this.noImpactSounds = false,
+      @BoolConverter() this.noShieldImpactSounds = false,
+      @BoolConverter() this.noNonShieldImpactSounds = false,
+      @BoolConverter() this.unaffectedByProjectileSpeedBonuses = false,
       this.beamEffect = "",
-      this.beamFireOnlyOnFullCharge = false,
-      this.convergeOnPoint = false,
+      @BoolConverter() this.beamFireOnlyOnFullCharge = false,
+      @BoolConverter() this.convergeOnPoint = false,
       this.width = 10.0,
       this.textureScrollSpeed = 64.0,
       this.pixelsPerTexel = 1.0,
       this.hitGlowRadius = 0.0,
-      this.darkCore = false,
+      @BoolConverter() this.darkCore = false,
       this.darkFringeIter = 0,
       this.darkCoreIter = 0,
       this.coreWidthMult = 0.0,
       this.collisionClass = "RAY",
       this.collisionClassByFighter = "RAY_FIGHTER",
       final Set<String>? pierceSet = const {},
-      this.autofire = false,
+      @BoolConverter() this.autofire = false,
       this.mode = "",
       final Map<String, String> weapons = const {}})
       : _turretOffsets = turretOffsets,
@@ -1252,12 +1267,15 @@ class _$_WeaponJson implements _WeaponJson {
 
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? renderBelowAllWeapons;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? renderAboveAllWeapons;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? showDamageWhenDecorative;
   @override
   @JsonKey()
@@ -1280,15 +1298,19 @@ class _$_WeaponJson implements _WeaponJson {
   final double? visualRecoil;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? separateRecoilForLinkedBarrels;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? interruptibleBurst;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? autocharge;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? requiresFullCharge;
   @override
   final WeaponMuzzleFlashSpec? muzzleFlashSpec;
@@ -1296,15 +1318,19 @@ class _$_WeaponJson implements _WeaponJson {
   final WeaponSmokeSpec? smokeSpec;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? noImpactSounds;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? noShieldImpactSounds;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? noNonShieldImpactSounds;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? unaffectedByProjectileSpeedBonuses;
 // 0.95 new
 // optional, beam only
@@ -1313,9 +1339,11 @@ class _$_WeaponJson implements _WeaponJson {
   final String? beamEffect;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? beamFireOnlyOnFullCharge;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? convergeOnPoint;
   @override
   @JsonKey()
@@ -1331,6 +1359,7 @@ class _$_WeaponJson implements _WeaponJson {
   final double? hitGlowRadius;
   @override
   @JsonKey()
+  @BoolConverter()
   final bool? darkCore;
   @override
   @JsonKey()
@@ -1363,6 +1392,7 @@ class _$_WeaponJson implements _WeaponJson {
 
   @override
   @JsonKey()
+  @BoolConverter()
   final bool autofire;
   @override
   @JsonKey()
@@ -1615,39 +1645,39 @@ abstract class _WeaponJson implements WeaponJson {
       final int? numFrames,
       final double? frameRate,
       final Set<String>? renderHints,
-      final bool? renderBelowAllWeapons,
-      final bool? renderAboveAllWeapons,
-      final bool? showDamageWhenDecorative,
+      @BoolConverter() final bool? renderBelowAllWeapons,
+      @BoolConverter() final bool? renderAboveAllWeapons,
+      @BoolConverter() final bool? showDamageWhenDecorative,
       final double? displayArcRadius,
       final double? specialWeaponGlowHeight,
       final double? specialWeaponGlowWidth,
       final String? animationType,
       final double? visualRecoil,
-      final bool? separateRecoilForLinkedBarrels,
-      final bool? interruptibleBurst,
-      final bool? autocharge,
-      final bool? requiresFullCharge,
+      @BoolConverter() final bool? separateRecoilForLinkedBarrels,
+      @BoolConverter() final bool? interruptibleBurst,
+      @BoolConverter() final bool? autocharge,
+      @BoolConverter() final bool? requiresFullCharge,
       final WeaponMuzzleFlashSpec? muzzleFlashSpec,
       final WeaponSmokeSpec? smokeSpec,
-      final bool? noImpactSounds,
-      final bool? noShieldImpactSounds,
-      final bool? noNonShieldImpactSounds,
-      final bool? unaffectedByProjectileSpeedBonuses,
+      @BoolConverter() final bool? noImpactSounds,
+      @BoolConverter() final bool? noShieldImpactSounds,
+      @BoolConverter() final bool? noNonShieldImpactSounds,
+      @BoolConverter() final bool? unaffectedByProjectileSpeedBonuses,
       final String? beamEffect,
-      final bool? beamFireOnlyOnFullCharge,
-      final bool? convergeOnPoint,
+      @BoolConverter() final bool? beamFireOnlyOnFullCharge,
+      @BoolConverter() final bool? convergeOnPoint,
       final double? width,
       final double? textureScrollSpeed,
       final double? pixelsPerTexel,
       final double? hitGlowRadius,
-      final bool? darkCore,
+      @BoolConverter() final bool? darkCore,
       final int? darkFringeIter,
       final int? darkCoreIter,
       final double? coreWidthMult,
       final String? collisionClass,
       final String? collisionClassByFighter,
       final Set<String>? pierceSet,
-      final bool autofire,
+      @BoolConverter() final bool autofire,
       final String mode,
       final Map<String, String> weapons}) = _$_WeaponJson;
 
@@ -1723,10 +1753,13 @@ abstract class _WeaponJson implements WeaponJson {
   @override
   Set<String>? get renderHints;
   @override
+  @BoolConverter()
   bool? get renderBelowAllWeapons;
   @override
+  @BoolConverter()
   bool? get renderAboveAllWeapons;
   @override
+  @BoolConverter()
   bool? get showDamageWhenDecorative;
   @override
   double? get displayArcRadius;
@@ -1740,31 +1773,41 @@ abstract class _WeaponJson implements WeaponJson {
   @override
   double? get visualRecoil;
   @override
+  @BoolConverter()
   bool? get separateRecoilForLinkedBarrels;
   @override
+  @BoolConverter()
   bool? get interruptibleBurst;
   @override
+  @BoolConverter()
   bool? get autocharge;
   @override
+  @BoolConverter()
   bool? get requiresFullCharge;
   @override
   WeaponMuzzleFlashSpec? get muzzleFlashSpec;
   @override
   WeaponSmokeSpec? get smokeSpec;
   @override
+  @BoolConverter()
   bool? get noImpactSounds;
   @override
+  @BoolConverter()
   bool? get noShieldImpactSounds;
   @override
+  @BoolConverter()
   bool? get noNonShieldImpactSounds;
   @override
+  @BoolConverter()
   bool? get unaffectedByProjectileSpeedBonuses;
   @override // 0.95 new
 // optional, beam only
   String? get beamEffect;
   @override
+  @BoolConverter()
   bool? get beamFireOnlyOnFullCharge;
   @override
+  @BoolConverter()
   bool? get convergeOnPoint;
   @override
   double? get width;
@@ -1775,6 +1818,7 @@ abstract class _WeaponJson implements WeaponJson {
   @override
   double? get hitGlowRadius;
   @override
+  @BoolConverter()
   bool? get darkCore;
   @override
   int? get darkFringeIter;
@@ -1789,6 +1833,7 @@ abstract class _WeaponJson implements WeaponJson {
   @override
   Set<String>? get pierceSet;
   @override
+  @BoolConverter()
   bool get autofire;
   @override
   String get mode;

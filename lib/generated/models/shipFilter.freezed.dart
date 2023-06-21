@@ -22,6 +22,7 @@ ShipFilter _$ShipFilterFromJson(Map<String, dynamic> json) {
 mixin _$ShipFilter {
   String? get gameDir => throw _privateConstructorUsedError;
   String? get modsDir => throw _privateConstructorUsedError;
+  Set<String>? get selectedHullTypes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $ShipFilterCopyWith<$Res> {
           ShipFilter value, $Res Function(ShipFilter) then) =
       _$ShipFilterCopyWithImpl<$Res, ShipFilter>;
   @useResult
-  $Res call({String? gameDir, String? modsDir});
+  $Res call({String? gameDir, String? modsDir, Set<String>? selectedHullTypes});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$ShipFilterCopyWithImpl<$Res, $Val extends ShipFilter>
   $Res call({
     Object? gameDir = freezed,
     Object? modsDir = freezed,
+    Object? selectedHullTypes = freezed,
   }) {
     return _then(_value.copyWith(
       gameDir: freezed == gameDir
@@ -63,6 +65,10 @@ class _$ShipFilterCopyWithImpl<$Res, $Val extends ShipFilter>
           ? _value.modsDir
           : modsDir // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedHullTypes: freezed == selectedHullTypes
+          ? _value.selectedHullTypes
+          : selectedHullTypes // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$_ShipFilterCopyWith<$Res>
       __$$_ShipFilterCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? gameDir, String? modsDir});
+  $Res call({String? gameDir, String? modsDir, Set<String>? selectedHullTypes});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$_ShipFilterCopyWithImpl<$Res>
   $Res call({
     Object? gameDir = freezed,
     Object? modsDir = freezed,
+    Object? selectedHullTypes = freezed,
   }) {
     return _then(_$_ShipFilter(
       gameDir: freezed == gameDir
@@ -101,6 +108,10 @@ class __$$_ShipFilterCopyWithImpl<$Res>
           ? _value.modsDir
           : modsDir // ignore: cast_nullable_to_non_nullable
               as String?,
+      selectedHullTypes: freezed == selectedHullTypes
+          ? _value._selectedHullTypes
+          : selectedHullTypes // ignore: cast_nullable_to_non_nullable
+              as Set<String>?,
     ));
   }
 }
@@ -108,7 +119,9 @@ class __$$_ShipFilterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ShipFilter with DiagnosticableTreeMixin implements _ShipFilter {
-  _$_ShipFilter({this.gameDir, this.modsDir});
+  _$_ShipFilter(
+      {this.gameDir, this.modsDir, final Set<String>? selectedHullTypes})
+      : _selectedHullTypes = selectedHullTypes;
 
   factory _$_ShipFilter.fromJson(Map<String, dynamic> json) =>
       _$$_ShipFilterFromJson(json);
@@ -117,10 +130,20 @@ class _$_ShipFilter with DiagnosticableTreeMixin implements _ShipFilter {
   final String? gameDir;
   @override
   final String? modsDir;
+  final Set<String>? _selectedHullTypes;
+  @override
+  Set<String>? get selectedHullTypes {
+    final value = _selectedHullTypes;
+    if (value == null) return null;
+    if (_selectedHullTypes is EqualUnmodifiableSetView)
+      return _selectedHullTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableSetView(value);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ShipFilter(gameDir: $gameDir, modsDir: $modsDir)';
+    return 'ShipFilter(gameDir: $gameDir, modsDir: $modsDir, selectedHullTypes: $selectedHullTypes)';
   }
 
   @override
@@ -129,7 +152,8 @@ class _$_ShipFilter with DiagnosticableTreeMixin implements _ShipFilter {
     properties
       ..add(DiagnosticsProperty('type', 'ShipFilter'))
       ..add(DiagnosticsProperty('gameDir', gameDir))
-      ..add(DiagnosticsProperty('modsDir', modsDir));
+      ..add(DiagnosticsProperty('modsDir', modsDir))
+      ..add(DiagnosticsProperty('selectedHullTypes', selectedHullTypes));
   }
 
   @override
@@ -138,12 +162,15 @@ class _$_ShipFilter with DiagnosticableTreeMixin implements _ShipFilter {
         (other.runtimeType == runtimeType &&
             other is _$_ShipFilter &&
             (identical(other.gameDir, gameDir) || other.gameDir == gameDir) &&
-            (identical(other.modsDir, modsDir) || other.modsDir == modsDir));
+            (identical(other.modsDir, modsDir) || other.modsDir == modsDir) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedHullTypes, _selectedHullTypes));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, gameDir, modsDir);
+  int get hashCode => Object.hash(runtimeType, gameDir, modsDir,
+      const DeepCollectionEquality().hash(_selectedHullTypes));
 
   @JsonKey(ignore: true)
   @override
@@ -160,8 +187,10 @@ class _$_ShipFilter with DiagnosticableTreeMixin implements _ShipFilter {
 }
 
 abstract class _ShipFilter implements ShipFilter {
-  factory _ShipFilter({final String? gameDir, final String? modsDir}) =
-      _$_ShipFilter;
+  factory _ShipFilter(
+      {final String? gameDir,
+      final String? modsDir,
+      final Set<String>? selectedHullTypes}) = _$_ShipFilter;
 
   factory _ShipFilter.fromJson(Map<String, dynamic> json) =
       _$_ShipFilter.fromJson;
@@ -170,6 +199,8 @@ abstract class _ShipFilter implements ShipFilter {
   String? get gameDir;
   @override
   String? get modsDir;
+  @override
+  Set<String>? get selectedHullTypes;
   @override
   @JsonKey(ignore: true)
   _$$_ShipFilterCopyWith<_$_ShipFilter> get copyWith =>

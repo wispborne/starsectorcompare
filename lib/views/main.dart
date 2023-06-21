@@ -1,36 +1,40 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:starsectorcompare/extensions.dart';
-import 'package:starsectorcompare/homeView.dart';
+import 'package:starsectorcompare/views/homeView.dart';
 import 'package:starsectorcompare/mainMenu.dart';
 import 'package:starsectorcompare/models/settings.dart';
 import 'package:starsectorcompare/settingsSaver.dart';
 import 'package:starsectorcompare/shortcuts.dart';
+import 'package:starsectorcompare/themes.dart';
 import 'package:starsectorcompare/utils.dart';
 
 configureLogging() {
   const logLevels = ["I", "W", "E"];
-  Fimber.plantTree(
-      DebugTree.elapsed(logLevels:logLevels, useColors: true));
+  Fimber.plantTree(DebugTree.elapsed(logLevels: logLevels, useColors: true));
 }
+
+var appTitle = "StarCompare";
 
 void main() {
   configureLogging();
   Fimber.i("Logging started.");
   Fimber.i(
       "Platform: ${Platform.operatingSystem} ${Platform.operatingSystemVersion}.");
-  runApp(ProviderScope(observers: [SettingSaver()], child: const MyApp()));
+  runApp(ProviderScope(observers: [SettingSaver()], child: MyApp()));
 }
 
 // Only for use in this class. Danger danger.
 WidgetRef? _ref;
 
 class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,26 +43,33 @@ class MyApp extends ConsumerWidget {
     const useCustomDarkTheme = true;
     _ref = ref;
 
-    return MaterialApp(
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.dark,
-      darkTheme: useCustomDarkTheme
-          ? ThemeData.from(
-              colorScheme: ColorScheme.dark(
-                  primary: pink,
-                  background: Colors.grey[900]!,
-                  surface: Colors.grey[850]!),
-              useMaterial3: true)
-          : ThemeData.dark(useMaterial3: true),
-      theme: ThemeData(
-        useMaterial3: true,
-        primarySwatch: orange,
-      ),
-      home: CallbackShortcuts(
-          bindings: ShortcutBindings.getShortcuts(ref),
-          child: const Focus(
-              autofocus: true, child: MyHomePage(title: 'Starsector Compare'))),
-    );
+    return AdaptiveTheme(
+        light: ThemeData(
+            brightness: Brightness.light,
+            primarySwatch: Colors.cyan,
+            hintColor: Colors.cyanAccent),
+        dark: Themes.starsectorLauncher,
+        initial: AdaptiveThemeMode.dark,
+        builder: (theme, darkTheme) => MaterialApp.router(
+              title: appTitle,
+              theme: theme,
+              debugShowCheckedModeBanner: false,
+              darkTheme: darkTheme,
+              routerConfig: GoRouter(
+                routes: <GoRoute>[
+                  GoRoute(
+                    path: '/',
+                    builder: (BuildContext context, GoRouterState state) {
+                      return CallbackShortcuts(
+                          bindings: ShortcutBindings.getShortcuts(ref),
+                          child: const Focus(
+                              autofocus: true,
+                              child: MyHomePage(title: 'Starsector Compare')));
+                    },
+                  )
+                ],
+              ),
+            ));
   }
 }
 
@@ -87,8 +98,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
   }
 
   @override
-  void initState() {
-  }
+  void initState() {}
 
   loadAppData(WidgetRef ref) {
     if (settingsFile.existsSync()) {
@@ -105,5 +115,4 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
       Fimber.i("Settings file ${settingsFile.path} does not exist.");
     }
   }
-
 }

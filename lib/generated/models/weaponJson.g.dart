@@ -65,10 +65,16 @@ _$_WeaponJson _$$_WeaponJsonFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as String)
               .toSet() ??
           const {},
-      renderBelowAllWeapons: json['renderBelowAllWeapons'] as bool? ?? false,
-      renderAboveAllWeapons: json['renderAboveAllWeapons'] as bool? ?? false,
-      showDamageWhenDecorative:
-          json['showDamageWhenDecorative'] as bool? ?? false,
+      renderBelowAllWeapons: _$JsonConverterFromJson<Object, bool>(
+              json['renderBelowAllWeapons'], const BoolConverter().fromJson) ??
+          false,
+      renderAboveAllWeapons: _$JsonConverterFromJson<Object, bool>(
+              json['renderAboveAllWeapons'], const BoolConverter().fromJson) ??
+          false,
+      showDamageWhenDecorative: _$JsonConverterFromJson<Object, bool>(
+              json['showDamageWhenDecorative'],
+              const BoolConverter().fromJson) ??
+          false,
       displayArcRadius: (json['displayArcRadius'] as num?)?.toDouble() ?? 0.0,
       specialWeaponGlowHeight:
           (json['specialWeaponGlowHeight'] as num?)?.toDouble() ?? 0.0,
@@ -76,11 +82,19 @@ _$_WeaponJson _$$_WeaponJsonFromJson(Map<String, dynamic> json) =>
           (json['specialWeaponGlowWidth'] as num?)?.toDouble() ?? 0.0,
       animationType: json['animationType'] as String? ?? "NONE",
       visualRecoil: (json['visualRecoil'] as num?)?.toDouble() ?? 0.0,
-      separateRecoilForLinkedBarrels:
-          json['separateRecoilForLinkedBarrels'] as bool? ?? false,
-      interruptibleBurst: json['interruptibleBurst'] as bool? ?? false,
-      autocharge: json['autocharge'] as bool? ?? false,
-      requiresFullCharge: json['requiresFullCharge'] as bool? ?? true,
+      separateRecoilForLinkedBarrels: _$JsonConverterFromJson<Object, bool>(
+              json['separateRecoilForLinkedBarrels'],
+              const BoolConverter().fromJson) ??
+          false,
+      interruptibleBurst: _$JsonConverterFromJson<Object, bool>(
+              json['interruptibleBurst'], const BoolConverter().fromJson) ??
+          false,
+      autocharge: _$JsonConverterFromJson<Object, bool>(
+              json['autocharge'], const BoolConverter().fromJson) ??
+          false,
+      requiresFullCharge: _$JsonConverterFromJson<Object, bool>(
+              json['requiresFullCharge'], const BoolConverter().fromJson) ??
+          true,
       muzzleFlashSpec: json['muzzleFlashSpec'] == null
           ? null
           : WeaponMuzzleFlashSpec.fromJson(
@@ -88,22 +102,36 @@ _$_WeaponJson _$$_WeaponJsonFromJson(Map<String, dynamic> json) =>
       smokeSpec: json['smokeSpec'] == null
           ? null
           : WeaponSmokeSpec.fromJson(json['smokeSpec'] as Map<String, dynamic>),
-      noImpactSounds: json['noImpactSounds'] as bool? ?? false,
-      noShieldImpactSounds: json['noShieldImpactSounds'] as bool? ?? false,
-      noNonShieldImpactSounds:
-          json['noNonShieldImpactSounds'] as bool? ?? false,
-      unaffectedByProjectileSpeedBonuses:
-          json['unaffectedByProjectileSpeedBonuses'] as bool? ?? false,
+      noImpactSounds: _$JsonConverterFromJson<Object, bool>(
+              json['noImpactSounds'], const BoolConverter().fromJson) ??
+          false,
+      noShieldImpactSounds: _$JsonConverterFromJson<Object, bool>(
+              json['noShieldImpactSounds'], const BoolConverter().fromJson) ??
+          false,
+      noNonShieldImpactSounds: _$JsonConverterFromJson<Object, bool>(
+              json['noNonShieldImpactSounds'],
+              const BoolConverter().fromJson) ??
+          false,
+      unaffectedByProjectileSpeedBonuses: _$JsonConverterFromJson<Object, bool>(
+              json['unaffectedByProjectileSpeedBonuses'],
+              const BoolConverter().fromJson) ??
+          false,
       beamEffect: json['beamEffect'] as String? ?? "",
-      beamFireOnlyOnFullCharge:
-          json['beamFireOnlyOnFullCharge'] as bool? ?? false,
-      convergeOnPoint: json['convergeOnPoint'] as bool? ?? false,
+      beamFireOnlyOnFullCharge: _$JsonConverterFromJson<Object, bool>(
+              json['beamFireOnlyOnFullCharge'],
+              const BoolConverter().fromJson) ??
+          false,
+      convergeOnPoint: _$JsonConverterFromJson<Object, bool>(
+              json['convergeOnPoint'], const BoolConverter().fromJson) ??
+          false,
       width: (json['width'] as num?)?.toDouble() ?? 10.0,
       textureScrollSpeed:
           (json['textureScrollSpeed'] as num?)?.toDouble() ?? 64.0,
       pixelsPerTexel: (json['pixelsPerTexel'] as num?)?.toDouble() ?? 1.0,
       hitGlowRadius: (json['hitGlowRadius'] as num?)?.toDouble() ?? 0.0,
-      darkCore: json['darkCore'] as bool? ?? false,
+      darkCore: _$JsonConverterFromJson<Object, bool>(
+              json['darkCore'], const BoolConverter().fromJson) ??
+          false,
       darkFringeIter: json['darkFringeIter'] as int? ?? 0,
       darkCoreIter: json['darkCoreIter'] as int? ?? 0,
       coreWidthMult: (json['coreWidthMult'] as num?)?.toDouble() ?? 0.0,
@@ -114,7 +142,9 @@ _$_WeaponJson _$$_WeaponJsonFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as String)
               .toSet() ??
           const {},
-      autofire: json['autofire'] as bool? ?? false,
+      autofire: json['autofire'] == null
+          ? false
+          : const BoolConverter().fromJson(json['autofire'] as Object),
       mode: json['mode'] as String? ?? "",
       weapons: (json['weapons'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(k, e as String),
@@ -156,40 +186,55 @@ Map<String, dynamic> _$$_WeaponJsonToJson(_$_WeaponJson instance) =>
       'numFrames': instance.numFrames,
       'frameRate': instance.frameRate,
       'renderHints': instance.renderHints?.toList(),
-      'renderBelowAllWeapons': instance.renderBelowAllWeapons,
-      'renderAboveAllWeapons': instance.renderAboveAllWeapons,
-      'showDamageWhenDecorative': instance.showDamageWhenDecorative,
+      'renderBelowAllWeapons': _$JsonConverterToJson<Object, bool>(
+          instance.renderBelowAllWeapons, const BoolConverter().toJson),
+      'renderAboveAllWeapons': _$JsonConverterToJson<Object, bool>(
+          instance.renderAboveAllWeapons, const BoolConverter().toJson),
+      'showDamageWhenDecorative': _$JsonConverterToJson<Object, bool>(
+          instance.showDamageWhenDecorative, const BoolConverter().toJson),
       'displayArcRadius': instance.displayArcRadius,
       'specialWeaponGlowHeight': instance.specialWeaponGlowHeight,
       'specialWeaponGlowWidth': instance.specialWeaponGlowWidth,
       'animationType': instance.animationType,
       'visualRecoil': instance.visualRecoil,
-      'separateRecoilForLinkedBarrels': instance.separateRecoilForLinkedBarrels,
-      'interruptibleBurst': instance.interruptibleBurst,
-      'autocharge': instance.autocharge,
-      'requiresFullCharge': instance.requiresFullCharge,
+      'separateRecoilForLinkedBarrels': _$JsonConverterToJson<Object, bool>(
+          instance.separateRecoilForLinkedBarrels,
+          const BoolConverter().toJson),
+      'interruptibleBurst': _$JsonConverterToJson<Object, bool>(
+          instance.interruptibleBurst, const BoolConverter().toJson),
+      'autocharge': _$JsonConverterToJson<Object, bool>(
+          instance.autocharge, const BoolConverter().toJson),
+      'requiresFullCharge': _$JsonConverterToJson<Object, bool>(
+          instance.requiresFullCharge, const BoolConverter().toJson),
       'muzzleFlashSpec': instance.muzzleFlashSpec,
       'smokeSpec': instance.smokeSpec,
-      'noImpactSounds': instance.noImpactSounds,
-      'noShieldImpactSounds': instance.noShieldImpactSounds,
-      'noNonShieldImpactSounds': instance.noNonShieldImpactSounds,
-      'unaffectedByProjectileSpeedBonuses':
+      'noImpactSounds': _$JsonConverterToJson<Object, bool>(
+          instance.noImpactSounds, const BoolConverter().toJson),
+      'noShieldImpactSounds': _$JsonConverterToJson<Object, bool>(
+          instance.noShieldImpactSounds, const BoolConverter().toJson),
+      'noNonShieldImpactSounds': _$JsonConverterToJson<Object, bool>(
+          instance.noNonShieldImpactSounds, const BoolConverter().toJson),
+      'unaffectedByProjectileSpeedBonuses': _$JsonConverterToJson<Object, bool>(
           instance.unaffectedByProjectileSpeedBonuses,
+          const BoolConverter().toJson),
       'beamEffect': instance.beamEffect,
-      'beamFireOnlyOnFullCharge': instance.beamFireOnlyOnFullCharge,
-      'convergeOnPoint': instance.convergeOnPoint,
+      'beamFireOnlyOnFullCharge': _$JsonConverterToJson<Object, bool>(
+          instance.beamFireOnlyOnFullCharge, const BoolConverter().toJson),
+      'convergeOnPoint': _$JsonConverterToJson<Object, bool>(
+          instance.convergeOnPoint, const BoolConverter().toJson),
       'width': instance.width,
       'textureScrollSpeed': instance.textureScrollSpeed,
       'pixelsPerTexel': instance.pixelsPerTexel,
       'hitGlowRadius': instance.hitGlowRadius,
-      'darkCore': instance.darkCore,
+      'darkCore': _$JsonConverterToJson<Object, bool>(
+          instance.darkCore, const BoolConverter().toJson),
       'darkFringeIter': instance.darkFringeIter,
       'darkCoreIter': instance.darkCoreIter,
       'coreWidthMult': instance.coreWidthMult,
       'collisionClass': instance.collisionClass,
       'collisionClassByFighter': instance.collisionClassByFighter,
       'pierceSet': instance.pierceSet?.toList(),
-      'autofire': instance.autofire,
+      'autofire': const BoolConverter().toJson(instance.autofire),
       'mode': instance.mode,
       'weapons': instance.weapons,
     };

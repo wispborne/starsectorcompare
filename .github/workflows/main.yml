@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
             name: 'windows-release'
-            path: 'Release\starsectorcompare.exe'
+            path: 'build\windows\runner\Release\starsectorcompare.exe'
 
      # - name: upload APK
      #   uses: actions/upload-artifact@v1

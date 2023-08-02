@@ -47,27 +47,30 @@ class GraphViewGraphic extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var isSpiderWeb = false;
-    var ships = ref.watch(AppState.shipsByHullIdByModId);
-    var vanillaShips = ships[null]?.values.take(10) ?? {};
+    var allShipsByHullId = ref.read(AppState.shipsByHullId);
+    var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
+
+    var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!);
     var hpData =
-        _createShipData(vanillaShips, "Hitpoints", (ship) => ship.shipCsv.hitpoints);
+        _createShipData(shipsToDisplay, "Hitpoints", (ship) => ship.shipCsv.hitpoints);
     var armorData =
-        _createShipData(vanillaShips, "Armor", (ship) => ship.shipCsv.armor_rating);
+        _createShipData(shipsToDisplay, "Armor", (ship) => ship.shipCsv.armor_rating);
     var maxSpeedData =
-        _createShipData(vanillaShips, "Max Speed", (ship) => ship.shipCsv.max_speed);
+        _createShipData(shipsToDisplay, "Max Speed", (ship) => ship.shipCsv.max_speed);
     var capacityData =
-    _createShipData(vanillaShips, "Flux Cap", (ship) => ship.shipCsv.max_flux);
+    _createShipData(shipsToDisplay, "Flux Cap", (ship) => ship.shipCsv.max_flux);
     var dissipationData =
-    _createShipData(vanillaShips, "Flux Diss", (ship) => ship.shipCsv.flux_dissipation);
+    _createShipData(shipsToDisplay, "Flux Diss", (ship) => ship.shipCsv.flux_dissipation);
 
     var columns = [hpData, armorData, maxSpeedData, capacityData, dissipationData];
 
     var data = columns.reduce((value, element) => value..addAll(element));
 
-    return data.isEmpty
+    return ref.watch(AppState.isPerformingInitialLoad)
         ? SizedBox.fromSize(
             size: const Size(20, 20), child: const CircularProgressIndicator())
-        : Column(
+        : data.isEmpty ? Text("No data to display.")
+    : Column(
             children: [
               Container(height: 10),
               Expanded(
@@ -205,7 +208,7 @@ class GraphViewGraphic extends ConsumerWidget {
                           ],
                         ),
                         annotations: [
-                          ...(data.take(vanillaShips.length).map((entity) =>
+                          ...(data.take(shipsToDisplay.length).map((entity) =>
                               TagAnnotation(
                                   label: Label(
                                     entity["name"].toString(),

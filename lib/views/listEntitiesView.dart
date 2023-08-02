@@ -27,31 +27,32 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
   @override
   Widget build(BuildContext context) {
     var items = ref
-        .watch(AppState.shipsByHullIdByModId)
-        .entries
-        .map((entry) => entry.value.values)
-        .flattened
+        .watch(AppState.shipsByHullId)
+        .values
         .toList();
 
+    var displayedItems = ref.watch(AppState.hullIdsToDisplay);
+
     return DataTable(
-        columns: const [
-          DataColumn(
+        columns: [
+          DataColumn(label: Spacer()),
+          const DataColumn(
               label: Expanded(
                   child: Text("Name",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Hitpoints",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Armor",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Max Speed",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Flux Cap",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
@@ -62,6 +63,17 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
             var item = items[index];
             return DataRow(
               cells: <DataCell>[
+                DataCell(Checkbox(value: displayedItems.contains(item.id), onChanged: (value) {
+                  ref.read(AppState.hullIdsToDisplay.notifier).update((state) {
+                    if (value == true) {
+                      // Create new sets so that watchers are notified.
+                      return {}..addAll(state..add(item.id));
+                    } else {
+                      return {}..addAll(state..remove(item.id));
+                    }
+                  });
+                }
+                )),
                 DataCell(Text(item.shipCsv.name ?? "")),
                 DataCell(Text(item.shipCsv.hitpoints ?? "")),
                 DataCell(Text(item.shipCsv.armor_rating ?? "")),

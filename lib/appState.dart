@@ -12,12 +12,15 @@ abstract class AppState {
   static final mode = StateProvider((ref) => "null");
 
   // Ships
-  static final shipsByHullIdByModId =
-      StateProvider<Map<String?, Map<String, Ship>>>((ref) => {});
-  static final weaponsByIdByModId =
-      StateProvider<Map<String?, Map<String, Weapon>>>((ref) => {});
+  static final shipsByHullId =
+      StateProvider<Map<String, Ship>>((ref) => {});
+  static final weaponsById =
+      StateProvider<Map<String, Weapon>>((ref) => {});
+
+  static final hullIdsToDisplay = StateProvider((ref) => <String>{});
 
   static final shipFilter = StateProvider((ref) => ShipFilter());
+  static final isPerformingInitialLoad = StateProvider((ref) => false);
 }
 
 extension SetAdding on Map<String, Set<String>> {

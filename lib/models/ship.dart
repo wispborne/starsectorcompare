@@ -5,6 +5,7 @@ class Ship {
   String id;
   ShipCsv shipCsv;
   ShipJson shipJson;
+  String? modId;
 
-  Ship({required this.id, required this.shipCsv, required this.shipJson});
+  Ship({required this.id, required this.shipCsv, required this.shipJson, required this.modId});
 }

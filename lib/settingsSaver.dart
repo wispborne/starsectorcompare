@@ -43,64 +43,59 @@ class SettingSaver extends ProviderObserver {
       var gameDir = settings.gameDir!;
 
       try {
+        container.read(AppState.isPerformingInitialLoad.notifier).update((state) => true);
         compute(loadData, gameDir).then((result) {
-          Map<String?, Map<String, Ship>> mergedShips = {};
+          Map<String, Ship> mergedShips = {};
 
           // Add all csv ships to the merged map.
           result.shipsInCsvByHullIdByModId.forEach((modFolder, shipsById) {
-            mergedShips[modFolder] = (mergedShips[modFolder] ?? {})
-              ..addAll(shipsById.map((key, value) => MapEntry(key,
-                  Ship(id: key, shipCsv: value, shipJson: const ShipJson()))));
+            shipsById.forEach((key, value) {
+              mergedShips[key] = Ship(id: key, shipCsv: value, shipJson: const ShipJson(), modId: modFolder);
+            });
           });
 
           // Add all json ships to the existing csv entries.
           result.shipsInJsonByHullIIdByModId.forEach((modFolder, shipsById) {
-            var currentShipsForMod = mergedShips[modFolder];
-            if (currentShipsForMod == null) return;
-
             shipsById.forEach((key, value) {
-              var currentShip = currentShipsForMod[key];
+              var currentShip = mergedShips[key];
               if (currentShip == null) return;
 
-              mergedShips[modFolder]![key] = currentShip..shipJson = value;
+              mergedShips[key] = currentShip..shipJson = value;
             });
           });
 
           container
-              .read(AppState.shipsByHullIdByModId.notifier)
+              .read(AppState.shipsByHullId.notifier)
               .update((state) => mergedShips);
 
-          Map<String?, Map<String, Weapon>> mergedWeapons = {};
+          Map<String, Weapon> mergedWeapons = {};
 
           // Add all csv weapons to the merged map.
           result.weaponsInCsvByIdByModId.forEach((modFolder, weaponsById) {
-            mergedWeapons[modFolder] = (mergedWeapons[modFolder] ?? {})
-              ..addAll(weaponsById.map((key, value) => MapEntry(
-                  key,
-                  Weapon(
-                      id: key, weaponCsv: value, weaponJson: WeaponJson()))));
+            weaponsById.forEach((key, value) {
+              mergedWeapons[key] = Weapon(id: key, weaponCsv: value, weaponJson: WeaponJson(), modId: modFolder);
+            });
           });
 
           // Add all json weapons to the existing csv entries.
           result.weaponsInJsonByIdByModId.forEach((modFolder, weaponsById) {
-            var currentWeaponsForMod = mergedWeapons[modFolder];
-            if (currentWeaponsForMod == null) return;
-
             weaponsById.forEach((key, value) {
-              var currentWeapon = currentWeaponsForMod[key];
+              var currentWeapon = mergedWeapons[key];
               if (currentWeapon == null) return;
 
-              mergedWeapons[modFolder]![key] = currentWeapon
+              mergedWeapons[key] = currentWeapon
                 ..weaponJson = value;
             });
           });
 
           container
-              .read(AppState.weaponsByIdByModId.notifier)
+              .read(AppState.weaponsById.notifier)
               .update((state) => mergedWeapons);
         });
       } catch (e, s) {
         Fimber.e("Error loading data", ex: e, stacktrace: s);
+      } finally {
+        container.read(AppState.isPerformingInitialLoad.notifier).update((state) => false);
       }
     }
   }

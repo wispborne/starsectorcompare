@@ -13,7 +13,7 @@ import 'package:starsectorcompare/models/ship.dart';
 
 import '../appState.dart';
 import 'loading/csvDataLoader.dart';
-import 'views/main.dart';
+import 'main.dart';
 import 'models/settings.dart';
 import 'models/shipJson.dart';
 import 'models/weaponJson.dart';

@@ -23,6 +23,12 @@ jobs:
       - name: windows build
         run: flutter build windows
 
+      - name: 'Upload Windows Release'
+        uses: actions/upload-artifact@v2
+        with:
+            name: 'windows-release'
+            path: 'Release\starsectorcompare.exe'
+
      # - name: upload APK
      #   uses: actions/upload-artifact@v1
      #   with:

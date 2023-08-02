@@ -483,13 +483,12 @@ class _$_ShipSkin implements _ShipSkin {
       final List<String>? builtInMods,
       final List<String>? removeWeaponSlots,
       @AlexMapConverter()
-          final Map<String, ShipWeaponSlotChange>? weaponSlotChanges,
+      final Map<String, ShipWeaponSlotChange>? weaponSlotChanges,
       final List<String>? removeBuiltInWeapons,
-      @AlexMapConverter()
-          final Map<String, String>? builtInWeapons,
+      @AlexMapConverter() final Map<String, String>? builtInWeapons,
       final List<int>? removeEngineSlots,
       @AlexMapConverter()
-          final Map<String, ShipEngineSlotChange>? engineSlotChanges,
+      final Map<String, ShipEngineSlotChange>? engineSlotChanges,
       final List<int>? coversColor})
       : _removeHints = removeHints,
         _addHints = addHints,
@@ -822,13 +821,12 @@ abstract class _ShipSkin implements ShipSkin {
       final List<String>? builtInMods,
       final List<String>? removeWeaponSlots,
       @AlexMapConverter()
-          final Map<String, ShipWeaponSlotChange>? weaponSlotChanges,
+      final Map<String, ShipWeaponSlotChange>? weaponSlotChanges,
       final List<String>? removeBuiltInWeapons,
-      @AlexMapConverter()
-          final Map<String, String>? builtInWeapons,
+      @AlexMapConverter() final Map<String, String>? builtInWeapons,
       final List<int>? removeEngineSlots,
       @AlexMapConverter()
-          final Map<String, ShipEngineSlotChange>? engineSlotChanges,
+      final Map<String, ShipEngineSlotChange>? engineSlotChanges,
       final List<int>? coversColor}) = _$_ShipSkin;
 
   factory _ShipSkin.fromJson(Map<String, dynamic> json) = _$_ShipSkin.fromJson;

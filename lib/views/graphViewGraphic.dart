@@ -10,6 +10,7 @@ import 'package:starsectorcompare/extensions.dart';
 
 import '../models/ship.dart';
 import '../models/shipCsv.dart';
+import '../utils.dart';
 
 // class DataAttribute {
 //   String id;
@@ -50,183 +51,197 @@ class GraphViewGraphic extends ConsumerWidget {
     var allShipsByHullId = ref.read(AppState.shipsByHullId);
     var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
 
-    var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!);
-    var hpData =
-        _createShipData(shipsToDisplay, "Hitpoints", (ship) => ship.shipCsv.hitpoints);
-    var armorData =
-        _createShipData(shipsToDisplay, "Armor", (ship) => ship.shipCsv.armor_rating);
-    var maxSpeedData =
-        _createShipData(shipsToDisplay, "Max Speed", (ship) => ship.shipCsv.max_speed);
-    var capacityData =
-    _createShipData(shipsToDisplay, "Flux Cap", (ship) => ship.shipCsv.max_flux);
-    var dissipationData =
-    _createShipData(shipsToDisplay, "Flux Diss", (ship) => ship.shipCsv.flux_dissipation);
+    // Show just ships selected by the user (checkboxes)
+    var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!).let(
+        (ships) =>
+            // Apply ship filters
+            filterShips(ships, ref.watch(AppState.filterMods),
+                ref.watch(AppState.filterShipHullSizes)));
 
-    var columns = [hpData, armorData, maxSpeedData, capacityData, dissipationData];
+    var hpData = _createShipData(
+        shipsToDisplay, "Hitpoints", (ship) => ship.shipCsv.hitpoints);
+    var armorData = _createShipData(
+        shipsToDisplay, "Armor", (ship) => ship.shipCsv.armor_rating);
+    var maxSpeedData = _createShipData(
+        shipsToDisplay, "Max Speed", (ship) => ship.shipCsv.max_speed);
+    var capacityData = _createShipData(
+        shipsToDisplay, "Flux Cap", (ship) => ship.shipCsv.max_flux);
+    var dissipationData = _createShipData(
+        shipsToDisplay, "Flux Diss", (ship) => ship.shipCsv.flux_dissipation);
+
+    var columns = [
+      hpData,
+      armorData,
+      maxSpeedData,
+      capacityData,
+      dissipationData
+    ];
 
     var data = columns.reduce((value, element) => value..addAll(element));
 
     return ref.watch(AppState.isPerformingInitialLoad)
         ? SizedBox.fromSize(
             size: const Size(20, 20), child: const CircularProgressIndicator())
-        : data.isEmpty ? Text("No data to display.")
-    : Column(
-            children: [
-              Container(height: 10),
-              Expanded(
-                  child: Padding(
-                      padding: const EdgeInsets.only(left: 50, bottom: 10),
-                      child: Chart(
-                        data: data,
-                        variables: {
-                          "attr": Variable(
-                            accessor: (Map map) => map["attr"] as String,
-                          ),
-                          "normalizedValue": Variable(
-                            accessor: (Map map) =>
-                                map["normalizedValue"] as double,
-                          ),
-                          "name": Variable(
-                            accessor: (Map map) => map["name"] as String,
-                          ),
-                          "id": Variable(
-                            accessor: (Map map) => map["id"] as String,
-                          ),
-                          "value": Variable(
-                            accessor: (Map map) => map["value"] as String,
-                          ),
-                        },
-                        marks: [
-                          LineMark(
-                            position: Varset("attr") *
-                                Varset("normalizedValue") /
-                                Varset("id"),
-                            shape: ShapeEncode(
-                              value: BasicLineShape(
-                                  smooth: false, loop: isSpiderWeb),
-                            ),
-                            size: SizeEncode(value: 1.5),
-                            label: LabelEncode(
-                                encoder: (tuple) => Label(
-                                    "${tuple["value"]}",
-                                    LabelStyle(
-                                        textStyle:
-                                            const TextStyle(fontSize: 12),
-                                        align: Alignment.centerLeft,
-                                        offset: const Offset(-15, 0)))),
-                            color: ColorEncode(
-                              variable: "id",
-                              values: Defaults.colors20,
-                              updaters: {
-                                "groupMouse": {
-                                  false: (color) => color.withAlpha(100)
-                                },
-                                "groupTouch": {
-                                  false: (color) => color.withAlpha(100)
-                                },
-                              },
-                            ),
-                          ),
-                          PointMark(
-                            size: SizeEncode(value: 7),
-                            color: ColorEncode(
-                              variable: "name",
-                              values: Defaults.colors20,
-                              updaters: {
-                                "groupMouse": {
-                                  false: (color) => color.withAlpha(100)
-                                },
-                                "groupTouch": {
-                                  false: (color) => color.withAlpha(100)
-                                },
-                              },
-                            ),
-                          ),
-                        ],
-                        coord: isSpiderWeb ? PolarCoord() : RectCoord(),
-                        axes: isSpiderWeb
-                            ? [
-                                Defaults.circularAxis,
-                                Defaults.radialAxis,
-                              ]
-                            : [
-                                AxisGuide(
-                                  line: Defaults.strokeStyle,
-                                  variable: "attr",
-                                  label: LabelStyle(
-                                    textStyle:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                    offset: const Offset(0, 7.5),
-                                  ),
+        : data.isEmpty
+            ? Text("No data to display.")
+            : Column(
+                children: [
+                  Container(height: 10),
+                  Expanded(
+                      child: Padding(
+                          padding: const EdgeInsets.only(left: 50, bottom: 10),
+                          child: Chart(
+                            data: data,
+                            variables: {
+                              "attr": Variable(
+                                accessor: (Map map) => map["attr"] as String,
+                              ),
+                              "normalizedValue": Variable(
+                                accessor: (Map map) =>
+                                    map["normalizedValue"] as double,
+                              ),
+                              "name": Variable(
+                                accessor: (Map map) => map["name"] as String,
+                              ),
+                              "id": Variable(
+                                accessor: (Map map) => map["id"] as String,
+                              ),
+                              "value": Variable(
+                                accessor: (Map map) => map["value"] as String,
+                              ),
+                            },
+                            marks: [
+                              LineMark(
+                                position: Varset("attr") *
+                                    Varset("normalizedValue") /
+                                    Varset("id"),
+                                shape: ShapeEncode(
+                                  value: BasicLineShape(
+                                      smooth: false, loop: isSpiderWeb),
                                 ),
-                                // AxisGuide(
-                                //     variable: 'name',
-                                //     label: LabelStyle(
-                                //       textStyle: Defaults.textStyle,
-                                //       offset: const Offset(-7.5, 0),
-                                //     ),
-                                //     grid: Defaults.strokeStyle)
-                              ],
-                        selections: {
-                          "tooltipMouse": PointSelection(on: {
-                            GestureType.hover,
-                          }, devices: {
-                            PointerDeviceKind.mouse
-                          }),
-                          "groupMouse": PointSelection(
-                              on: {
+                                size: SizeEncode(value: 1.5),
+                                label: LabelEncode(
+                                    encoder: (tuple) => Label(
+                                        "${tuple["value"]}",
+                                        LabelStyle(
+                                            textStyle:
+                                                const TextStyle(fontSize: 12),
+                                            align: Alignment.centerLeft,
+                                            offset: const Offset(-15, 0)))),
+                                color: ColorEncode(
+                                  variable: "id",
+                                  values: Defaults.colors20,
+                                  updaters: {
+                                    "groupMouse": {
+                                      false: (color) => color.withAlpha(100)
+                                    },
+                                    "groupTouch": {
+                                      false: (color) => color.withAlpha(100)
+                                    },
+                                  },
+                                ),
+                              ),
+                              PointMark(
+                                size: SizeEncode(value: 7),
+                                color: ColorEncode(
+                                  variable: "name",
+                                  values: Defaults.colors20,
+                                  updaters: {
+                                    "groupMouse": {
+                                      false: (color) => color.withAlpha(100)
+                                    },
+                                    "groupTouch": {
+                                      false: (color) => color.withAlpha(100)
+                                    },
+                                  },
+                                ),
+                              ),
+                            ],
+                            coord: isSpiderWeb ? PolarCoord() : RectCoord(),
+                            axes: isSpiderWeb
+                                ? [
+                                    Defaults.circularAxis,
+                                    Defaults.radialAxis,
+                                  ]
+                                : [
+                                    AxisGuide(
+                                      line: Defaults.strokeStyle,
+                                      variable: "attr",
+                                      label: LabelStyle(
+                                        textStyle: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
+                                        offset: const Offset(0, 7.5),
+                                      ),
+                                    ),
+                                    // AxisGuide(
+                                    //     variable: 'name',
+                                    //     label: LabelStyle(
+                                    //       textStyle: Defaults.textStyle,
+                                    //       offset: const Offset(-7.5, 0),
+                                    //     ),
+                                    //     grid: Defaults.strokeStyle)
+                                  ],
+                            selections: {
+                              "tooltipMouse": PointSelection(on: {
                                 GestureType.hover,
-                              },
-                              variable: "name",
-                              devices: {PointerDeviceKind.mouse}),
-                          "tooltipTouch": PointSelection(on: {
-                            GestureType.scaleUpdate,
-                            GestureType.tapDown,
-                            GestureType.longPressMoveUpdate
-                          }, devices: {
-                            PointerDeviceKind.touch
-                          }),
-                          "groupTouch": PointSelection(
-                              on: {
+                              }, devices: {
+                                PointerDeviceKind.mouse
+                              }),
+                              "groupMouse": PointSelection(
+                                  on: {
+                                    GestureType.hover,
+                                  },
+                                  variable: "name",
+                                  devices: {PointerDeviceKind.mouse}),
+                              "tooltipTouch": PointSelection(on: {
                                 GestureType.scaleUpdate,
                                 GestureType.tapDown,
                                 GestureType.longPressMoveUpdate
-                              },
-                              variable: "name",
-                              devices: {PointerDeviceKind.touch}),
-                        },
-                        tooltip: TooltipGuide(
-                          selections: {"tooltipTouch", "tooltipMouse"},
-                          followPointer: [true, true],
-                          align: Alignment.topLeft,
-                          mark: 0,
-                          variables: [
-                            "name",
-                            "id",
-                            "attr",
-                            "value",
-                          ],
-                        ),
-                        annotations: [
-                          ...(data.take(shipsToDisplay.length).map((entity) =>
-                              TagAnnotation(
-                                  label: Label(
-                                    entity["name"].toString(),
-                                    LabelStyle(
-                                      textStyle: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium,
-                                      offset: const Offset(-90, 0),
-                                    ),
-                                  ),
-                                  // Takes each data point and uses the normalized value for the y coordinate.
-                                  values: [
-                                    entity['attr'],
-                                    entity['normalizedValue'] as double?
-                                  ]))),
-                        ],
-                      ))),
-            ],
-          );
+                              }, devices: {
+                                PointerDeviceKind.touch
+                              }),
+                              "groupTouch": PointSelection(
+                                  on: {
+                                    GestureType.scaleUpdate,
+                                    GestureType.tapDown,
+                                    GestureType.longPressMoveUpdate
+                                  },
+                                  variable: "name",
+                                  devices: {PointerDeviceKind.touch}),
+                            },
+                            tooltip: TooltipGuide(
+                              selections: {"tooltipTouch", "tooltipMouse"},
+                              followPointer: [true, true],
+                              align: Alignment.topLeft,
+                              mark: 0,
+                              variables: [
+                                "name",
+                                "id",
+                                "attr",
+                                "value",
+                              ],
+                            ),
+                            annotations: [
+                              ...(data.take(shipsToDisplay.length).map((entity) =>
+                                  TagAnnotation(
+                                      label: Label(
+                                        entity["name"].toString(),
+                                        LabelStyle(
+                                          textStyle: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                          offset: const Offset(-90, 0),
+                                        ),
+                                      ),
+                                      // Takes each data point and uses the normalized value for the y coordinate.
+                                      values: [
+                                        entity['attr'],
+                                        entity['normalizedValue'] as double?
+                                      ]))),
+                            ],
+                          ))),
+                ],
+              );
   }
 }

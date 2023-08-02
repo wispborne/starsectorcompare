@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starsectorcompare/views/shipSelectionView.dart';
+import 'package:starsectorcompare/views/shipFiltersView.dart';
 
 import 'graphViewGraphic.dart';
 import 'listEntitiesView.dart';
@@ -14,7 +14,7 @@ class HomeView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
-        const ShipSelectionView(),
+        const ShipFiltersView(),
         Expanded(
             child: Column(
           children: [

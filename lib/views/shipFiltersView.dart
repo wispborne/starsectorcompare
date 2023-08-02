@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/appState.dart';
 
-class ShipSelectionView extends ConsumerWidget {
-  const ShipSelectionView({
+class ShipFiltersView extends ConsumerWidget {
+  const ShipFiltersView({
     Key? key,
   }) : super(key: key);
 
@@ -56,8 +56,10 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
                         selectedHullTypes.add(shipHullType);
                       }
 
-                      ref.read(AppState.shipFilter.notifier).update((state) =>
-                          state.copyWith(selectedHullTypes: selectedHullTypes));
+                      ref.read(AppState.filterShipHullSizes.notifier).update(
+                          (state) => selectedHullTypes.isEmpty
+                              ? null
+                              : {}?..addAll(selectedHullTypes));
                     });
                   },
                   style: ElevatedButton.styleFrom(

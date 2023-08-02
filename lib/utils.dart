@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
 
+import 'models/ship.dart';
+
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
   Map<int, Color> swatch = {};
@@ -58,4 +60,17 @@ Directory? modFolderPath(Directory gamePath) {
   } else {
     return null;
   }
+}
+
+// method to filter a list of ships by mod id and selected hull type
+List<Ship> filterShips(
+    Iterable<Ship> ships, Set<String?>? modIds, Set<String>? selectedHullTypes) {
+  return ships.where((ship) {
+    if (modIds != null && !modIds.contains(ship.modId)) return false;
+
+    if (selectedHullTypes != null &&
+        !selectedHullTypes.contains(ship.shipJson.hullSize)) return false;
+
+    return true;
+  }).toList();
 }

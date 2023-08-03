@@ -11,7 +11,7 @@ class ListEntitiesView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return EntitiesList();
+    return const EntitiesList();
   }
 }
 
@@ -36,25 +36,25 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     var filteredShips = filterShips(allShips, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes));
 
     return DataTable(
-        columns: const [
-          DataColumn(label: Spacer()),
-          DataColumn(
+        columns: [
+          DataColumn(label: Checkbox(value: hullIdsToDisplay.isNotEmpty, onChanged: (value) =>  ref.read(AppState.hullIdsToDisplay.notifier).update((state) => {}))),
+          const DataColumn(
               label: Expanded(
                   child: Text("Name",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Hitpoints",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Armor",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Max Speed",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
-          DataColumn(
+          const DataColumn(
               label: Expanded(
                   child: Text("Flux Cap",
                       style: TextStyle(fontStyle: FontStyle.italic)))),
@@ -76,7 +76,7 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
                   });
                 }
                 )),
-                DataCell(Text(item.shipCsv.name ?? "")),
+                DataCell(Tooltip(message: item.id, child: Text(item.shipCsv.name ?? ""))),
                 DataCell(Text(item.shipCsv.hitpoints ?? "")),
                 DataCell(Text(item.shipCsv.armor_rating ?? "")),
                 DataCell(Text(item.shipCsv.max_speed ?? "")),

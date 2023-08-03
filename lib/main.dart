@@ -85,8 +85,8 @@ class MyHomePage extends ConsumerStatefulWidget {
 class _MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 1), () => loadAppData(ref));
-    return Scaffold(
+    Future.delayed(const Duration(seconds: 1), () => loadAppData(ref));
+    return const Scaffold(
       body: Column(
         children: [
           Row(children: [Expanded(child: MainMenu())]),

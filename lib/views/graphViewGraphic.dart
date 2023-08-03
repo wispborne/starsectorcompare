@@ -83,7 +83,7 @@ class GraphViewGraphic extends ConsumerWidget {
         ? SizedBox.fromSize(
             size: const Size(20, 20), child: const CircularProgressIndicator())
         : data.isEmpty
-            ? Text("No data to display.")
+            ? const Text("Select some items to compare")
             : Column(
                 children: [
                   Container(height: 10),

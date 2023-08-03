@@ -20,7 +20,7 @@ class HomeView extends ConsumerWidget {
           children: [
             SizedBox.fromSize(
                 size: const Size.fromHeight(200),
-                child: const SingleChildScrollView(child: ListEntitiesView())),
+                child: const ListEntitiesView()),
             const Expanded(flex: 1, child: GraphViewGraphic()),
           ],
         ))

@@ -27,14 +27,14 @@ void main() {
   Fimber.i("Logging started.");
   Fimber.i(
       "Platform: ${Platform.operatingSystem} ${Platform.operatingSystemVersion}.");
-  runApp(ProviderScope(observers: [SettingSaver()], child: MyApp()));
+  runApp(ProviderScope(observers: [SettingSaver()], child: const MyApp()));
 }
 
 // Only for use in this class. Danger danger.
 WidgetRef? _ref;
 
 class MyApp extends ConsumerWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

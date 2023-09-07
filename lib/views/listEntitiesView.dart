@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/appState.dart';
+import 'package:starsectorcompare/views/sortByView.dart';
 
 import '../scalable_data_table/ScalableDataTable.dart';
 import '../scalable_data_table/ScalableTableHeader.dart';
@@ -32,8 +33,22 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     var allShips = ref.watch(AppState.shipsByHullId).values.toList();
 
     var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
-    var filteredShips = filterShips(allShips, ref.watch(AppState.filterMods),
-        ref.watch(AppState.filterShipHullSizes));
+    var filteredShips = filterShips(allShips, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes),
+        ref.watch(AppState.filterShipHints));
+
+    var sortBy = ref.watch(AppState.sortBy)?.entries.firstOrNull;
+
+    if (sortBy != null) {
+      switch (sortBy.key) {
+        case SortByView.fleetPoints:
+          filteredShips.sort((a, b) => a.shipCsv.fleet_pts!.compareTo(b.shipCsv.fleet_pts!) * (sortBy.value ? 1 : -1));
+          break;
+        case SortByView.techType:
+          filteredShips.sort(
+              (a, b) => a.shipCsv.tech_manufacturer!.compareTo(b.shipCsv.tech_manufacturer!) * (sortBy.value ? 1 : -1));
+          break;
+      }
+    }
 
     return ScalableDataTable(
       emptyBuilder: (context) => const Text("No items loaded"),
@@ -41,9 +56,7 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
       header: ScalableTableHeader(columnWrapper: columnWrapper, children: [
         Checkbox(
             value: hullIdsToDisplay.isNotEmpty,
-            onChanged: (value) => ref
-                .read(AppState.hullIdsToDisplay.notifier)
-                .update((state) => {})),
+            onChanged: (value) => ref.read(AppState.hullIdsToDisplay.notifier).update((state) => {})),
         const Text("Name", style: TextStyle(fontWeight: FontWeight.bold)),
         const Text("Hitpoints", style: TextStyle(fontWeight: FontWeight.bold)),
         const Text("Armor", style: TextStyle(fontWeight: FontWeight.bold)),

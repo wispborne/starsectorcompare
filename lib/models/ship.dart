@@ -15,4 +15,7 @@ class Ship {
   Ship({required this.id, required this.shipCsv, required this.shipJson, required this.modId}) {
     color = stringToColor(id);
   }
+
+  Set<String> hintsSplitUppercase() =>
+      shipCsv.hints?.split(",").map((e) => e.trim().toUpperCase()).toSet() ?? {};
 }

@@ -14,9 +14,6 @@ import '../models/weaponCsv.dart';
 class CsvDataLoader {
   static Future<Map<String, WeaponCsv>?> loadWeapons(
       String gameDir, String? modDirName) async {
-    if (gameDir == null) return null;
-
-    // If modDirName is null, use vanilla
     var file = File(p.join(
         gameDir,
         modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,

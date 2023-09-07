@@ -1,12 +1,9 @@
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:starsectorcompare/fileChooser.dart';
-import 'package:starsectorcompare/utils.dart';
-import 'package:path/path.dart' as p;
 
 import 'models/settings.dart';
 
@@ -34,7 +31,7 @@ class _MenuState extends ConsumerState<MainMenu> {
                 Fimber.d(listModsInGameFolder(Directory(folder)).toString());
               }
             },
-            child: Text("Choose Starsector folder..."),
+            child: const Text("Choose Starsector folder..."),
           ),
           // MenuItemButton(
           //   onPressed: () => Opening().openChooseDataDialog(ref),
@@ -42,7 +39,7 @@ class _MenuState extends ConsumerState<MainMenu> {
           //   child: Text("Open data"),
           // ),
         ],
-        child: MenuItemButton(child: Text("File")),
+        child: const MenuItemButton(child: Text("File")),
       )
     ]);
   }

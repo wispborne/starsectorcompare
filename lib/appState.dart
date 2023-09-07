@@ -17,6 +17,10 @@ abstract class AppState {
       StateProvider((ref) => null);
   static final StateProvider<Set<String>?> filterShipHullSizes =
       StateProvider((ref) => null);
+  static final StateProvider<Set<String>?> filterShipHints =
+      StateProvider((ref) => null);
+  static final StateProvider<Map<String, bool>?> sortBy =
+  StateProvider((ref) => null);
 }
 
 extension SetAdding on Map<String, Set<String>> {

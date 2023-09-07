@@ -106,7 +106,7 @@ class ScalableDataTable extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context, {required double width}) {
-    final buildNotContentWrapper = (Widget child) => Center(
+    buildNotContentWrapper(Widget child) => Center(
         child: Padding(padding: const EdgeInsets.only(top: 20), child: child));
     if (itemCount < 0) {
       return buildNotContentWrapper(

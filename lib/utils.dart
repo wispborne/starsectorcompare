@@ -98,8 +98,8 @@ Color stringToColor(String str) {
 }
 
 // method to filter a list of ships by mod id and selected hull type
-List<Ship> filterShips(
-    Iterable<Ship> ships, Set<String?>? modIds, Set<String>? selectedHullTypes,
+List<Ship> filterShips(Iterable<Ship> ships, Set<String?>? modIds,
+    Set<String>? selectedHullTypes, Set<String>? selectedHints,
     {bool includeModules = false}) {
   return ships.where((ship) {
     if (includeModules == false &&
@@ -107,8 +107,17 @@ List<Ship> filterShips(
 
     if (modIds != null && !modIds.contains(ship.modId)) return false;
 
-    if (selectedHullTypes != null &&
-        !selectedHullTypes.contains(ship.shipJson.hullSize)) return false;
+    if (selectedHullTypes.isNotNullOrEmpty() &&
+        !selectedHullTypes!.contains(ship.shipJson.hullSize)) {
+      return false;
+    }
+
+    if (selectedHints.isNotNullOrEmpty() &&
+        selectedHints.countWhere(
+                (hint) => ship.hintsSplitUppercase().contains(hint)) ==
+            0) {
+      return false;
+    }
 
     return true;
   }).toList();

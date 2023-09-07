@@ -9,7 +9,6 @@ import 'package:starsectorcompare/appState.dart';
 import 'package:starsectorcompare/extensions.dart';
 
 import '../models/ship.dart';
-import '../models/shipCsv.dart';
 import '../utils.dart';
 
 // class DataAttribute {
@@ -36,6 +35,7 @@ class GraphViewGraphic extends ConsumerWidget {
         .map((ship) => {
               "id": ship.id,
               "name": ship.shipCsv.name ?? "null",
+              "color": ship.color,
               "attr": attr,
               "value": valueGetter(ship),
               "normalizedValue": valueGetter(ship)?.toDoubleOrNull()?.normalize(
@@ -56,7 +56,15 @@ class GraphViewGraphic extends ConsumerWidget {
         (ships) =>
             // Apply ship filters
             filterShips(ships, ref.watch(AppState.filterMods),
-                ref.watch(AppState.filterShipHullSizes)));
+                ref.watch(AppState.filterShipHullSizes),
+                ref.watch(AppState.filterShipHints)
+            ));
+
+    var colors = shipsToDisplay.map((e) => e.color).toList();
+    // For some reason, the chart library requires at least 2 colors even if there's just one line.
+    if (colors.length == 1) {
+      colors.add(colors.first);
+    }
 
     var hpData = _createShipData(
         shipsToDisplay, "Hitpoints", (ship) => ship.shipCsv.hitpoints);
@@ -130,7 +138,7 @@ class GraphViewGraphic extends ConsumerWidget {
                                             offset: const Offset(-15, 0)))),
                                 color: ColorEncode(
                                   variable: "id",
-                                  values: Defaults.colors20,
+                                  values: colors,
                                   updaters: {
                                     "groupMouse": {
                                       false: (color) => color.withAlpha(100)
@@ -145,7 +153,7 @@ class GraphViewGraphic extends ConsumerWidget {
                                 size: SizeEncode(value: 7),
                                 color: ColorEncode(
                                   variable: "name",
-                                  values: Defaults.colors20,
+                                  values: colors,
                                   updaters: {
                                     "groupMouse": {
                                       false: (color) => color.withAlpha(100)

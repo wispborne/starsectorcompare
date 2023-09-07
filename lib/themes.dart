@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-var darkTheme = ThemeData(brightness: Brightness.dark);
+var darkTheme = ThemeData(brightness: Brightness.dark, useMaterial3: true);
 
 class Themes {
   static final basic = ThemeData.dark(useMaterial3: true).copyWith(

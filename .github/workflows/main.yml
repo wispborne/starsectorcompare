@@ -29,7 +29,14 @@ jobs:
             name: 'windows-release'
             path: 'build\windows\runner\Release\*'
 
-     # - name: upload APK
+      - name: 'Create release'
+        #uses: actions/checkout@v3
+        uses: ncipollo/release-action@v1
+        with:
+            artifacts: "build\windows\runner\Release\*"
+
+
+      # - name: upload APK
      #   uses: actions/upload-artifact@v1
      #   with:
      #     name: apk

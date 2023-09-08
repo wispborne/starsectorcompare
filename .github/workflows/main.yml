@@ -1,5 +1,7 @@
 name: Flutter CI
 
+# https://gist.github.com/youhide/121750fc4878801ea8e908080b535beb
+
 on: push
 #  push:
 #    branches: [ master ]
@@ -81,6 +83,7 @@ jobs:
         with:
           channel: $flutter_channel
           architecture: x64
+          cache: true
       - run: flutter config --enable-macos-desktop
       - run: flutter build macos
       #      - name: zip macos artifact
@@ -101,12 +104,13 @@ jobs:
         with:
           channel: $flutter_channel
           architecture: x64
+          cache: true
       - run: flutter config --enable-windows-desktop
       - run: flutter build windows
-      - name: zip windows artifact
+      - name: zip win artifact
         run: |
-          zip -r windows.zip $windows_path
-      - name: upload macos artifact
+          powershell Compress-Archive $windows_path windows.zip
+      - name: upload windows artifact
         uses: actions/upload-artifact@v1
         with:
           name: uploads

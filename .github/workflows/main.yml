@@ -59,8 +59,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./uploads/${{ env.macos_path }}
-          asset_name: ${{ env.macos_path }}
+          asset_path: ./uploads/macos.zip
+          asset_name: macos.zip
 
       #      - name: upload linux
       #        id: upload-linux
@@ -95,14 +95,14 @@ jobs:
           cache: true
       - run: flutter config --enable-macos-desktop
       - run: flutter build macos
-      #      - name: zip macos artifact
-      #        run: |
-      #          zip -r macos build/macos/Build/Products/Release
+      - name: zip macos artifact
+        run: |
+          zip -yr9 macos ${{ env.macos_path }}
       - name: upload macos artifact
         uses: actions/upload-artifact@v1
         with:
           name: uploads
-          path: ${{ env.macos_path }}
+          path: macos.zip
 
   build-windows:
 

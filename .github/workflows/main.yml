@@ -50,8 +50,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./uploads/$macos_path
-          asset_name: $macos_path
+          asset_path: ./uploads/${{ env.macos_path }}
+          asset_name: ${{ env.macos_path }}
 
       #      - name: upload linux
       #        id: upload-linux
@@ -93,7 +93,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: uploads
-          path: $macos_path
+          path: ${{ env.macos_path }}
 
   build-windows:
 
@@ -109,7 +109,7 @@ jobs:
       - run: flutter build windows
       - name: zip win artifact
         run: |
-          powershell Compress-Archive $windows_path windows.zip
+          powershell Compress-Archive ${{ env.windows_path }} windows.zip
       - name: upload windows artifact
         uses: actions/upload-artifact@v1
         with:

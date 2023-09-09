@@ -27,16 +27,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: create release
+      - name: 'Create GitHub release'
         id: create_release
-        uses: actions/create-release@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: true
+          commit: '${{ github.sha }}'
+          tag: '${{ github.run_number }}'
+#          artifacts: "build/windows/runner/Release/*"
+          prerelease: true # improve later
+
+#      - name: create release
+#        id: create_release
+#        uses: actions/create-release@master
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+#        with:
+#          tag_name: ${{ github.ref }}
+#          release_name: Release ${{ github.ref }}
+#          draft: false
+#          prerelease: true
 
       - name: download artifacts
         uses: actions/download-artifact@v1

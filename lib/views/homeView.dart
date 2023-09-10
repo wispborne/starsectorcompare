@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starsectorcompare/views/searchView.dart';
-import 'package:starsectorcompare/views/shipFiltersView.dart';
-import 'package:starsectorcompare/views/sortByView.dart';
 
+import '../views/searchView.dart';
+import '../views/shipFiltersView.dart';
+import '../views/sortByView.dart';
 import 'graphViewGraphic.dart';
 import 'listEntitiesView.dart';
 

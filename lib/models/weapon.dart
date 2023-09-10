@@ -1,5 +1,5 @@
-import 'package:starsectorcompare/models/weaponCsv.dart';
-import 'package:starsectorcompare/models/weaponJson.dart';
+import 'weaponCsv.dart';
+import 'weaponJson.dart';
 
 class Weapon {
   String id;

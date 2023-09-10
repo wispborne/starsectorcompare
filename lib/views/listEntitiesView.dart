@@ -1,15 +1,13 @@
-import 'dart:ui';
-
 import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starsectorcompare/appState.dart';
-import 'package:starsectorcompare/views/sortByView.dart';
 
+import '../appState.dart';
 import '../models/ship.dart';
 import '../scalable_data_table/ScalableDataTable.dart';
 import '../scalable_data_table/ScalableTableHeader.dart';
 import '../utils.dart';
+import '../views/sortByView.dart';
 
 class ListEntitiesView extends ConsumerWidget {
   const ListEntitiesView({
@@ -38,7 +36,12 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
 
     var filteredShips = filterShips(allShips, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes),
-        ref.watch(AppState.filterShipHints), ref.watch(AppState.searchText));
+        ref.watch(AppState.filterShipHints));
+
+    var searchText = ref.watch(AppState.searchText);
+    if (searchText.isNotNullOrEmpty()) {
+      filteredShips = searchShips(filteredShips, searchText!);
+    }
 
     var sortBy = ref.watch(AppState.sortBy)?.entries.firstOrNull;
 
@@ -74,6 +77,7 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
       "max_speed": (title: "Max Speed", widget: (Ship item) => Text(item.shipCsv.max_speed ?? "")),
       "max_flux": (title: "Flux Cap", widget: (Ship item) => Text(item.shipCsv.max_flux ?? "")),
       "flux_dissipation": (title: "Flux Diss", widget: (Ship item) => Text(item.shipCsv.flux_dissipation ?? "")),
+      "mod": (title: "Mod", widget: (Ship item) => Text(item.modName ?? "")),
     };
 
     return ScalableDataTable(

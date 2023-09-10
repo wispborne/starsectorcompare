@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:starsectorcompare/models/converters/alexMapConverter.dart';
-import 'package:starsectorcompare/models/variantWeapon.dart';
+
+import 'converters/alexMapConverter.dart';
+import 'variantWeapon.dart';
 
 part '../generated/models/variant.freezed.dart';
-
 part '../generated/models/variant.g.dart';
 
 @freezed

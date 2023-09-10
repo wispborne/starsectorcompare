@@ -17,14 +17,14 @@ class ShipWeaponSlot {
 
   ShipWeaponSlot(
       {this.angle = 0,
-        this.arc = 0,
-        this.id = "",
-        this.locations = const [],
-        this.position = const [],
-        this.mount = "",
-        this.size = "",
-        this.type = "",
-        this.renderOrderMod});
+      this.arc = 0,
+      this.id = "",
+      this.locations = const [],
+      this.position = const [],
+      this.mount = "",
+      this.size = "",
+      this.type = "",
+      this.renderOrderMod});
 
   /// Connect the generated function to the `fromJson`
   /// factory.

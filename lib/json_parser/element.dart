@@ -4,17 +4,16 @@ import 'package:petitparser/core.dart';
 
 abstract class JsonElement {
   Object? toJson();
-  MapEntry<String, dynamic> toMapEntry() =>
-      throw ArgumentError('$runtimeType is not a map entry');
+  MapEntry<String, dynamic> toMapEntry() => throw ArgumentError('$runtimeType is not a map entry');
   Iterable<Token<JsonElement>> get children;
   String toJsonString();
 }
 
 String _indentString(
-    String input, [
-      bool skipFirstLine = false,
-      int indent = 1,
-    ]) {
+  String input, [
+  bool skipFirstLine = false,
+  int indent = 1,
+]) {
   final lines = input.split('\n');
   if (skipFirstLine) {
     if (lines.length == 1) return lines.first;
@@ -70,8 +69,8 @@ class JsonMap extends JsonElement {
   Token<JsonMapEntry>? operator [](String key) {
     return children.cast<Token<JsonMapEntry>?>().firstWhere(
           (child) => child!.value.key.value == key,
-      orElse: () => null,
-    );
+          orElse: () => null,
+        );
   }
 
   @override

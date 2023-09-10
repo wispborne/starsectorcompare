@@ -2,7 +2,7 @@
 // import 'package:fl_chart/fl_chart.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:starsectorcompare/appState.dart';
+// import '../appState.dart';
 //
 // @Deprecated("Using graphicViewGraphic")
 // class GraphView extends ConsumerWidget {

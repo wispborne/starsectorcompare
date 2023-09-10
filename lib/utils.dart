@@ -100,8 +100,8 @@ Color stringToColor(String str) {
 }
 
 // method to filter a list of ships by mod id and selected hull type
-List<Ship> filterShips(Iterable<Ship> ships, Set<String?>? modIds, Set<String>? selectedHullTypes,
-    Set<String>? selectedHints, String? searchText,
+List<Ship> filterShips(
+    Iterable<Ship> ships, Set<String?>? modIds, Set<String>? selectedHullTypes, Set<String>? selectedHints,
     {bool includeModules = false}) {
   return ships.where((ship) {
     if (includeModules == false && ship.shipCsv.tags?.containsIgnoreCase("MODULE") == true) return false;
@@ -117,31 +117,48 @@ List<Ship> filterShips(Iterable<Ship> ships, Set<String?>? modIds, Set<String>? 
       return false;
     }
 
-    if (searchText.isNotNullOrEmpty()) {
-      var results = searchText!
-          .split(",")
-          .map((it) => it.trim())
-          .filter((it) => it.isNotNullOrEmpty())
-          .map((queryPart) => TextSearch([
-                TextSearchItem(
-                    ship,
-                    [
-                      ship.id,
-                      ship.shipCsv.name,
-                      ship.shipCsv.tech_manufacturer,
-                      ...ship.hintsSplitUppercase(),
-                      ...ship.tagsSplitUppercase(),
-                      ship.shipCsv.designation,
-                      ship.shipJson.hullSize,
-                      ship.shipJson.style
-                    ].filterNotNull().cast()),
-              ]).search(queryPart).map((e) => e.object))
-          .flattened;
-      if (results.isEmpty) return false;
-      // .intersect()
-      // .toList()
-    }
-
     return true;
   }).toList();
+}
+
+///  Returns a list of ships that match the search text.
+///  Note: returns results ordered by score.
+List<Ship> searchShips(Iterable<Ship> ships, String searchText) {
+  if (searchText.isEmpty) return ships.toList();
+
+  if (searchText.isNotNullOrEmpty()) {
+    var results = searchText
+        .toLowerCase()
+        .split(",")
+        .map((it) => it.trim())
+        .filter((it) => it.isNotNullOrEmpty())
+        .map((queryPart) => TextSearch(ships
+                .map(
+                  (ship) => TextSearchItem(
+                      ship,
+                      [
+                        ship.id,
+                        ship.shipCsv.name,
+                        ...?ship.shipCsv.tech_manufacturer?.split(' '),
+                        ((ship.modName?.split("-").length ?? 0) > 0)
+                            ? ship.modName!.split("-").where((element) => element.isNotEmpty).map((e) => e.substring(0, 1)).join()
+                            : null,
+                        ...ship.hintsSplitUppercase(),
+                        ...ship.tagsSplitUppercase(),
+                        ship.shipCsv.designation,
+                        ship.shipJson.hullSize,
+                        ship.shipJson.style
+                      ].filterNotNull().map((e) => e?.trim().toLowerCase()).toList(growable: false).cast()),
+                )
+                .toList(growable: false))
+            .search(queryPart)
+            .sorted((a, b) => b.score.compareTo(a.score) * -1)
+            .map((e) => e.object))
+        .flattened;
+    return results.toList();
+    // .intersect()
+    // .toList()
+  }
+
+  return [];
 }

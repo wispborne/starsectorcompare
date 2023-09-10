@@ -11,6 +11,5 @@ class VariantWeapon with _$VariantWeapon {
     @Default({}) final Map<String, String> weapons,
   }) = _VariantWeapon;
 
-  factory VariantWeapon.fromJson(Map<String, Object?> json)
-  => _$VariantWeaponFromJson(json);
+  factory VariantWeapon.fromJson(Map<String, Object?> json) => _$VariantWeaponFromJson(json);
 }

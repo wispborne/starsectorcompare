@@ -10,8 +10,7 @@ typedef Benchmark = void Function();
 ///
 /// The resulting duration is the average time measured to run [function] once.
 double benchmark(Benchmark function,
-    {Duration warmup = const Duration(milliseconds: 200),
-      Duration measure = const Duration(seconds: 2)}) {
+    {Duration warmup = const Duration(milliseconds: 200), Duration measure = const Duration(seconds: 2)}) {
   _benchmark(function, warmup);
   return _benchmark(function, measure);
 }
@@ -34,5 +33,4 @@ double _benchmark(Benchmark function, Duration duration) {
 ///
 /// A result of 0 means that both reference and comparison run at the same
 /// speed. A positive number signifies a speedup, a negative one a slowdown.
-double percentChange(double reference, double comparison) =>
-    100 * (reference - comparison) / reference;
+double percentChange(double reference, double comparison) => 100 * (reference - comparison) / reference;

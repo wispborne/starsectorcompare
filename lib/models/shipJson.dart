@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:starsectorcompare/models/shipEngineSlot.dart';
-import 'package:starsectorcompare/models/shipWeaponSlot.dart';
+
+import 'shipEngineSlot.dart';
+import 'shipWeaponSlot.dart';
 
 part '../generated/models/shipJson.g.dart';
 

@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converters/alexDoubleConverter.dart';
 
 part '../generated/models/weaponSmokeSpec.freezed.dart';
-
 part '../generated/models/weaponSmokeSpec.g.dart';
 
 @freezed

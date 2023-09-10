@@ -6,17 +6,14 @@ import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:fimber/fimber.dart';
 import 'package:ktx/collections.dart';
 import 'package:path/path.dart' as p;
-import 'package:starsectorcompare/models/shipCsv.dart';
-import 'package:starsectorcompare/utils.dart';
 
+import '../models/shipCsv.dart';
 import '../models/weaponCsv.dart';
+import '../utils.dart';
 
 class CsvDataLoader {
-  static Future<Map<String, WeaponCsv>?> loadWeapons(
-      String gameDir, String? modDirName) async {
-    var file = File(p.join(
-        gameDir,
-        modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,
+  static Future<Map<String, WeaponCsv>?> loadWeapons(String gameDir, String? modDirName) async {
+    var file = File(p.join(gameDir, modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,
         "data/weapons/weapon_data.csv"));
     Fimber.d("Loading '${file.path}'.");
 
@@ -34,9 +31,8 @@ class CsvDataLoader {
       csv = await file
           .openRead()
           .transform(utf8.decoder)
-          .transform(const CsvToListConverter(
-              shouldParseNumbers:
-                  false)) // Just treat everything as string until needed.
+          .transform(
+              const CsvToListConverter(shouldParseNumbers: false)) // Just treat everything as string until needed.
           .toList();
     } catch (e) {
       Fimber.w("Error loading '$file'.", ex: e);
@@ -49,13 +45,9 @@ class CsvDataLoader {
     return weapons.associateBy((weapon) => weapon.id);
   }
 
-  static Future<Map<String, ShipCsv>?> loadShips(
-      String gameDir, String? modDirName) async {
-
+  static Future<Map<String, ShipCsv>?> loadShips(String gameDir, String? modDirName) async {
     // If modDirName is null, use vanilla
-    var file = File(p.join(
-        gameDir,
-        modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,
+    var file = File(p.join(gameDir, modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path,
         "data/hulls/ship_data.csv"));
     Fimber.d("Loading '${file.path}'.");
 
@@ -73,9 +65,8 @@ class CsvDataLoader {
       csv = await file
           .openRead()
           .transform(utf8.decoder)
-          .transform(const CsvToListConverter(
-              shouldParseNumbers:
-                  false)) // Just treat everything as string until needed.
+          .transform(
+              const CsvToListConverter(shouldParseNumbers: false)) // Just treat everything as string until needed.
           .toList();
     } catch (e) {
       Fimber.w("Error loading '$file'.", ex: e);

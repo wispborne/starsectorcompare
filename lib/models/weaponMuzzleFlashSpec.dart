@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../generated/models/weaponMuzzleFlashSpec.freezed.dart';
-
 part '../generated/models/weaponMuzzleFlashSpec.g.dart';
 
 @freezed

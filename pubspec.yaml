@@ -1,5 +1,5 @@
-name: starsectorcompare
-description: A new Flutter project.
+name: 'StarCompare'
+description: 'Comparison tool for Starsector.'
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -55,6 +55,7 @@ dependencies:
   collection: ^1.17.1
   google_fonts: ^5.1.0
   text_search: ^0.0.2
+  window_manager: ^0.3.6
 
 #fluent_ui: ^4.4.2
 

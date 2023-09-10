@@ -1,9 +1,1 @@
-enum ProgramMode {
-  ship,
-  variant,
-  skin,
-  csv,
-  csvWing,
-  weapon,
-  csvWeapon
-}
+enum ProgramMode { ship, variant, skin, csv, csvWing, weapon, csvWeapon }

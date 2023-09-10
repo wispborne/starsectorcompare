@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:starsectorcompare/models/shipEngineStyleSpec.dart';
+
+import 'shipEngineStyleSpec.dart';
 
 part '../generated/models/shipEngineSlotChange.freezed.dart';
-
 part '../generated/models/shipEngineSlotChange.g.dart';
 
 /// TStarfarerShipEngineChange

@@ -4,25 +4,22 @@ import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:ktx/ktx.dart';
 import 'package:path/path.dart' as p;
-import 'package:starsectorcompare/appState.dart';
-import 'package:starsectorcompare/models/shipJson.dart';
-import 'package:starsectorcompare/models/variant.dart';
 
+import '../appState.dart';
 import '../json_parser/relaxed-json.dart';
 import '../models/shipEngineSlot.dart';
+import '../models/shipJson.dart';
 import '../models/shipSkin.dart';
 import '../models/shipWeaponSlot.dart';
+import '../models/variant.dart';
 import '../models/weaponJson.dart';
 import '../utils.dart';
 
-Future<Map<String, ShipJson>> loadJsonShipData(
-    String gameDir, String? modDirName) async {
+Future<Map<String, ShipJson>> loadJsonShipData(String gameDir, String? modDirName) async {
   var gameDataPath = Directory(gameDir);
   // If modDirName is null, use vanilla
-  var file = File(p.join(
-      gameDataPath.path,
-      modDirName?.let((it) => "mods/$it") ??
-          gameFilesPath(Directory(gameDir))?.path));
+  var file =
+      File(p.join(gameDataPath.path, modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path));
 
   var dataPath = Directory(file.path);
 
@@ -38,8 +35,7 @@ Future<Map<String, ShipJson>> loadJsonShipData(
   // Load everything
   final shipTimer = Stopwatch()..start();
   final shipsFuture = loadShips(stockShipsDir)
-    ..then((value) => Fimber.i(
-        "Took ${shipTimer.elapsed}ms to load ${value.length} vanilla ships."));
+    ..then((value) => Fimber.i("Took ${shipTimer.elapsed}ms to load ${value.length} vanilla ships."));
 
   // Add ships
   var ships = (await shipsFuture).whereType<ShipJson>().toList();
@@ -48,14 +44,11 @@ Future<Map<String, ShipJson>> loadJsonShipData(
   return shipsById;
 }
 
-Future<Map<String, WeaponJson>> loadJsonWeaponData(
-    String gameDir, String? modDirName) async {
+Future<Map<String, WeaponJson>> loadJsonWeaponData(String gameDir, String? modDirName) async {
   var gameDataPath = Directory(gameDir);
   // If modDirName is null, use vanilla
-  var file = File(p.join(
-      gameDataPath.path,
-      modDirName?.let((it) => "mods/$it") ??
-          gameFilesPath(Directory(gameDir))?.path));
+  var file =
+      File(p.join(gameDataPath.path, modDirName?.let((it) => "mods/$it") ?? gameFilesPath(Directory(gameDir))?.path));
 
   var dataPath = Directory(file.path);
 
@@ -70,12 +63,11 @@ Future<Map<String, WeaponJson>> loadJsonWeaponData(
 
   final weaponsTimer = Stopwatch()..start();
   final weaponsFuture = loadWeapons(stockWeaponsDir)
-    ..then((value) => Fimber.i(
-        "Took ${weaponsTimer.elapsed}ms to load ${value.length} vanilla weapons from $stockWeaponsDir."));
+    ..then((value) =>
+        Fimber.i("Took ${weaponsTimer.elapsed}ms to load ${value.length} vanilla weapons from $stockWeaponsDir."));
 
   // Add weapons
-  final weapons =
-      (await weaponsFuture).whereType<WeaponJson>().toList(growable: false);
+  final weapons = (await weaponsFuture).whereType<WeaponJson>().toList(growable: false);
   var wepsById = weapons.associateBy((it) => it.id);
 
   return wepsById;
@@ -130,8 +122,7 @@ Map<String, Set<String>> generateShipEnums(List<ShipJson> ships) {
       for (EngineSlot eSlot in ship.engineSlots ?? []) {
         enums.createAndAdd("ship.engine.style", eSlot.style);
         if (eSlot.styleSpec != null) {
-          enums.createAndAdd(
-              "ship.engine.styleSpec.type", eSlot.styleSpec!.type);
+          enums.createAndAdd("ship.engine.styleSpec.type", eSlot.styleSpec!.type);
         }
       }
     } catch (e) {
@@ -145,14 +136,10 @@ Map<String, Set<String>> generateShipEnums(List<ShipJson> ships) {
 /// `load_stock_ship`
 Future<List<ShipJson?>> loadShips(Directory folder) async {
   Fimber.i("Loading ships from $folder");
-  return folder
-      .list(recursive: true)
-      .where((event) => p.extension(event.path) == ".ship")
-      .asyncMap((file) async {
+  return folder.list(recursive: true).where((event) => p.extension(event.path) == ".ship").asyncMap((file) async {
     Fimber.d("Loading ship ${file.path}");
     return loadShip(File(file.path)).onError((error, stackTrace) {
-      Fimber.w("Failed to load ${file.path}",
-          ex: error, stacktrace: stackTrace);
+      Fimber.w("Failed to load ${file.path}", ex: error, stacktrace: stackTrace);
       return Future.value(null);
     });
   }).toList();
@@ -161,14 +148,10 @@ Future<List<ShipJson?>> loadShips(Directory folder) async {
 /// `load_stock_variant`
 Future<List<Variant?>> loadVariants(Directory folder) async {
   Fimber.i("Loading variants from $folder");
-  return folder
-      .list(recursive: true)
-      .where((event) => p.extension(event.path) == ".variant")
-      .asyncMap((file) async {
+  return folder.list(recursive: true).where((event) => p.extension(event.path) == ".variant").asyncMap((file) async {
     Fimber.d("Loading variant ${file.path}");
     return loadVariant(File(file.path)).onError((error, stackTrace) {
-      Fimber.w("Failed to load ${file.path}",
-          ex: error, stacktrace: stackTrace);
+      Fimber.w("Failed to load ${file.path}", ex: error, stacktrace: stackTrace);
       return Future.value(null);
     });
   }).toList();
@@ -183,8 +166,7 @@ Future<List<ShipSkin>> loadShipSkins(Directory folder) async {
       .asyncMap((file) async {
         Fimber.d("Loading ship skin ${file.path}");
         return loadShipSkin(File(file.path)).onError((error, stackTrace) {
-          Fimber.w("Failed to load ${file.path}",
-              ex: error, stacktrace: stackTrace);
+          Fimber.w("Failed to load ${file.path}", ex: error, stacktrace: stackTrace);
           return Future.value(null);
         });
       })
@@ -196,14 +178,10 @@ Future<List<ShipSkin>> loadShipSkins(Directory folder) async {
 /// `load_stock_weapon`
 Future<List<WeaponJson?>> loadWeapons(Directory folder) async {
   Fimber.i("Loading weapons from $folder");
-  return folder
-      .list(recursive: true)
-      .where((event) => p.extension(event.path) == ".wpn")
-      .asyncMap((file) async {
+  return folder.list(recursive: true).where((event) => p.extension(event.path) == ".wpn").asyncMap((file) async {
     Fimber.d("Loading variant ${file.path}");
     return loadWeapon(File(file.path)).onError((error, stackTrace) {
-      Fimber.w("Failed to load ${file.path}",
-          ex: error, stacktrace: stackTrace);
+      Fimber.w("Failed to load ${file.path}", ex: error, stacktrace: stackTrace);
       return Future.value(null);
     });
   }).toList();
@@ -223,29 +201,24 @@ String? defaultGamePath() {
 }
 
 Future<ShipJson?> loadShip(File file) async {
-  return ShipJson.fromJson(
-      parseRjson(await file.readAsString()) as Map<String, dynamic>);
+  return ShipJson.fromJson(parseRjson(await file.readAsString()) as Map<String, dynamic>);
 }
 
 Future<Variant?> loadVariant(File file) async {
   //Variant.fromJson(jsonDecode() as Map<String, dynamic>);
   // var jsonEncodedYaml = json.encode(parseRjson(await file.readAsString()));
   // Fimber.v(jsonEncodedYaml);
-  return Variant.fromJson(
-      parseRjson(await file.readAsString(), withTrace: false)
-          as Map<String, dynamic>);
+  return Variant.fromJson(parseRjson(await file.readAsString(), withTrace: false) as Map<String, dynamic>);
 }
 
 Future<ShipSkin?> loadShipSkin(File file) async {
   // var jsonEncodedYaml = json.encode(parseRjson(await file.readAsString()));
   // Fimber.v(jsonEncodedYaml);
-  return ShipSkin.fromJson(
-      parseRjson(await file.readAsString()) as Map<String, dynamic>);
+  return ShipSkin.fromJson(parseRjson(await file.readAsString()) as Map<String, dynamic>);
 }
 
 Future<WeaponJson?> loadWeapon(File file) async {
   // var jsonEncodedYaml = json.encode(parseRjson(await file.readAsString()));
   // Fimber.v(jsonEncodedYaml);
-  return WeaponJson.fromJson(
-      parseRjson(await file.readAsString()) as Map<String, dynamic>);
+  return WeaponJson.fromJson(parseRjson(await file.readAsString()) as Map<String, dynamic>);
 }

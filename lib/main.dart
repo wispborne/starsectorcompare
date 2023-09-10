@@ -7,26 +7,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:starsectorcompare/extensions.dart';
-import 'package:starsectorcompare/views/homeView.dart';
-import 'package:starsectorcompare/mainMenu.dart';
-import 'package:starsectorcompare/models/settings.dart';
-import 'package:starsectorcompare/settingsSaver.dart';
-import 'package:starsectorcompare/shortcuts.dart';
-import 'package:starsectorcompare/themes.dart';
-import 'package:starsectorcompare/utils.dart';
+import 'package:window_manager/window_manager.dart';
+
+import '../extensions.dart';
+import '../mainMenu.dart';
+import '../settingsSaver.dart';
+import '../shortcuts.dart';
+import '../themes.dart';
+import '../utils.dart';
+import '../views/homeView.dart';
+import 'models/settings.dart';
 
 configureLogging() {
   const logLevels = kDebugMode ? ["V", "D", "I", "W", "E"] : ["I", "W", "E"];
   Fimber.plantTree(DebugTree.elapsed(logLevels: logLevels, useColors: true));
 }
 
-var appTitle = "StarCompare";
+const appTitle = "StarCompare";
+const appVersion = "0.1";
+const appTitleWithVersion = "$appTitle v$appVersion";
 
-void main() {
+void main() async {
   configureLogging();
   Fimber.i("Logging started.");
   Fimber.i("Platform: ${Platform.operatingSystem} ${Platform.operatingSystemVersion}.");
+  WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
+  WindowManager.instance.setTitle(appTitleWithVersion);
   runApp(ProviderScope(observers: [SettingSaver()], child: const MyApp()));
 }
 
@@ -59,7 +66,7 @@ class MyApp extends ConsumerWidget {
                     builder: (BuildContext context, GoRouterState state) {
                       return CallbackShortcuts(
                           bindings: ShortcutBindings.getShortcuts(ref),
-                          child: const Focus(autofocus: true, child: MyHomePage(title: 'StarCompare')));
+                          child: const Focus(autofocus: true, child: MyHomePage(title: appTitle)));
                     },
                   )
                 ],

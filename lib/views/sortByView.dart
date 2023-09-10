@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:starsectorcompare/appState.dart';
+
+import '../appState.dart';
 
 class SortByView extends ConsumerStatefulWidget {
   static const fleetPoints = "Fleet Points";

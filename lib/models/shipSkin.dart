@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:starsectorcompare/models/converters/alexMapConverter.dart';
-import 'package:starsectorcompare/models/shipEngineSlotChange.dart';
-import 'package:starsectorcompare/models/shipWeaponSlotChange.dart';
+
+import 'converters/alexMapConverter.dart';
+import 'shipEngineSlotChange.dart';
+import 'shipWeaponSlotChange.dart';
 
 part '../generated/models/shipSkin.freezed.dart';
-
 part '../generated/models/shipSkin.g.dart';
 
 @freezed
@@ -33,14 +33,14 @@ class ShipSkin with _$ShipSkin {
     final List<String>? builtInMods, // hullmod ids,
     final List<String>? removeWeaponSlots, // weapon slot id's,
     @AlexMapConverter()
-        final Map<String, ShipWeaponSlotChange>?
-            weaponSlotChanges, //<String,TStarfarerShipWeaponChange>  weapon slot id --> TStarfarerShipWeapon,
+    final Map<String, ShipWeaponSlotChange>?
+        weaponSlotChanges, //<String,TStarfarerShipWeaponChange>  weapon slot id --> TStarfarerShipWeapon,
     final List<String>? removeBuiltInWeapons, // weapon slot id's,
     @AlexMapConverter() final Map<String, String>? builtInWeapons, //<String,String>  weapon slot id --> weapon id,
     final List<int>? removeEngineSlots, // engine slot indices (no id's),
     @AlexMapConverter()
-        final Map<String, ShipEngineSlotChange>?
-            engineSlotChanges, //<String,TStarfarerShipEngineChange>  engine slot index (as string) --> TStarfarerShipEngine,
+    final Map<String, ShipEngineSlotChange>?
+        engineSlotChanges, //<String,TStarfarerShipEngineChange>  engine slot index (as string) --> TStarfarerShipEngine,
     final List<int>? coversColor,
   }) = _ShipSkin;
 

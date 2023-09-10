@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:starsectorcompare/models/shipEngineStyleSpec.dart';
+
+import 'shipEngineStyleSpec.dart';
 
 part '../generated/models/shipEngineSlot.g.dart';
 

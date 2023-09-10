@@ -63,9 +63,7 @@ class ScalableDataTable extends StatelessWidget {
   Widget build(BuildContext context) {
     final localMinWidth = minWidth;
     return Container(
-      constraints: localMinWidth != null
-          ? BoxConstraints(minWidth: localMinWidth)
-          : null,
+      constraints: localMinWidth != null ? BoxConstraints(minWidth: localMinWidth) : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
           final width = max(constraints.maxWidth, minWidth ?? 0);
@@ -106,8 +104,8 @@ class ScalableDataTable extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context, {required double width}) {
-    buildNotContentWrapper(Widget child) => Center(
-        child: Padding(padding: const EdgeInsets.only(top: 20), child: child));
+    buildNotContentWrapper(Widget child) =>
+        Center(child: Padding(padding: const EdgeInsets.only(top: 20), child: child));
     if (itemCount < 0) {
       return buildNotContentWrapper(
         loadingBuilder?.call(context) ?? const CircularProgressIndicator(),

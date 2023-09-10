@@ -1,7 +1,9 @@
-import 'package:starsectorcompare/models/shipJson.dart';
-import 'package:starsectorcompare/models/shipCsv.dart';
-import 'package:starsectorcompare/models/weaponJson.dart';
-import 'package:starsectorcompare/models/weaponCsv.dart';
+import 'ModInfo.dart';
+import 'ModInfoJson.dart';
+import 'shipCsv.dart';
+import 'shipJson.dart';
+import 'weaponCsv.dart';
+import 'weaponJson.dart';
 
 class GameData {
   // Ships
@@ -12,10 +14,14 @@ class GameData {
   Map<String?, Map<String, WeaponCsv>> weaponsInCsvByIdByModId;
   Map<String?, Map<String, WeaponJson>> weaponsInJsonByIdByModId;
 
+  // Mods
+  Map<String, ModInfo> modInfoByModId;
+
   GameData({
     required this.shipsInCsvByHullIdByModId,
     required this.shipsInJsonByHullIIdByModId,
     required this.weaponsInCsvByIdByModId,
     required this.weaponsInJsonByIdByModId,
+    required this.modInfoByModId,
   });
 }

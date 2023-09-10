@@ -1,13 +1,13 @@
 import 'dart:ui';
 
+import 'package:StarCompare/extensions.dart';
 import 'package:collection/collection.dart';
 import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphic/graphic.dart';
-import 'package:starsectorcompare/appState.dart';
-import 'package:starsectorcompare/extensions.dart';
 
+import '../appState.dart';
 import '../models/ship.dart';
 import '../utils.dart';
 
@@ -54,7 +54,7 @@ class GraphViewGraphic extends ConsumerWidget {
     var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!).let((ships) =>
         // Apply ship filters
         filterShips(ships, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes),
-            ref.watch(AppState.filterShipHints), ref.watch(AppState.searchText)));
+            ref.watch(AppState.filterShipHints)));
 
     var colors = shipsToDisplay.map((e) => e.color).toList();
     // For some reason, the chart library requires at least 2 colors even if there's just one line.

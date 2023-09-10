@@ -1,11 +1,10 @@
 import "package:freezed_annotation/freezed_annotation.dart";
-import "package:starsectorcompare/models/weaponMuzzleFlashSpec.dart";
-import "package:starsectorcompare/models/weaponSmokeSpec.dart";
 
 import "converters/booleanConverter.dart";
+import "weaponMuzzleFlashSpec.dart";
+import "weaponSmokeSpec.dart";
 
 part '../generated/models/weaponJson.freezed.dart';
-
 part '../generated/models/weaponJson.g.dart';
 
 @freezed
@@ -34,6 +33,7 @@ class WeaponJson with _$WeaponJson {
     // essential to beam
     @Default([255.0, 255.0, 255.0, 255.0]) List<double>? fringeColor,
     @Default([255.0, 255.0, 255.0, 255.0]) List<double>? coreColor,
+
     /// Enum or `Set<String>`
     @Default("ROUGH") dynamic textureType, // TEnum or TString[]
 

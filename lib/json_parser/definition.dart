@@ -85,11 +85,11 @@ class JsonGrammar extends GrammarDefinition<Token<JsonElement>> {
       });
 
   Parser<String> stringLiteral() {
-    return (anyOf('"', '\'') &
-            (pattern(r'^"\') | ref0<String>(escapedChar) | ref0<String>(unicodeChar))
+    return (anyOf('"\'') &
+            (pattern('^"\\') | ref0<String>(escapedChar) | ref0<String>(unicodeChar))
                 .star()
                 .map<String>((list) => list.join()) &
-            anyOf('"', '\''))
+            anyOf('"\''))
         .pick(1)
         .cast();
   }

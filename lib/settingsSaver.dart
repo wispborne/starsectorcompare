@@ -58,12 +58,13 @@ class SettingSaver extends ProviderObserver {
             var modInfo = modInfoByModId.values.firstWhereOrNull((element) => element.folderName == modFolder);
 
             shipsById.forEach((key, value) {
-              mergedShips[key] =
-                  Ship(id: key,
-                      shipCsv: value,
-                      shipJson: const ShipJson(),
-                      modId: modInfo?.json.id,
-                      modName: modInfo?.json.name,);
+              mergedShips[key] = Ship(
+                id: key,
+                shipCsv: value,
+                shipJson: const ShipJson(),
+                modId: modInfo?.json.id,
+                modName: modInfo?.json.name,
+              );
             });
           });
 
@@ -127,7 +128,7 @@ Future<GameData> loadData(String gameDir) async {
 
   for (var modFolderName in modFolderNames) {
     if (modFolderName.isNotNullOrEmpty()) {
-      futures.add(loadModInfo(gameDir, modFolderName!).then((value) {
+      futures.add(JsonDataLoader.loadModInfo(gameDir, modFolderName!).then((value) {
         if (value != null) {
           gameData.modInfoByModId[value.json.id] = value;
           Fimber.d("Loaded mod info for '${value.folderName}'");
@@ -145,12 +146,12 @@ Future<GameData> loadData(String gameDir) async {
         gameData.shipsInCsvByHullIdByModId[modFolderName] = value;
       }
     }));
-    futures.add(loadJsonShipData(gameDir, modFolderName).then((value) {
+    futures.add(JsonDataLoader.loadJsonShipData(gameDir, modFolderName).then((value) {
       if (value.isNotEmpty) {
         gameData.shipsInJsonByHullIIdByModId[modFolderName] = value;
       }
     }));
-    futures.add(loadJsonWeaponData(gameDir, modFolderName).then((value) {
+    futures.add(JsonDataLoader.loadJsonWeaponData(gameDir, modFolderName).then((value) {
       if (value.isNotEmpty) {
         gameData.weaponsInJsonByIdByModId[modFolderName] = value;
       }
@@ -162,39 +163,14 @@ Future<GameData> loadData(String gameDir) async {
   await Future.wait(futures);
   Fimber.i(
       "Loading data complete, ${gameData.weaponsInCsvByIdByModId.values.sumBy((modItems) => modItems.length)} weapons "
-          "& ${gameData.shipsInCsvByHullIdByModId.values.sumBy((modItems) => modItems.length)} ships "
-          "from ${{...gameData.weaponsInCsvByIdByModId.keys, ...gameData.shipsInCsvByHullIdByModId.keys}.length} mods "
-          "in ${DateTime
-          .now()
-          .difference(startTime)
-          .inMilliseconds}ms.");
+      "& ${gameData.shipsInCsvByHullIdByModId.values.sumBy((modItems) => modItems.length)} ships "
+      "from ${{...gameData.weaponsInCsvByIdByModId.keys, ...gameData.shipsInCsvByHullIdByModId.keys}.length} mods "
+      "in ${DateTime.now().difference(startTime).inMilliseconds}ms.");
 
   return gameData;
 }
 
-Future<ModInfo?> loadModInfo(String gameDir, String modFolderName) async {
-  var modInfoFile = File(path.join(gameDir, "mods", modFolderName, "mod_info.json"));
-  try {
-    Fimber.d("Loading '${modInfoFile.path}'.");
-    if (!modInfoFile.existsSync()) {
-      Fimber.d("File doesn't exist: '$modInfoFile'.");
-      return null;
-    }
-
-    var modInfoJson = parseRjson(modInfoFile.readAsStringSync()) as Map<String, dynamic>;
-    var modInfo = ModInfo(folderName: modFolderName, json: ModInfoJson.fromJson(modInfoJson));
-        Fimber.i("Loaded '${modInfoFile.path}'.");
-    return modInfo;
-  } catch (e, s) {
-    Fimber.e("Error loading mod info from file ${modInfoFile.absolute}", ex: e, stacktrace: s);
-    return null;
-  }
-}
-
 List<String> getModFolderNames(String gameDir) {
   var modsDir = "$gameDir/mods";
-  return Directory(modsDir).listSync().whereType<Directory>().map((e) =>
-  path
-      .split(e.path)
-      .last).toList();
+  return Directory(modsDir).listSync().whereType<Directory>().map((e) => path.split(e.path).last).toList();
 }

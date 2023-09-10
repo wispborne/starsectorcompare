@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:starsectorcompare/views/searchView.dart';
 import 'package:starsectorcompare/views/shipFiltersView.dart';
 import 'package:starsectorcompare/views/sortByView.dart';
 
@@ -20,9 +22,13 @@ class HomeView extends ConsumerWidget {
             child: Padding(
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
-                  SizedBox(
-                    height: 180,
-                    child: ShipFiltersView(),
+                  SearchView(),
+                  Padding(
+                    padding: EdgeInsets.only(top: 16),
+                    child: SizedBox(
+                      height: 180,
+                      child: ShipFiltersView(),
+                    ),
                   ),
                   SortByView()
                 ]))),

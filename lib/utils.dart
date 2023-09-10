@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as p;
+import 'package:text_search/text_search.dart';
 
 import 'models/ship.dart';
 
@@ -98,25 +100,46 @@ Color stringToColor(String str) {
 }
 
 // method to filter a list of ships by mod id and selected hull type
-List<Ship> filterShips(Iterable<Ship> ships, Set<String?>? modIds,
-    Set<String>? selectedHullTypes, Set<String>? selectedHints,
+List<Ship> filterShips(Iterable<Ship> ships, Set<String?>? modIds, Set<String>? selectedHullTypes,
+    Set<String>? selectedHints, String? searchText,
     {bool includeModules = false}) {
   return ships.where((ship) {
-    if (includeModules == false &&
-        ship.shipCsv.tags?.containsIgnoreCase("MODULE") == true) return false;
+    if (includeModules == false && ship.shipCsv.tags?.containsIgnoreCase("MODULE") == true) return false;
 
     if (modIds != null && !modIds.contains(ship.modId)) return false;
 
-    if (selectedHullTypes.isNotNullOrEmpty() &&
-        !selectedHullTypes!.contains(ship.shipJson.hullSize)) {
+    if (selectedHullTypes.isNotNullOrEmpty() && !selectedHullTypes!.contains(ship.shipJson.hullSize)) {
       return false;
     }
 
     if (selectedHints.isNotNullOrEmpty() &&
-        selectedHints.countWhere(
-                (hint) => ship.hintsSplitUppercase().contains(hint)) ==
-            0) {
+        selectedHints.countWhere((hint) => ship.hintsSplitUppercase().contains(hint)) == 0) {
       return false;
+    }
+
+    if (searchText.isNotNullOrEmpty()) {
+      var results = searchText!
+          .split(",")
+          .map((it) => it.trim())
+          .filter((it) => it.isNotNullOrEmpty())
+          .map((queryPart) => TextSearch([
+                TextSearchItem(
+                    ship,
+                    [
+                      ship.id,
+                      ship.shipCsv.name,
+                      ship.shipCsv.tech_manufacturer,
+                      ...ship.hintsSplitUppercase(),
+                      ...ship.tagsSplitUppercase(),
+                      ship.shipCsv.designation,
+                      ship.shipJson.hullSize,
+                      ship.shipJson.style
+                    ].filterNotNull().cast()),
+              ]).search(queryPart).map((e) => e.object))
+          .flattened;
+      if (results.isEmpty) return false;
+      // .intersect()
+      // .toList()
     }
 
     return true;

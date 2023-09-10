@@ -18,4 +18,6 @@ class Ship {
 
   Set<String> hintsSplitUppercase() =>
       shipCsv.hints?.split(",").map((e) => e.trim().toUpperCase()).toSet() ?? {};
+  Set<String> tagsSplitUppercase() =>
+      shipCsv.tags?.split(",").map((e) => e.trim().toUpperCase()).toSet() ?? {};
 }

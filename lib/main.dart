@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:fimber/fimber.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +17,7 @@ import 'package:starsectorcompare/themes.dart';
 import 'package:starsectorcompare/utils.dart';
 
 configureLogging() {
-  const logLevels = ["I", "W", "E"];
+  const logLevels = kDebugMode ? ["V", "D", "I", "W", "E"] : ["I", "W", "E"];
   Fimber.plantTree(DebugTree.elapsed(logLevels: logLevels, useColors: true));
 }
 
@@ -25,8 +26,7 @@ var appTitle = "StarCompare";
 void main() {
   configureLogging();
   Fimber.i("Logging started.");
-  Fimber.i(
-      "Platform: ${Platform.operatingSystem} ${Platform.operatingSystemVersion}.");
+  Fimber.i("Platform: ${Platform.operatingSystem} ${Platform.operatingSystemVersion}.");
   runApp(ProviderScope(observers: [SettingSaver()], child: const MyApp()));
 }
 
@@ -44,10 +44,7 @@ class MyApp extends ConsumerWidget {
     _ref = ref;
 
     return AdaptiveTheme(
-        light: ThemeData(
-            brightness: Brightness.light,
-            primarySwatch: Colors.cyan,
-            hintColor: Colors.cyanAccent),
+        light: ThemeData(brightness: Brightness.light, primarySwatch: Colors.cyan, hintColor: Colors.cyanAccent),
         dark: Themes.starsectorLauncher,
         initial: AdaptiveThemeMode.dark,
         builder: (theme, darkTheme) => MaterialApp.router(
@@ -62,9 +59,7 @@ class MyApp extends ConsumerWidget {
                     builder: (BuildContext context, GoRouterState state) {
                       return CallbackShortcuts(
                           bindings: ShortcutBindings.getShortcuts(ref),
-                          child: const Focus(
-                              autofocus: true,
-                              child: MyHomePage(title: 'Starsector Compare')));
+                          child: const Focus(autofocus: true, child: MyHomePage(title: 'StarCompare')));
                     },
                   )
                 ],
@@ -104,8 +99,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
     if (settingsFile.existsSync()) {
       Fimber.i("Loading settings from ${settingsFile.path}.");
       try {
-        var settings = Settings.fromJson(
-            jsonDecode(settingsFile.readAsStringSync().ifEmptyOrNull("{}")));
+        var settings = Settings.fromJson(jsonDecode(settingsFile.readAsStringSync().ifEmptyOrNull("{}")));
 
         ref.read(appSettings.notifier).update((state) => settings);
       } catch (e) {

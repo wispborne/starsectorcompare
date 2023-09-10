@@ -13,14 +13,11 @@ abstract class AppState {
 
   static final hullIdsToDisplay = StateProvider((ref) => <String>{});
 
-  static final StateProvider<Set<String?>?> filterMods =
-      StateProvider((ref) => null);
-  static final StateProvider<Set<String>?> filterShipHullSizes =
-      StateProvider((ref) => null);
-  static final StateProvider<Set<String>?> filterShipHints =
-      StateProvider((ref) => null);
-  static final StateProvider<Map<String, bool>?> sortBy =
-  StateProvider((ref) => null);
+  static final StateProvider<Set<String?>?> filterMods = StateProvider((ref) => null);
+  static final StateProvider<Set<String>?> filterShipHullSizes = StateProvider((ref) => null);
+  static final StateProvider<Set<String>?> filterShipHints = StateProvider((ref) => null);
+  static final StateProvider<Map<String, bool>?> sortBy = StateProvider((ref) => null);
+  static final StateProvider<String?> searchText = StateProvider((ref) => null);
 }
 
 extension SetAdding on Map<String, Set<String>> {

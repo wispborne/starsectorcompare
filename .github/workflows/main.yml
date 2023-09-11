@@ -11,7 +11,7 @@ on: push
 env:
   flutter_channel: "beta" # or: 'stable' or 'dev' or 'beta'
   #flutter_version: '2.2.2'
-  macos_path: "build/macos/Build/Products/Release/starsectorcompare.app"
+  macos_path: "build/macos/Build/Products/Release/StarCompare.app"
   windows_path: "build/windows/runner/Release/*"
 #  linux_path: "build/linux/runner/Release/*"
 

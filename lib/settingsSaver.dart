@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:StarCompare/utils.dart';
 import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:fimber/fimber.dart';
 import 'package:flutter/foundation.dart';
@@ -12,11 +11,8 @@ import 'package:path/path.dart' as path;
 
 import '../appState.dart';
 import '../loading/jsonDataLoader.dart';
-import 'json_parser/relaxed-json.dart';
 import 'loading/csvDataLoader.dart';
 import 'main.dart';
-import 'models/ModInfo.dart';
-import 'models/ModInfoJson.dart';
 import 'models/Weapon.dart';
 import 'models/gameData.dart';
 import 'models/settings.dart';

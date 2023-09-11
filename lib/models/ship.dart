@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:dart_extensions_methods/dart_extension_methods.dart';
+
 import '../utils.dart';
 import 'shipCsv.dart';
 import 'shipJson.dart';
@@ -17,5 +19,12 @@ class Ship {
   }
 
   Set<String> hintsSplitUppercase() => shipCsv.hints?.split(",").map((e) => e.trim().toUpperCase()).toSet() ?? {};
+
   Set<String> tagsSplitUppercase() => shipCsv.tags?.split(",").map((e) => e.trim().toUpperCase()).toSet() ?? {};
+
+  // tostring
+  @override
+  String toString() {
+    return 'Name: ${shipCsv.name} ($id)\nMod: ${modName ?? "(vanilla)"}${modId?.let((e) => " ($e)") ?? ""}\nCSV: $shipCsv\nJSON: $shipJson';
+  }
 }

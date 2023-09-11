@@ -1,5 +1,4 @@
 import 'ModInfo.dart';
-import 'ModInfoJson.dart';
 import 'shipCsv.dart';
 import 'shipJson.dart';
 import 'weaponCsv.dart';

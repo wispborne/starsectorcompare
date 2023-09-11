@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../views/searchView.dart';
 import '../views/shipFiltersView.dart';
 import '../views/sortByView.dart';
+import 'entityFilteringTabs.dart';
 import 'graphViewGraphic.dart';
 import 'listEntitiesView.dart';
 
@@ -23,14 +24,13 @@ class HomeView extends ConsumerWidget {
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
                   SearchView(),
-                  Padding(
-                    padding: EdgeInsets.only(top: 16),
-                    child: SizedBox(
-                      height: 180,
-                      child: ShipFiltersView(),
-                    ),
+                  SizedBox(
+                    height: 180,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 16), child: ShipFiltersView()),
                   ),
-                  SortByView()
+                  Padding(
+                      padding: EdgeInsets.only(top: 16), child: SizedBox(height: 200, child: EntityFilteringTabs())),
                 ]))),
         Expanded(
             child: Column(

@@ -60,6 +60,9 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
       }
     }
 
+    var infoColumnWidth = 15.0;
+    var rowHeight = 20.0;
+
     var fields = {
       "name": (
         title: "Name",
@@ -78,6 +81,17 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
       "max_flux": (title: "Flux Cap", widget: (Ship item) => Text(item.shipCsv.max_flux ?? "")),
       "flux_dissipation": (title: "Flux Diss", widget: (Ship item) => Text(item.shipCsv.flux_dissipation ?? "")),
       "mod": (title: "Mod", widget: (Ship item) => Text(item.modName ?? "")),
+      "info": (
+        title: " ",
+        widget: (Ship item) => Tooltip(
+            message: item.toString(),
+            child: SizedBox(
+                height: rowHeight,
+                child: Icon(
+                  Icons.info,
+                  size: infoColumnWidth,
+                ))),
+      ),
     };
 
     return ScalableDataTable(
@@ -110,7 +124,7 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
           },
           children: [
             SizedBox(
-              height: 20,
+              height: rowHeight,
               child: Checkbox(
                   value: hullIdsToDisplay.contains(item.id),
                   activeColor: item.color,

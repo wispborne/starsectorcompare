@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part '../generated/models/shipCsv.freezed.dart';
 
+// @unfreezed but also disabling toStringOverride
 @unfreezed
 class ShipCsv with _$ShipCsv {
   factory ShipCsv({
@@ -255,4 +256,9 @@ class ShipCsv with _$ShipCsv {
 
     return ships;
   }
+
+  // @override
+  // String toString() {
+  //   return 'ShipCsv{name: $name, id: $id, designation: $designation, tech_manufacturer: $tech_manufacturer, system_id: $system_id, fleet_pts: $fleet_pts, hitpoints: $hitpoints, armor_rating: $armor_rating, max_flux: $max_flux, eight_six_five_four_percent: $eight_six_five_four_percent, flux_dissipation: $flux_dissipation, ordnance_points: $ordnance_points, fighter_bays: $fighter_bays, max_speed: $max_speed, acceleration: $acceleration, deceleration: $deceleration, max_turn_rate: $max_turn_rate, turn_acceleration: $turn_acceleration, mass: $mass, shield_type: $shield_type, defense_id: $defense_id, shield_arc: $shield_arc, shield_upkeep: $shield_upkeep, shield_efficiency: $shield_efficiency, phase_cost: $phase_cost, phase_upkeep: $phase_upkeep, min_crew: $min_crew, max_crew: $max_crew, cargo: $cargo, fuel: $fuel, fuel_ly: $fuel_ly, range: $range, max_burn: $max_burn, base_value: $base_value, cr_percent_day: $cr_percent_day, CR_to_deploy: $CR_to_deploy, peak_CR_sec: $peak_CR_sec, CR_loss_sec: $CR_loss_sec, supplies_rec: $supplies_rec, supplies_mo: $supplies_mo, c_per_s: $c_per_s, c_per_f: $c_per_f, f_per_s: $f_per_s, f_per_f: $f_per_f, crew_per_s: $crew_per_s, crew_per_f: $crew_per_f, hints: $hints, tags: $tags, rarity: $rarity, breakProb: $breakProb, minPieces: $minPieces, maxPieces: $maxPieces, travel_drive: $travel_drive, number: $number}';
+  // }
 }

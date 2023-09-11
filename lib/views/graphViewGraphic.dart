@@ -46,7 +46,7 @@ class GraphViewGraphic extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var isSpiderWeb = false;
+    var isSpiderWeb = true;
     var allShipsByHullId = ref.read(AppState.shipsByHullId);
     var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
 

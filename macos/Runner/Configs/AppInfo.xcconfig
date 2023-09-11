@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = starsectorcompare
+PRODUCT_NAME = StarCompare
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = org.wisp.starsectorcompare
+PRODUCT_BUNDLE_IDENTIFIER = org.wisp.starcompare
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 org.wisp. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 Wisp. All rights reserved.

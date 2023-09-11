@@ -32,11 +32,14 @@ class EntitiesList extends ConsumerStatefulWidget {
 class EntitiesListState extends ConsumerState<EntitiesList> {
   @override
   Widget build(BuildContext context) {
-    var allShips = ref.watch(AppState.shipsByHullId).values.toList();
-    var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
+    var allShips = ref.watch(AppState.shipsByHullId);
+    var selectedHullIds = ref.watch(AppState.selectedHullIds);
+    var themeData = Theme.of(context);
+    var baselineEntity = ref.watch(AppState.baselineHullId);
 
-    var filteredShips = filterShips(allShips, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes),
-        ref.watch(AppState.filterShipHints));
+    var filteredShips = filterShips(allShips.values, ref.watch(AppState.filterMods),
+            ref.watch(AppState.filterShipHullSizes), ref.watch(AppState.filterShipHints))
+        .filterNot((element) => element.id == baselineEntity);
 
     var searchText = ref.watch(AppState.searchText);
     if (searchText.isNotNullOrEmpty()) {
@@ -61,6 +64,7 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     }
 
     var infoColumnWidth = 15.0;
+    var selectBaselineColumnWidth = 10.0;
     var rowHeight = 20.0;
 
     var fields = {
@@ -98,22 +102,46 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
       emptyBuilder: (context) => const Text("No items loaded"),
       itemCount: filteredShips.length,
       header: ScalableTableHeader(columnWrapper: columnWrapper, padding: const EdgeInsets.only(), children: [
+        if (baselineEntity == null)
+          SizedBox(
+            height: rowHeight,
+            width: selectBaselineColumnWidth,
+          ),
         SizedBox(
           height: 30,
           child: Checkbox(
-              value: hullIdsToDisplay.isNotEmpty,
-              onChanged: (value) => ref.read(AppState.hullIdsToDisplay.notifier).update((state) => {})),
+              value: selectedHullIds.isNotEmpty,
+              onChanged: (value) => ref.read(AppState.selectedHullIds.notifier).update((state) => {})),
         ),
         ...fields.values.map((e) => Text(e.title, style: const TextStyle(fontWeight: FontWeight.bold))),
       ]),
+      pinnedRowBuilders: (context, index) {
+        if (baselineEntity != null && allShips.containsKey(baselineEntity)) {
+          var item = ref.read(AppState.shipsByHullId)[baselineEntity]!;
+          return ScalableTableRow(
+            columnWrapper: columnWrapper,
+            padding: const EdgeInsets.only(),
+            children: [
+              SizedBox(
+                  width: selectBaselineColumnWidth,
+                  child: IconButton(
+                      icon: Transform.rotate(angle: .78, child: const Icon(Icons.push_pin, size: 18)),
+                      padding: const EdgeInsets.all(0),
+                      onPressed: () => ref.read(AppState.baselineHullId.notifier).update((state) => null))),
+              ...fields.values.map((e) => e.widget(item)).toList(),
+            ],
+          );
+        }
+        return Container();
+      },
       rowBuilder: (context, index) {
         var item = filteredShips[index];
         return ScalableTableRow(
           columnWrapper: columnWrapper,
           padding: const EdgeInsets.only(),
           onTap: () {
-            var value = !hullIdsToDisplay.contains(item.id);
-            ref.read(AppState.hullIdsToDisplay.notifier).update((state) {
+            var value = !selectedHullIds.contains(item.id);
+            ref.read(AppState.selectedHullIds.notifier).update((state) {
               if (value == true) {
                 // Create new sets so that watchers are notified.
                 return {}..addAll(state..add(item.id));
@@ -123,13 +151,19 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
             });
           },
           children: [
+            if (baselineEntity == null)
+              SizedBox(
+                  width: selectBaselineColumnWidth,
+                  child: IconButton(
+                      icon: const Icon(Icons.push_pin, size: 18),
+                      onPressed: () => ref.read(AppState.baselineHullId.notifier).update((state) => item.id))),
             SizedBox(
               height: rowHeight,
               child: Checkbox(
-                  value: hullIdsToDisplay.contains(item.id),
+                  value: selectedHullIds.contains(item.id),
                   activeColor: item.color,
                   onChanged: (value) {
-                    ref.read(AppState.hullIdsToDisplay.notifier).update((state) {
+                    ref.read(AppState.selectedHullIds.notifier).update((state) {
                       if (value == true) {
                         // Create new sets so that watchers are notified.
                         return {}..addAll(state..add(item.id));

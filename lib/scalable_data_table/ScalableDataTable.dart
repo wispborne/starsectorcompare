@@ -16,6 +16,9 @@ class ScalableDataTable extends StatelessWidget {
   /// It's recommended to use [ScalableTableRow]
   final Widget Function(BuildContext, int) rowBuilder;
 
+  /// It's recommended to use [ScalableTableRow]
+  final Widget Function(BuildContext, int)? pinnedRowBuilders;
+
   /// Use -1 for loading
   final int itemCount;
 
@@ -46,6 +49,7 @@ class ScalableDataTable extends StatelessWidget {
   final double? minWidth;
 
   ScalableDataTable({
+    this.pinnedRowBuilders,
     required this.rowBuilder,
     required this.header,
     required this.itemCount,
@@ -113,21 +117,34 @@ class ScalableDataTable extends StatelessWidget {
     }
     if (itemCount == 0) return buildNotContentWrapper(emptyBuilder(context));
 
-    return ListView.builder(
-      controller: scrollController,
-      itemExtent: rowHeight,
-      itemBuilder: (context, index) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          rowBuilder(context, index),
+    return Column(
+      children: [
+        if (pinnedRowBuilders != null) pinnedRowBuilders!(context, 0),
+        if (pinnedRowBuilders != null)
           Container(
             height: 1,
             color: Colors.grey[100]?.withAlpha(50),
-            width: width,
+            width: width
           ),
-        ],
-      ),
-      itemCount: itemCount,
+        Expanded(
+          child: ListView.builder(
+            controller: scrollController,
+            itemExtent: rowHeight,
+            itemBuilder: (context, index) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                rowBuilder(context, index),
+                Container(
+                  height: 1,
+                  color: Colors.grey[100]?.withAlpha(50),
+                  width: width,
+                ),
+              ],
+            ),
+            itemCount: itemCount,
+          ),
+        ),
+      ],
     );
   }
 

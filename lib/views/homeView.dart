@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../views/searchView.dart';
 import '../views/shipFiltersView.dart';
-import '../views/sortByView.dart';
 import 'entityFilteringTabs.dart';
 import 'graphViewGraphic.dart';
 import 'listEntitiesView.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'shipFiltersView.dart';
 import 'sortByView.dart';
 
 class EntityFilteringTabs extends ConsumerStatefulWidget {
@@ -14,7 +13,7 @@ class EntityFilteringTabs extends ConsumerStatefulWidget {
 class _EntityFilteringTabsState extends ConsumerState<EntityFilteringTabs> with SingleTickerProviderStateMixin {
   static const List<Tab> myTabs = <Tab>[
     Tab(text: 'Baseline'),
-    Tab(text: 'Ships'),
+    // Tab(text: 'Ships'),
   ];
 
   late TabController _tabController;
@@ -29,23 +28,23 @@ class _EntityFilteringTabsState extends ConsumerState<EntityFilteringTabs> with 
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: double.maxFinite,
-          height: 30,
-          child: TabBar(
-            controller: _tabController,
-            tabs: myTabs,
-          ),
-        ),
+        // SizedBox(
+        //   width: double.maxFinite,
+        //   height: 30,
+        //   child: TabBar(
+        //     controller: _tabController,
+        //     tabs: myTabs,
+        //   ),
+        // ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0),
-            child: Container(
+            child: SizedBox(
               width: double.maxFinite,
               child: TabBarView(
                 controller: _tabController,
                 children: myTabs.map((Tab tab) {
-                  return SortByView();
+                  return const SortByView();
                 }).toList(),
               ),
             ),

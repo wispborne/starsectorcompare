@@ -4,14 +4,15 @@ import 'models/Weapon.dart';
 import 'models/ship.dart';
 
 abstract class AppState {
-  static final mode = StateProvider((ref) => "null");
-  static final isPerformingInitialLoad = StateProvider((ref) => false);
+  static final StateProvider<String> mode = StateProvider((ref) => "null");
+  static final StateProvider<bool> isPerformingInitialLoad = StateProvider((ref) => false);
 
   // Ships
-  static final shipsByHullId = StateProvider<Map<String, Ship>>((ref) => {});
-  static final weaponsById = StateProvider<Map<String, Weapon>>((ref) => {});
+  static final StateProvider<Map<String, Ship>> shipsByHullId = StateProvider<Map<String, Ship>>((ref) => {});
+  static final StateProvider<Map<String, Weapon>> weaponsById = StateProvider<Map<String, Weapon>>((ref) => {});
 
-  static final hullIdsToDisplay = StateProvider((ref) => <String>{});
+  static final StateProvider<Set<String>> selectedHullIds = StateProvider((ref) => <String>{});
+  static final StateProvider<String?> baselineHullId = StateProvider((ref) => null);
 
   static final StateProvider<Set<String?>?> filterMods = StateProvider((ref) => null);
   static final StateProvider<Set<String>?> filterShipHullSizes = StateProvider((ref) => null);

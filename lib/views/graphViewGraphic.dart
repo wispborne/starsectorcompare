@@ -48,7 +48,12 @@ class GraphViewGraphic extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var isSpiderWeb = true;
     var allShipsByHullId = ref.read(AppState.shipsByHullId);
-    var hullIdsToDisplay = ref.watch(AppState.hullIdsToDisplay);
+    var baselineEntityId = ref.watch(AppState.baselineHullId);
+    var hullIdsToDisplay = ref.watch(AppState.selectedHullIds);
+
+    if (baselineEntityId != null) {
+      hullIdsToDisplay.add(baselineEntityId);
+    }
 
     // Show just ships selected by the user (checkboxes)
     var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!).let((ships) =>

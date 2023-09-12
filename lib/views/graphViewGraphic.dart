@@ -56,10 +56,10 @@ class GraphViewGraphic extends ConsumerWidget {
     }
 
     // Show just ships selected by the user (checkboxes)
-    var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!).let((ships) =>
+    var shipsToDisplay = hullIdsToDisplay.map((e) => allShipsByHullId[e]!);//.let((ships) =>
         // Apply ship filters
-        filterShips(ships, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes),
-            ref.watch(AppState.filterShipHints)));
+        // filterShips(ships, ref.watch(AppState.filterMods), ref.watch(AppState.filterShipHullSizes),
+        //     ref.watch(AppState.filterShipHints), ref.watch(AppState.filterTechTypes)));
 
     var colors = shipsToDisplay.map((e) => e.color).toList();
     // For some reason, the chart library requires at least 2 colors even if there's just one line.

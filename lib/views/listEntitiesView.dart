@@ -38,7 +38,7 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     var baselineEntity = ref.watch(AppState.baselineHullId);
 
     var filteredShips = filterShips(allShips.values, ref.watch(AppState.filterMods),
-            ref.watch(AppState.filterShipHullSizes), ref.watch(AppState.filterShipHints))
+            ref.watch(AppState.filterShipHullSizes), ref.watch(AppState.filterShipHints), ref.watch(AppState.filterTechTypes))
         .filterNot((element) => element.id == baselineEntity);
 
     var searchText = ref.watch(AppState.searchText);

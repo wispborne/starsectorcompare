@@ -7,6 +7,7 @@ import '../views/shipFiltersView.dart';
 import 'entityFilteringTabs.dart';
 import 'graphViewGraphic.dart';
 import 'listEntitiesView.dart';
+import 'sortByView.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({
@@ -23,13 +24,17 @@ class HomeView extends ConsumerWidget {
                 padding: EdgeInsets.all(16),
                 child: Column(children: [
                   SearchView(),
-                  SizedBox(
-                    height: 180,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 16), child: ShipFiltersView()),
-                  ),
                   Padding(
-                      padding: EdgeInsets.only(top: 16), child: SizedBox(height: 200, child: EntityFilteringTabs())),
+                    padding: EdgeInsets.only(top: 16.0),
+                    child: SortByView(),
+                  ),
+                  Divider(),
+                  SizedBox(
+                    child: Padding(padding: EdgeInsets.only(top: 8), child: ShipFiltersView()),
+                  ),
+                  Expanded(
+                    child: Padding(padding: EdgeInsets.only(top: 0), child: EntityFilteringTabs()),
+                  ),
                 ]))),
         Expanded(
             child: Column(

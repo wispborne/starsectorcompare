@@ -49,6 +49,8 @@ class SettingSaver extends ProviderObserver {
           Map<String, Ship> mergedShips = {};
           var modInfoByModId = result.modInfoByModId;
 
+          container.read(AppState.loadedModsByModId.notifier).update((state) => result.modInfoByModId);
+
           // Add all csv ships to the merged map.
           result.shipsInCsvByHullIdByModId.forEach((modFolder, shipsById) {
             var modInfo = modInfoByModId.values.firstWhereOrNull((element) => element.folderName == modFolder);
@@ -161,6 +163,7 @@ Future<GameData> loadData(String gameDir) async {
       "Loading data complete, ${gameData.weaponsInCsvByIdByModId.values.sumBy((modItems) => modItems.length)} weapons "
       "& ${gameData.shipsInCsvByHullIdByModId.values.sumBy((modItems) => modItems.length)} ships "
       "from ${{...gameData.weaponsInCsvByIdByModId.keys, ...gameData.shipsInCsvByHullIdByModId.keys}.length} mods "
+      "(${gameData.modInfoByModId.length} mod infos loaded) "
       "in ${DateTime.now().difference(startTime).inMilliseconds}ms.");
 
   return gameData;

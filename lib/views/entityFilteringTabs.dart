@@ -1,3 +1,4 @@
+import 'package:StarCompare/views/filterTreeView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -44,7 +45,9 @@ class _EntityFilteringTabsState extends ConsumerState<EntityFilteringTabs> with 
               child: TabBarView(
                 controller: _tabController,
                 children: myTabs.map((Tab tab) {
-                  return const SortByView();
+                  return const Column(
+                    children: [Expanded(child: FilterTreeView())],
+                  );
                 }).toList(),
               ),
             ),

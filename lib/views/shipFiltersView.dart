@@ -11,10 +11,7 @@ class ShipFiltersView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SizedBox.fromSize(
-      size: const Size.fromWidth(300),
-      child: const ShipHullTypeFilters(),
-    );
+    return const ShipHullTypeFilters();
   }
 }
 

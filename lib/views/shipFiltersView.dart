@@ -58,8 +58,9 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
             padding: const EdgeInsets.all(8),
             shrinkWrap: true,
             children: shipHullTypes
-                .map((shipHullType) => TextButton(
-                    onPressed: () {
+                .map((shipHullType) => FilterChip.elevated(
+                    selected: selectedHullTypes.contains(shipHullType),
+                    onSelected: (isSelected) {
                       setState(() {
                         if (selectedHullTypes.contains(shipHullType)) {
                           selectedHullTypes.remove(shipHullType);
@@ -74,17 +75,18 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
                               ?..addAll(selectedHullTypes));
                       });
                     },
-                    style: ElevatedButton.styleFrom(
-                        textStyle: const TextStyle(fontSize: 12),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                        backgroundColor: selectedHullTypes.contains(shipHullType)
-                            ? Theme.of(context).primaryColor
-                            : Colors.transparent),
-                    child: Text(shipHullType.replaceAll("_", " ") ?? "")))
+                    // style: ElevatedButton.styleFrom(
+                    //     textStyle: const TextStyle(fontSize: 12),
+                    //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                    //     backgroundColor: selectedHullTypes.contains(shipHullType)
+                    //         ? Theme.of(context).primaryColor
+                    //         : Colors.transparent),
+                    label: Text(shipHullType.replaceAll("_", " ") ?? "")))
                 .toList()
               ..addAll(hints
-                  .map((tags) => TextButton(
-                      onPressed: () {
+                  .map((tags) => FilterChip.elevated(
+                      selected: selectedHints.contains(tags),
+                      onSelected: (isSelected) {
                         setState(() {
                           if (selectedHints.contains(tags)) {
                             selectedHints.remove(tags);
@@ -98,12 +100,12 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
                                 ?..addAll(selectedHints));
                         });
                       },
-                      style: ElevatedButton.styleFrom(
-                          textStyle: const TextStyle(fontSize: 12),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-                          backgroundColor:
-                              selectedHints.contains(tags) ? Theme.of(context).primaryColor : Colors.transparent),
-                      child: Text(tags.replaceAll("_", " ") ?? "")))
+                      // style: ElevatedButton.styleFrom(
+                      //     textStyle: const TextStyle(fontSize: 12),
+                      //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+                      //     backgroundColor:
+                      //         selectedHints.contains(tags) ? Theme.of(context).primaryColor : Colors.transparent),
+                      label: Text(tags.replaceAll("_", " ") ?? "")))
                   .toList())),
       ],
     );

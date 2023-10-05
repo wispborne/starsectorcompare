@@ -1,6 +1,10 @@
 # StarCompare
 
-[![Flutter CI](https://github.com/wispborne/starsectorcompare/actions/workflows/main.yml/badge.svg)](https://github.com/wispborne/starsectorcompare/actions/workflows/main.yml)
+main<br />
+[![Flutter CI](https://github.com/wispborne/starsectorcompare/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/wispborne/starsectorcompare/actions/workflows/main.yml)
+
+dev<br />
+[![Flutter CI](https://github.com/wispborne/starsectorcompare/actions/workflows/main.yml/badge.svg?branch=dev)](https://github.com/wispborne/starsectorcompare/actions/workflows/main.yml)
 
 **Work in progress.**
 

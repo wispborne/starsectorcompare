@@ -2,7 +2,6 @@ import 'package:StarCompare/views/filterTreeView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'sortByView.dart';
 
 class EntityFilteringTabs extends ConsumerStatefulWidget {
   const EntityFilteringTabs({super.key});

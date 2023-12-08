@@ -37,8 +37,12 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     var themeData = Theme.of(context);
     var baselineEntity = ref.watch(AppState.baselineHullId);
 
-    var filteredShips = filterShips(allShips.values, ref.watch(AppState.filterMods),
-            ref.watch(AppState.filterShipHullSizes), ref.watch(AppState.filterShipHints), ref.watch(AppState.filterTechTypes))
+    var filteredShips = filterShips(
+            allShips.values,
+            ref.watch(AppState.filterMods),
+            ref.watch(AppState.filterShipHullSizes),
+            ref.watch(AppState.filterShipHints),
+            ref.watch(AppState.filterTechTypes))
         .filterNot((element) => element.id == baselineEntity);
 
     var searchText = ref.watch(AppState.searchText);
@@ -51,15 +55,40 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     if (sortBy != null) {
       switch (sortBy.key) {
         case SortByView.fleetPoints:
-          filteredShips.sort((a, b) => a.shipCsv.fleet_pts!.compareTo(b.shipCsv.fleet_pts!) * (sortBy.value ? 1 : -1));
+          filteredShips.sort((a, b) =>
+              a.shipCsv.fleet_pts!.compareTo(b.shipCsv.fleet_pts!) *
+              (sortBy.value ? 1 : -1));
           break;
         case SortByView.techType:
-          filteredShips.sort(
-              (a, b) => a.shipCsv.tech_manufacturer!.compareTo(b.shipCsv.tech_manufacturer!) * (sortBy.value ? -1 : 1));
+          filteredShips.sort((a, b) =>
+              a.shipCsv.tech_manufacturer!
+                  .compareTo(b.shipCsv.tech_manufacturer!) *
+              (sortBy.value ? -1 : 1));
           break;
         case SortByView.name:
-          filteredShips.sort((a, b) => a.shipCsv.name!.compareTo(b.shipCsv.name!) * (sortBy.value ? -1 : 1));
+          filteredShips.sort((a, b) =>
+              a.shipCsv.name!.compareTo(b.shipCsv.name!) *
+              (sortBy.value ? -1 : 1));
           break;
+      }
+    }
+
+    Widget columnWrapper(BuildContext context, int columnIndex, Widget child) {
+      const padding = EdgeInsets.symmetric(horizontal: 0, vertical: 0);
+      if ((baselineEntity == null && (columnIndex == 0 || columnIndex == 1))
+      || (baselineEntity != null && columnIndex == 0)) {
+        return Container(
+          width: 60,
+          padding: padding,
+          child: child,
+        );
+      } else {
+        return Expanded(
+          child: Container(
+            padding: padding,
+            child: child,
+          ),
+        );
       }
     }
 
@@ -74,16 +103,36 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
           var hasName = item.shipCsv.name.isNotNullOrEmpty();
           return Tooltip(
               message: item.id,
-              child:
-                  hasName ? Text(item.shipCsv.name!) : Text(item.id, style: const TextStyle(fontFamily: "monospace")));
+              child: hasName
+                  ? Text(item.shipCsv.name!)
+                  : Text(item.id,
+                      style: const TextStyle(fontFamily: "monospace")));
         }
       ),
-      "techtype": (title: "Tech", widget: (Ship item) => Text(item.shipCsv.tech_manufacturer ?? "")),
-      "hitpoints": (title: "Hitpoints", widget: (Ship item) => Text(item.shipCsv.hitpoints ?? "")),
-      "armor": (title: "Armor", widget: (Ship item) => Text(item.shipCsv.armor_rating ?? "")),
-      "max_speed": (title: "Max Speed", widget: (Ship item) => Text(item.shipCsv.max_speed ?? "")),
-      "max_flux": (title: "Flux Cap", widget: (Ship item) => Text(item.shipCsv.max_flux ?? "")),
-      "flux_dissipation": (title: "Flux Diss", widget: (Ship item) => Text(item.shipCsv.flux_dissipation ?? "")),
+      "techtype": (
+        title: "Tech",
+        widget: (Ship item) => Text(item.shipCsv.tech_manufacturer ?? "")
+      ),
+      "hitpoints": (
+        title: "Hitpoints",
+        widget: (Ship item) => Text(item.shipCsv.hitpoints ?? "")
+      ),
+      "armor": (
+        title: "Armor",
+        widget: (Ship item) => Text(item.shipCsv.armor_rating ?? "")
+      ),
+      "max_speed": (
+        title: "Max Speed",
+        widget: (Ship item) => Text(item.shipCsv.max_speed ?? "")
+      ),
+      "max_flux": (
+        title: "Flux Cap",
+        widget: (Ship item) => Text(item.shipCsv.max_flux ?? "")
+      ),
+      "flux_dissipation": (
+        title: "Flux Diss",
+        widget: (Ship item) => Text(item.shipCsv.flux_dissipation ?? "")
+      ),
       "mod": (title: "Mod", widget: (Ship item) => Text(item.modName ?? "")),
       "info": (
         title: " ",
@@ -101,20 +150,26 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
     return ScalableDataTable(
       emptyBuilder: (context) => const Text("No items loaded"),
       itemCount: filteredShips.length,
-      header: ScalableTableHeader(columnWrapper: columnWrapper, padding: const EdgeInsets.only(), children: [
-        if (baselineEntity == null)
-          SizedBox(
-            height: rowHeight,
-            width: selectBaselineColumnWidth,
-          ),
-        SizedBox(
-          height: 30,
-          child: Checkbox(
-              value: selectedHullIds.isNotEmpty,
-              onChanged: (value) => ref.read(AppState.selectedHullIds.notifier).update((state) => {})),
-        ),
-        ...fields.values.map((e) => Text(e.title, style: const TextStyle(fontWeight: FontWeight.bold))),
-      ]),
+      header: ScalableTableHeader(
+          columnWrapper: columnWrapper,
+          padding: const EdgeInsets.only(),
+          children: [
+            if (baselineEntity == null)
+              SizedBox(
+                height: rowHeight,
+                width: selectBaselineColumnWidth,
+              ),
+            SizedBox(
+              height: 30,
+              child: Checkbox(
+                  value: selectedHullIds.isNotEmpty,
+                  onChanged: (value) => ref
+                      .read(AppState.selectedHullIds.notifier)
+                      .update((state) => {})),
+            ),
+            ...fields.values.map((e) => Text(e.title,
+                style: const TextStyle(fontWeight: FontWeight.bold))),
+          ]),
       pinnedRowBuilders: (context, index) {
         if (baselineEntity != null && allShips.containsKey(baselineEntity)) {
           var item = ref.read(AppState.shipsByHullId)[baselineEntity]!;
@@ -125,9 +180,13 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
               SizedBox(
                   width: selectBaselineColumnWidth,
                   child: IconButton(
-                      icon: Transform.rotate(angle: .78, child: const Icon(Icons.push_pin, size: 18)),
+                      icon: Transform.rotate(
+                          angle: .78,
+                          child: const Icon(Icons.push_pin, size: 18)),
                       padding: const EdgeInsets.all(0),
-                      onPressed: () => ref.read(AppState.baselineHullId.notifier).update((state) => null))),
+                      onPressed: () => ref
+                          .read(AppState.baselineHullId.notifier)
+                          .update((state) => null))),
               ...fields.values.map((e) => e.widget(item)).toList(),
             ],
           );
@@ -156,7 +215,9 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
                   width: selectBaselineColumnWidth,
                   child: IconButton(
                       icon: const Icon(Icons.push_pin, size: 18),
-                      onPressed: () => ref.read(AppState.baselineHullId.notifier).update((state) => item.id))),
+                      onPressed: () => ref
+                          .read(AppState.baselineHullId.notifier)
+                          .update((state) => item.id))),
             SizedBox(
               height: rowHeight,
               child: Checkbox(
@@ -178,38 +239,5 @@ class EntitiesListState extends ConsumerState<EntitiesList> {
         );
       },
     );
-  }
-
-  Widget columnWrapper(BuildContext context, int columnIndex, Widget child) {
-    const padding = EdgeInsets.symmetric(horizontal: 0, vertical: 0);
-    switch (columnIndex) {
-      case 0:
-        return Container(
-          width: 60,
-          padding: padding,
-          child: child,
-        );
-      // case 1:
-      //   return Container(
-      //     width: 100,
-      //     padding: padding,
-      //     child: child,
-      //   );
-      // case 5:
-      //   return Expanded(
-      //     flex: 3,
-      //     child: Container(
-      //       padding: padding,
-      //       child: child,
-      //     ),
-      //   );
-      default:
-        return Expanded(
-          child: Container(
-            padding: padding,
-            child: child,
-          ),
-        );
-    }
   }
 }

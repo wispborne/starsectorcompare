@@ -9,7 +9,6 @@ import 'package:graphic/graphic.dart';
 
 import '../appState.dart';
 import '../models/ship.dart';
-import '../utils.dart';
 
 // class DataAttribute {
 //   String id;

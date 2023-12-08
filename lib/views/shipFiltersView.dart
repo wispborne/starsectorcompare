@@ -55,7 +55,8 @@ class _ShipHullTypeFiltersState extends ConsumerState<ShipHullTypeFilters> {
         GridView.extent(
             maxCrossAxisExtent: 150,
             childAspectRatio: 12 / 3,
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(4),
+            mainAxisSpacing: 4,
             shrinkWrap: true,
             children: shipHullTypes
                 .map((shipHullType) => FilterChip.elevated(

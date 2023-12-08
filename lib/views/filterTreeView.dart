@@ -1,4 +1,3 @@
-import 'package:StarCompare/models/gameData.dart';
 import 'package:collection/collection.dart';
 import 'package:dart_extensions_methods/dart_extension_methods.dart';
 import 'package:flutter/material.dart';
@@ -74,14 +73,15 @@ class _FilterTreeViewState extends ConsumerState<FilterTreeView> {
             },
         onExpansionChanged: (key, state) {
           Node node = _treeViewController.getNode(key)!;
-          if (node != null) {
-            if (expandedNodes.contains(key)) expandedNodes.remove(key);
-              else expandedNodes.add(key);
-            List<Node> updated = _treeViewController.updateNode(key, node.copyWith(expanded: expandedNodes.contains(key)));
-            setState(() {
-              _treeViewController = _treeViewController.copyWith(children: updated);
-            });
+          if (expandedNodes.contains(key)) {
+            expandedNodes.remove(key);
+          } else {
+            expandedNodes.add(key);
           }
-        });
+          List<Node> updated = _treeViewController.updateNode(key, node.copyWith(expanded: expandedNodes.contains(key)));
+          setState(() {
+            _treeViewController = _treeViewController.copyWith(children: updated);
+          });
+                });
   }
 }
